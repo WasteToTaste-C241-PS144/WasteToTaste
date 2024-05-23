@@ -75,8 +75,8 @@
         <ImageButton
             android:id="@+id/btn_favorite"
             android:layout_marginEnd="16dp"
-            android:layout_width="37dp"
-            android:layout_height="37dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_marginStart="192dp"
             android:background="@drawable/ic_like"
             card_view:layout_constraintBottom_toBottomOf="@id/rectangle"
