@@ -12,6 +12,10 @@ activity = "1.8.0"
 constraintlayout = "2.1.4"
 materialVersion = "98"
 navigationFragment = "2.7.7"
+legacySupportV4 = "1.0.0"
+lifecycleLivedataKtx = "2.8.0"
+lifecycleViewmodelKtx = "2.8.0"
+fragmentKtx = "1.7.1"
 
 [libraries]
 android-async-http = { module = "com.loopj.android:android-async-http", version.ref = "androidAsyncHttp" }
@@ -25,6 +29,10 @@ androidx-activity = { group = "androidx.activity", name = "activity", version.re
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 material-v98 = { module = "com.google.android.material:material", version.ref = "materialVersion" }
 androidx-navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment", version.ref = "navigationFragment" }
+androidx-legacy-support-v4 = { group = "androidx.legacy", name = "legacy-support-v4", version.ref = "legacySupportV4" }
+androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
+androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
+androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragmentKtx" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
