@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Waste To Taste</string>
+    <string name="searchbar_hint">Search recipe</string>
+</resources>
