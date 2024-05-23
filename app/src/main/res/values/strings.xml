@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Waste To Taste</string>
     <string name="searchbar_hint">Search recipe</string>
+    <string name="title_home">Home</string>
+    <string name="title_pantry">Pantry</string>
+    <string name="title_recipe">Recipe</string>
+    <string name="title_favorite">Favorite</string>
+    <string name="title_settings">Settings</string>
 </resources>

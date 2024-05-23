@@ -11,6 +11,7 @@ material = "1.12.0"
 activity = "1.8.0"
 constraintlayout = "2.1.4"
 materialVersion = "98"
+navigationFragment = "2.7.7"
 
 [libraries]
 android-async-http = { module = "com.loopj.android:android-async-http", version.ref = "androidAsyncHttp" }
@@ -23,6 +24,7 @@ material = { group = "com.google.android.material", name = "material", version.r
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 material-v98 = { module = "com.google.android.material:material", version.ref = "materialVersion" }
+androidx-navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment", version.ref = "navigationFragment" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
