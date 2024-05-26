@@ -3,5 +3,17 @@
     <style name="Base.Theme.WasteToTaste" parent="Theme.Material3.DayNight">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+
     </style>
+
+    <style name="Widget.App.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="titleTextAppearance">@style/TextAppearance.App.TitleLarge</item>
+    </style>
+
+    <style name="TextAppearance.App.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
+        <item name="fontFamily">@font/dosis_semi_bold</item>
+        <item name="android:fontFamily">@font/dosis_semi_bold</item>
+    </style>
+
+
 </resources>
