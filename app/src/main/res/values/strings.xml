@@ -1,12 +1,15 @@
 <resources>
     <string name="app_name">Waste To Taste</string>
-    <string name="searchbar_hint">Search recipe</string>
-    <string name="title_home">Home</string>
-    <string name="title_pantry">Pantry</string>
-    <string name="title_recipe">Recipe</string>
-    <string name="title_favorite">Favorite</string>
-    <string name="title_settings">Settings</string>
-    <string name="recipe_name">Recipe Name</string>
-    <string name="ingredients_needed">You need n more ingredients</string>
-    <string name="ingredients">ingredients</string>
+    <string name="searchbar_recipe_hint">Cari resep</string>
+    <string name="searchbar_ingredients_hint">Cari bahan</string>
+    <string name="title_home">Beranda</string>
+    <string name="title_pantry">Bahan</string>
+    <string name="title_recipe">Resep</string>
+    <string name="title_favorite">Favorit</string>
+    <string name="title_settings">Pengaturan</string>
+    <string name="recipe_name">Nama Resep</string>
+    <string name="ingredients_needed">Anda membutuhkan n bahan lagi</string>
+    <string name="ingredients">bahan</string>
+    <string name="greetings">Halo!</string>
+    <string name="greetings2">Mau masak apa hari ini?\n</string>
 </resources>

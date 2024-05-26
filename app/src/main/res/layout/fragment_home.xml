@@ -7,39 +7,66 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
+        <ImageView
+            android:id="@+id/rectangle"
+            android:layout_width="match_parent"
+            android:layout_height="185dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/rounded_rectangle"/>
+
+        <TextView
+            android:id="@+id/greetings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/greetings"
+            android:layout_marginTop="30dp"
+            android:layout_marginHorizontal="25dp"
+            android:textSize="30sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/dosis_semi_bold"
+            app:layout_constraintTop_toTopOf="@id/rectangle"
+            app:layout_constraintStart_toStartOf="@id/rectangle"
+            app:layout_constraintEnd_toEndOf="@id/rectangle"/>
+
+        <TextView
+            android:id="@+id/greetings2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/greetings2"
+            android:maxLines="1"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/inter_regular"
+            app:layout_constraintTop_toBottomOf="@id/greetings"
+            app:layout_constraintStart_toStartOf="@id/greetings"
+            app:layout_constraintEnd_toEndOf="@id/rectangle"/>
+
         <com.google.android.material.search.SearchBar
             android:id="@+id/searchBar"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_marginHorizontal="16dp"
-            android:hint="@string/searchbar_hint"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-        </com.google.android.material.search.SearchBar>
+            android:layout_marginHorizontal="15dp"
+            android:hint="@string/searchbar_recipe_hint"
+            app:layout_constraintBottom_toBottomOf="@+id/rectangle"
+            app:layout_constraintEnd_toEndOf="@id/rectangle"
+            app:layout_constraintHorizontal_bias="0.551"
+            app:layout_constraintStart_toStartOf="@id/rectangle"
+            app:layout_constraintTop_toBottomOf="@id/greetings2"
+            app:layout_constraintVertical_bias="0.232"></com.google.android.material.search.SearchBar>
 
         <com.google.android.material.search.SearchView
             android:id="@+id/searchView"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:hint="@string/searchbar_hint"
+            android:hint="@string/searchbar_recipe_hint"
             app:layout_anchor="@id/searchBar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="parent">
         </com.google.android.material.search.SearchView>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_search_recipe"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toBottomOf="@id/searchBar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
