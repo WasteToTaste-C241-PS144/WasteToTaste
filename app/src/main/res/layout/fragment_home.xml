@@ -14,7 +14,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:background="@drawable/rounded_rectangle"/>
+            android:background="@color/green"/>
 
         <TextView
             android:id="@+id/greetings"
@@ -48,8 +48,9 @@
             android:id="@+id/searchBar"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_marginHorizontal="15dp"
+            android:layout_marginHorizontal="17dp"
             android:hint="@string/searchbar_recipe_hint"
+            android:textAppearance="@style/TextAppearance.Material3.SearchBar.Custom"
             app:layout_constraintBottom_toBottomOf="@+id/rectangle"
             app:layout_constraintEnd_toEndOf="@id/rectangle"
             app:layout_constraintHorizontal_bias="0.551"
@@ -63,6 +64,7 @@
             android:layout_height="0dp"
             android:hint="@string/searchbar_recipe_hint"
             app:layout_anchor="@id/searchBar"
+            android:textAppearance="@style/TextAppearance.Material3.SearchBar.Custom"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

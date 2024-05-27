@@ -1,19 +1,27 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.WasteToTaste" parent="Theme.Material3.DayNight">
+    <style name="Base.Theme.WasteToTaste" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
-
-    </style>
-
-    <style name="Widget.App.Toolbar" parent="Widget.Material3.Toolbar">
-        <item name="titleTextAppearance">@style/TextAppearance.App.TitleLarge</item>
+        <item name="colorPrimary">#141218</item>
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.App.TitleLarge</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.App.TitleMedium</item>
     </style>
 
     <style name="TextAppearance.App.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
         <item name="fontFamily">@font/dosis_semi_bold</item>
         <item name="android:fontFamily">@font/dosis_semi_bold</item>
+        <item name="android:textSize">27sp</item>
     </style>
 
+    <style name="TextAppearance.App.TitleMedium" parent="TextAppearance.Material3.TitleMedium">
+        <item name="fontFamily">@font/dosis_semi_bold</item>
+        <item name="android:fontFamily">@font/dosis_semi_bold</item>
+    </style>
+
+    <style name="TextAppearance.Material3.SearchBar.Custom" parent="TextAppearance.Material3.SearchBar">
+        <item name="android:fontFamily">@font/inter_regular</item>
+        <item name="android:textSize">15sp</item>
+    </style>
 
 </resources>

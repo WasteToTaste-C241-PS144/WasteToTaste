@@ -12,4 +12,9 @@
     <string name="ingredients">bahan</string>
     <string name="greetings">Halo!</string>
     <string name="greetings2">Mau masak apa hari ini?\n</string>
+    <string name="tampilan">Tampilan</string>
+    <string name="tema">Tema</string>
+    <string name="akun">Akun</string>
+    <string name="informasi_akun">Informasi Akun</string>
+    <string name="keluar">Keluar</string>
 </resources>
