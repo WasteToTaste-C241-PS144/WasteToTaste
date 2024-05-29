@@ -17,13 +17,22 @@ class AccountInfoActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         binding = ActivityAccountInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.topAppBar.setNavigationOnClickListener{
-            onBackPressedDispatcher.onBackPressed()
+
+        val fragmentManager = supportFragmentManager
+        val accountInfoFragment = AccountInfoFragment()
+        val fragment = fragmentManager.findFragmentByTag(AccountInfoFragment::class.java.simpleName)
+
+        if(fragment != accountInfoFragment) {
+            fragmentManager
+                .beginTransaction()
+                .add(R.id.frame_container, accountInfoFragment, AccountInfoFragment::class.java.simpleName)
+                .commit()
         }
     }
 
     override fun onClick(v: View?) {
         TODO("Not yet implemented")
     }
+
 
 }
