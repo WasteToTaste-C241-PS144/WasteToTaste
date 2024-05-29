@@ -12,7 +12,7 @@
         android:layout_height="50dp"
         android:layout_marginHorizontal="15dp"
         android:hint="@string/searchbar_recipe_hint"
-        android:textAppearance="@style/TextAppearance.Material3.SearchBar.Custom"
+        android:textAppearance="@style/TextAppearance.SearchBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -22,7 +22,7 @@
         android:id="@+id/searchView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:textAppearance="@style/TextAppearance.Material3.SearchBar.Custom"
+        android:textAppearance="@style/TextAppearance.SearchBar"
         android:hint="@string/searchbar_recipe_hint"
         app:layout_anchor="@id/searchBar"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,7 +32,7 @@
     </com.google.android.material.search.SearchView>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_search_recipe"
+        android:id="@+id/rv_recipe"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".ui.settings.SettingsFragment">
 
@@ -12,54 +13,70 @@
         android:text="@string/tampilan"
         android:fontFamily="@font/inter_regular"
         android:layout_marginVertical="5dp"
-        android:textSize="13sp"
+        android:textSize="14sp"
         android:textColor="?attr/colorOutline"
         android:layout_marginHorizontal="20dp"/>
 
-    <Button
+    <TextView
         android:id="@+id/btn_theme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_regular"
-        android:padding="13dp"
-        android:textSize="14sp"
+        android:padding="16dp"
+        android:textSize="15sp"
         android:paddingStart="40dp"
+        android:backgroundTint="?attr/colorSurface"
         android:text="@string/tema"
         android:gravity="left"
         android:textColor="?attr/colorOnSurface"/>
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:dividerColor="?attr/colorSurfaceContainer"
+        android:layout_marginHorizontal="15dp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/akun"
         android:fontFamily="@font/inter_regular"
-        android:layout_marginVertical="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
         android:textColor="?attr/colorOutline"
-        android:textSize="13sp"
+        android:textSize="14sp"
         android:layout_marginHorizontal="20dp"/>
 
-    <Button
+    <TextView
         android:id="@+id/btn_account_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_regular"
-        android:padding="13dp"
-        android:textSize="14sp"
+        android:backgroundTint="?attr/colorSurface"
+        android:padding="16dp"
+        android:textSize="15sp"
         android:paddingStart="40dp"
         android:text="@string/informasi_akun"
         android:gravity="left"
         android:textColor="?attr/colorOnSurface"/>
 
-    <Button
+    <TextView
         android:id="@+id/btn_logout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_regular"
-        android:textSize="14sp"
-        android:padding="13dp"
+        android:textSize="15sp"
+        android:backgroundTint="?attr/colorSurface"
+        android:padding="16dp"
         android:paddingStart="40dp"
         android:text="@string/keluar"
         android:gravity="left"
         android:textColor="?attr/colorOnSurface"/>
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="15dp"
+        app:dividerColor="?attr/colorSurfaceContainer"/>
 
 </LinearLayout>

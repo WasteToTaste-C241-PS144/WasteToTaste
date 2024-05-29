@@ -2,9 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.WasteToTaste" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <item name="colorPrimary">#FEF7FF</item>
-        <item name="textAppearanceTitleLarge">@style/TextAppearance.App.TitleLarge</item>
-        <item name="textAppearanceTitleMedium">@style/TextAppearance.App.TitleMedium</item>
+        <item name="colorPrimary">?attr/colorSurfaceContainer</item>
     </style>
 
     <style name="TextAppearance.App.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
@@ -13,9 +11,16 @@
         <item name="android:textSize">27sp</item>
     </style>
 
-    <style name="TextAppearance.Material3.SearchBar.Custom" parent="TextAppearance.Material3.SearchBar">
+    <style name="TextAppearance.SearchBar" parent="TextAppearance.Material3.SearchBar">
+        <item name="fontFamily">@font/inter_regular</item>
         <item name="android:fontFamily">@font/inter_regular</item>
         <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="TextAppearance.Settings" parent="TextAppearance.Material3.TitleLarge">
+        <item name="fontFamily">@font/inter_regular</item>
+        <item name="android:fontFamily">@font/inter_regular</item>
+        <item name="android:textSize">20sp</item>
     </style>
 
     <style name="Theme.WasteToTaste" parent="Base.Theme.WasteToTaste" />
