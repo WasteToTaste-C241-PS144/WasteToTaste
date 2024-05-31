@@ -41,7 +41,7 @@ class AccountInfoFragment : Fragment() {
         binding.btnChangeEmail.setOnClickListener {
             val changeEmailFragment = ChangeEmailFragment()
             val fragmentManager = parentFragmentManager
-            fragmentManager?.beginTransaction()?.apply {
+            fragmentManager.beginTransaction().apply {
                 replace(R.id.frame_container, changeEmailFragment, ChangeEmailFragment::class.java.simpleName)
                 addToBackStack(null)
                 commit()

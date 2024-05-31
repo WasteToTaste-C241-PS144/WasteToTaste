@@ -49,7 +49,7 @@
         android:text="@string/dummy_email"
         android:layout_marginHorizontal="16.5dp"
         android:fontFamily="@font/inter_regular"
-        android:textSize="15.5sp"
+        android:textSize="16sp"
         android:inputType="textEmailAddress"
         app:layout_constraintTop_toBottomOf="@id/tv_email"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,11 +57,11 @@
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="52dp"
+        android:layout_height="55dp"
         android:text="@string/simpan"
         android:textColor="?attr/colorSurface"
         android:textSize="15sp"
-        android:fontFamily="@font/inter_semi_bold"
+        android:fontFamily="@font/inter_bold"
         android:backgroundTint="?attr/colorOnSurface"
         app:layout_constraintTop_toBottomOf="@id/edt_email"
         app:layout_constraintStart_toStartOf="parent"

@@ -10,7 +10,9 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.capstone.wastetotaste.databinding.ActivityLogInBinding
 import com.capstone.wastetotaste.databinding.ActivityMainBinding
+import com.capstone.wastetotaste.databinding.ActivitySignUpBinding
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -26,17 +28,10 @@ class MainActivity : AppCompatActivity() {
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
 
-        val appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.navigation_home, R.id.navigation_pantry, R.id.navigation_recipe, R.id.navigation_favorite, R.id.navigation_settings))
-//        setupActionBarWithNavController(navController, appBarConfiguration)
+        val toolbar: MaterialToolbar = binding.topAppBar
+        setSupportActionBar(toolbar);
 
         navView.setupWithNavController(navController)
 
-//
-//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-//            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-//            insets
-//        }
     }
 }

@@ -1,82 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     tools:context=".ui.settings.SettingsFragment">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/tampilan"
-        android:fontFamily="@font/inter_regular"
-        android:layout_marginVertical="5dp"
-        android:textSize="14sp"
-        android:textColor="?attr/colorOutline"
-        android:layout_marginHorizontal="20dp"/>
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/btn_theme"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/inter_regular"
-        android:padding="16dp"
-        android:textSize="15sp"
-        android:paddingStart="40dp"
-        android:backgroundTint="?attr/colorSurface"
-        android:text="@string/tema"
-        android:gravity="left"
-        android:textColor="?attr/colorOnSurface"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tampilan"
+            android:fontFamily="@font/inter_regular"
+            android:layout_marginVertical="5dp"
+            android:textSize="14sp"
+            android:textColor="?attr/colorOutline"
+            android:layout_marginHorizontal="20dp"/>
 
-    <com.google.android.material.divider.MaterialDivider
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        app:dividerColor="?attr/colorSurfaceContainer"
-        android:layout_marginHorizontal="15dp"/>
+        <TextView
+            android:id="@+id/btn_theme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_regular"
+            android:padding="16dp"
+            android:textSize="15sp"
+            android:paddingStart="40dp"
+            android:backgroundTint="?attr/colorSurface"
+            android:text="@string/tema"
+            android:gravity="left"
+            android:textColor="?attr/colorOnSurface"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/akun"
-        android:fontFamily="@font/inter_regular"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="5dp"
-        android:textColor="?attr/colorOutline"
-        android:textSize="14sp"
-        android:layout_marginHorizontal="20dp"/>
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:dividerColor="?attr/colorSurfaceContainer"
+            android:layout_marginHorizontal="15dp"/>
 
-    <TextView
-        android:id="@+id/btn_account_info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/inter_regular"
-        android:backgroundTint="?attr/colorSurface"
-        android:padding="16dp"
-        android:textSize="15sp"
-        android:paddingStart="40dp"
-        android:text="@string/informasi_akun"
-        android:gravity="left"
-        android:textColor="?attr/colorOnSurface"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/akun"
+            android:fontFamily="@font/inter_regular"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="?attr/colorOutline"
+            android:textSize="14sp"
+            android:layout_marginHorizontal="20dp"/>
 
-    <TextView
-        android:id="@+id/btn_logout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/inter_regular"
-        android:textSize="15sp"
-        android:backgroundTint="?attr/colorSurface"
-        android:padding="16dp"
-        android:paddingStart="40dp"
-        android:text="@string/keluar"
-        android:gravity="left"
-        android:textColor="?attr/colorOnSurface"/>
+        <TextView
+            android:id="@+id/btn_account_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_regular"
+            android:backgroundTint="?attr/colorSurface"
+            android:padding="16dp"
+            android:textSize="15sp"
+            android:paddingStart="40dp"
+            android:text="@string/informasi_akun"
+            android:gravity="left"
+            android:textColor="?attr/colorOnSurface"/>
 
-    <com.google.android.material.divider.MaterialDivider
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginHorizontal="15dp"
-        app:dividerColor="?attr/colorSurfaceContainer"/>
+        <TextView
+            android:id="@+id/btn_logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_regular"
+            android:textSize="15sp"
+            android:backgroundTint="?attr/colorSurface"
+            android:padding="16dp"
+            android:paddingStart="40dp"
+            android:text="@string/keluar"
+            android:gravity="left"
+            android:textColor="?attr/colorOnSurface"/>
 
-</LinearLayout>
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="15dp"
+            app:dividerColor="?attr/colorSurfaceContainer"/>
+
+    </LinearLayout>
+
+</ScrollView>

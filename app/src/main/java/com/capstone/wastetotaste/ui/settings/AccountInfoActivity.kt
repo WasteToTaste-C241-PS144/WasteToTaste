@@ -18,11 +18,9 @@ class AccountInfoActivity : AppCompatActivity(), View.OnClickListener {
         binding = ActivityAccountInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val fragmentManager = supportFragmentManager
-        val accountInfoFragment = AccountInfoFragment()
-        val fragment = fragmentManager.findFragmentByTag(AccountInfoFragment::class.java.simpleName)
-
-        if(fragment != accountInfoFragment) {
+        if(savedInstanceState == null) {
+            val fragmentManager = supportFragmentManager
+            val accountInfoFragment = AccountInfoFragment()
             fragmentManager
                 .beginTransaction()
                 .add(R.id.frame_container, accountInfoFragment, AccountInfoFragment::class.java.simpleName)

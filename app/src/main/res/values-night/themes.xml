@@ -3,7 +3,11 @@
     <style name="Base.Theme.WasteToTaste" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
-        <item name="colorPrimary">#141218</item>
+        <item name="colorPrimary">?attr/colorSurface</item>
+        <item name="textAppearanceLargePopupMenu">@style/TextAppearance.App.BodyLarge</item>
+        <item name="textAppearanceSmallPopupMenu">@style/TextAppearance.App.BodyLarge</item>
+        <item name="popupMenuBackground">@drawable/custom_popup_background</item>
+
     </style>
 
     <style name="TextAppearance.App.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
@@ -23,5 +27,29 @@
         <item name="android:fontFamily">@font/inter_regular</item>
         <item name="android:textSize">15.5sp</item>
     </style>
+
+    <style name="EditText.Auth" parent="Widget.AppCompat.EditText">
+        <item name="backgroundTint">?attr/colorSurface</item>
+        <item name="android:layout_marginStart">80dp</item>
+        <item name="android:layout_marginEnd">50dp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">@font/inter_regular</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+
+    <style name="ImageView.Auth" parent="Widget.AppCompat.ImageButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:background">@drawable/rounded_rectangle</item>
+        <item name="android:layout_marginStart">17dp</item>
+        <item name="android:layout_marginEnd">17dp</item>
+    </style>
+
+    <style name="TextAppearance.App.BodyLarge" parent="TextAppearance.Material3.BodyLarge">
+        <item name="fontFamily">@font/inter_regular</item>
+        <item name="android:fontFamily">@font/inter_regular</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
 
 </resources>
