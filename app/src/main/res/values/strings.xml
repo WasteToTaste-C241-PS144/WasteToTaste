@@ -84,4 +84,13 @@
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
     <string name="delete_all">Hapus Semua</string>
+    <string name="nullEmail">Email tidak boleh kosong</string>
+    <string name="nullPass">Password tidak boleh kosong</string>
+    <string name="failedLogin">Pastikan kamu memasukkan data yang benar</string>
+    <string name="mismatchPass">Passwords tidak cocok</string>
+    <string name="invalidEmailAddress">Format email salah. Dibutuhkan "@"</string>
+    <string name="emailIsInUse">Email sudah digunakan, pilih email lain</string>
+    <string name="nullName">Nama tidak boleh kosong</string>
+    <string name="passwordLess">Password harus lebih dari 8 karakter</string>
+    <string name="nullConfirmPass">Konfirmasi password tidak boleh kosong</string>
 </resources>

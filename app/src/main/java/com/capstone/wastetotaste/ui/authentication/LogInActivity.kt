@@ -20,6 +20,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.capstone.wastetotaste.MainActivity
 import com.capstone.wastetotaste.R
 import com.capstone.wastetotaste.UserPreferencesManager
+import com.capstone.wastetotaste.data.LoginUserData
 import com.capstone.wastetotaste.databinding.ActivityLogInBinding
 import com.capstone.wastetotaste.viewmodel.AuthSplashVM
 import com.capstone.wastetotaste.viewmodel.LoginVM
@@ -137,19 +138,19 @@ class LogInActivity : AppCompatActivity() {
             }
         }
 
-        binding.btnRegister.setOnClickListener {
-            val intent = Intent(this, RegistActivity::class.java)
+        binding.btnToSignup.setOnClickListener {
+            val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }
 
-        binding.vissiblePass.setOnCheckedChangeListener { _, isChecked ->
-            binding.PasswordLogin.transformationMethod = if (isChecked) {
-                HideReturnsTransformationMethod.getInstance()
-            } else {
-                PasswordTransformationMethod.getInstance()
-            }
-            binding.PasswordLogin.text?.let { binding.PasswordLogin.setSelection(it.length) }
-        }
+//        binding.btnEye.setOnCheckedChangeListener { _, isChecked ->
+//            binding.PasswordLogin.transformationMethod = if (isChecked) {
+//                HideReturnsTransformationMethod.getInstance()
+//            } else {
+//                PasswordTransformationMethod.getInstance()
+//            }
+//            binding.PasswordLogin.text?.let { binding.PasswordLogin.setSelection(it.length) }
+//        }
     }
 
     private fun isDataValid(): Boolean {

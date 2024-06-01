@@ -3,4 +3,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="green">#307E82</color>
+
+    <style name="ProgressBarStyle">
+        <item name="colorAccent">@color/white</item>
+    </style>
 </resources>
