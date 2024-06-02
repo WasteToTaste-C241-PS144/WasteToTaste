@@ -3,15 +3,18 @@ package com.capstone.wastetotaste.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.capstone.wastetotaste.UserPreferencesManager
 import com.capstone.wastetotaste.data.LoginUserData
 import com.capstone.wastetotaste.data.ResponseLogin
 import com.capstone.wastetotaste.api.ApiConfig
 import com.capstone.wastetotaste.data.RegisterUserData
 import com.capstone.wastetotaste.data.ResponseRegister
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Response
 
-class LoginVM : ViewModel() {
+class LoginVM(private val userPref: UserPreferencesManager) : ViewModel() {
     private val _isLoggingIn = MutableLiveData<Boolean>()
     val isLoggingIn: LiveData<Boolean> = _isLoggingIn
     var isErrorLogin: Boolean = false
@@ -33,6 +36,14 @@ class LoginVM : ViewModel() {
             override fun onResponse(call: Call<ResponseLogin>, response: Response<ResponseLogin>) {
                 _isLoggingIn.value = false
                 val responseBody = response.body()
+
+                responseBody?.let {
+                    // Simpan token dan nama pengguna ke preferensi
+                    viewModelScope.launch {
+                        userPref.storeName(it.loginResult.name)
+                        userPref.storeToken(it.loginResult.token)
+                    }
+                }
 
                 if (response.isSuccessful) {
                     isErrorLogin = false

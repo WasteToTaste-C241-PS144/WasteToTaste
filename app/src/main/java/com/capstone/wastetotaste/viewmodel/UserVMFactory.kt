@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.capstone.wastetotaste.UserPreferencesManager
 
 class UserVMFactory(private val userPref: UserPreferencesManager) :
-    ViewModelProvider.NewInstanceFactory() {
+    ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
