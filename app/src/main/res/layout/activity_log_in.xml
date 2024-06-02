@@ -41,6 +41,14 @@
             android:textSize="14.5sp"
             android:textColor="?attr/colorOnSurface"/>
 
+        <ImageView
+            android:id="@+id/iv_email"
+            style="@style/ImageView.Auth"
+            app:layout_constraintBottom_toTopOf="@id/iv_password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_instruction" />
 
         <com.capstone.wastetotaste.cv.EmailCV
             android:id="@+id/CVEmail"
@@ -54,14 +62,7 @@
             android:inputType="textEmailAddress"
             style="@style/EditText.Auth"/>
 
-        <ImageView
-            android:id="@+id/iv_email"
-            style="@style/ImageView.Auth"
-            app:layout_constraintBottom_toTopOf="@id/iv_password"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_instruction" />
+
 
 <!--        <EditText-->
 <!--            android:id="@+id/edt_email"-->

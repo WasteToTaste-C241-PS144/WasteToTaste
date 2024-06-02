@@ -153,6 +153,11 @@ class SignUpActivity : AppCompatActivity() {
 
                 Toast.makeText(this, R.string.failedLogin, Toast.LENGTH_SHORT).show()
             }
+
+            binding.btnToLogin.setOnClickListener {
+                val intent = Intent(this, SignUpActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
 
