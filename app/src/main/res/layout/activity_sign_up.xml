@@ -166,7 +166,7 @@
 <!--            android:inputType="textPassword"-->
 <!--            style="@style/EditText.Auth"/>-->
 
-        <ImageView
+        <Button
             android:id="@+id/btn_eye_signup"
             android:layout_width="22dp"
             android:layout_height="22dp"
@@ -226,7 +226,7 @@
 <!--            android:inputType="textPassword"-->
 <!--            style="@style/EditText.Auth"/>-->
 
-        <ImageView
+        <Button
             android:id="@+id/btn_eye_signup_confirm"
             android:layout_width="22dp"
             android:layout_height="22dp"

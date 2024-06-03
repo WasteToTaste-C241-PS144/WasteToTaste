@@ -2,6 +2,7 @@ package com.capstone.wastetotaste.cv
 
 import android.content.Context
 import android.text.Editable
+import android.text.InputType
 import android.text.TextWatcher
 import android.text.method.PasswordTransformationMethod
 import android.util.AttributeSet
@@ -14,6 +15,7 @@ import com.capstone.wastetotaste.R
 class ConfirmPassCV : AppCompatEditText, View.OnFocusChangeListener {
 
     var confirmPassMatched = false
+    var isPasswordVisible = false
 
     init {
         init()
@@ -52,6 +54,17 @@ class ConfirmPassCV : AppCompatEditText, View.OnFocusChangeListener {
             override fun afterTextChanged(s: Editable?) {
             }
         })
+    }
+    fun togglePasswordVisibility() {
+        if (isPasswordVisible) {
+            transformationMethod = PasswordTransformationMethod.getInstance()
+            inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+        } else {
+            transformationMethod = null
+            inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+        }
+        isPasswordVisible = !isPasswordVisible
+        setSelection(text?.length ?: 0)
     }
 
     override fun onFocusChange(v: View?, isInFocus: Boolean) {

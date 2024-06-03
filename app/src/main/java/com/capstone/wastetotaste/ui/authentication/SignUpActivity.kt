@@ -3,12 +3,15 @@ package com.capstone.wastetotaste.ui.authentication
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.capstone.wastetotaste.MainActivity
 import com.capstone.wastetotaste.R
 import com.capstone.wastetotaste.UserPreferencesManager
+import com.capstone.wastetotaste.cv.ConfirmPassCV
+import com.capstone.wastetotaste.cv.PassCV
 import com.capstone.wastetotaste.data.LoginUserData
 import com.capstone.wastetotaste.data.RegisterUserData
 import com.capstone.wastetotaste.databinding.ActivitySignUpBinding
@@ -63,6 +66,33 @@ class SignUpActivity : AppCompatActivity() {
 
         loginVM.isLoggingIn.observe(this) {
             showLoading(it)
+        }
+
+        val passwordEditText: PassCV = findViewById(R.id.edt_password_signup)
+        val togglePasswordButton: Button = findViewById(R.id.btn_eye_signup)
+        val passwordConfirmEditText: ConfirmPassCV = findViewById(R.id.edt_confirm_password_signup)
+        val toggleConfirmPasswordButton: Button = findViewById(R.id.btn_eye_signup_confirm)
+
+        togglePasswordButton.setOnClickListener {
+            passwordEditText.togglePasswordVisibility()
+            togglePasswordButton.setBackgroundResource(
+                if (passwordEditText.isPasswordVisible)
+                    R.drawable.ic_eye_closed // Change to the eye closed iconR.drawable.ic_eye_closed
+                else
+
+                    R.drawable.ic_eye // Change to the eye open icon
+            )
+        }
+
+        toggleConfirmPasswordButton.setOnClickListener {
+            passwordConfirmEditText.togglePasswordVisibility()
+            toggleConfirmPasswordButton.setBackgroundResource(
+                if (passwordConfirmEditText.isPasswordVisible)
+                    R.drawable.ic_eye_closed // Change to the eye closed iconR.drawable.ic_eye_closed
+                else
+
+                    R.drawable.ic_eye // Change to the eye open icon
+            )
         }
     }
 
@@ -150,12 +180,12 @@ class SignUpActivity : AppCompatActivity() {
 
                 Toast.makeText(this, R.string.failedLogin, Toast.LENGTH_SHORT).show()
             }
-
+        }
             binding.btnToLogin.setOnClickListener {
-                val intent = Intent(this, SignUpActivity::class.java)
+                val intent = Intent(this, LogInActivity::class.java)
                 startActivity(intent)
             }
-        }
+
     }
 
     private fun showLoading(isLoading: Boolean) {

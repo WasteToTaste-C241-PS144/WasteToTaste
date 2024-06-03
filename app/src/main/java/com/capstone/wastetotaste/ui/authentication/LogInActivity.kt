@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.core.DataStore
@@ -13,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.capstone.wastetotaste.MainActivity
 import com.capstone.wastetotaste.R
 import com.capstone.wastetotaste.UserPreferencesManager
+import com.capstone.wastetotaste.cv.PassCV
 import com.capstone.wastetotaste.data.LoginUserData
 import com.capstone.wastetotaste.databinding.ActivityLogInBinding
 import com.capstone.wastetotaste.viewmodel.AuthSplashVM
@@ -24,6 +26,7 @@ val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "se
 
 class LogInActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLogInBinding
+    var isPasswordVisible = false
 
     private val loginVM: LoginVM by lazy {
         val preferences = UserPreferencesManager.getInstance(dataStore)
@@ -36,6 +39,18 @@ class LogInActivity : AppCompatActivity() {
         setContentView(binding.root)
         handleUserActions()
 //        playAnimation()
+        val passwordEditText: PassCV = findViewById(R.id.PasswordLogin)
+        val togglePasswordButton: Button = findViewById(R.id.btn_eye_login)
+
+        togglePasswordButton.setOnClickListener {
+            passwordEditText.togglePasswordVisibility()
+            togglePasswordButton.setBackgroundResource(
+                if (passwordEditText.isPasswordVisible)
+                    R.drawable.ic_eye_closed // Change to the eye closed icon
+                else
+                    R.drawable.ic_eye // Change to the eye open icon
+            )
+        }
 
         val preferences = UserPreferencesManager.getInstance(dataStore)
         val authSplashVM =
@@ -149,4 +164,5 @@ class LogInActivity : AppCompatActivity() {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
 
     }
+
 }
