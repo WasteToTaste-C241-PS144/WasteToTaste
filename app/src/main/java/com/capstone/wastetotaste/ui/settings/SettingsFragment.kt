@@ -1,7 +1,6 @@
 package com.capstone.wastetotaste.ui.settings
 
 import android.app.AlertDialog
-import android.content.Context
 import android.content.Intent
 import androidx.fragment.app.viewModels
 import android.os.Bundle
@@ -9,9 +8,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.core.Preferences
 import androidx.lifecycle.ViewModelProvider
 import com.capstone.wastetotaste.R
 import com.capstone.wastetotaste.UserPreferencesManager

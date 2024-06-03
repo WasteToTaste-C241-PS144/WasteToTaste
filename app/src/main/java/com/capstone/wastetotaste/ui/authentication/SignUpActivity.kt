@@ -2,14 +2,9 @@ package com.capstone.wastetotaste.ui.authentication
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.method.HideReturnsTransformationMethod
-import android.text.method.PasswordTransformationMethod
 import android.view.View
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import com.capstone.wastetotaste.MainActivity
 import com.capstone.wastetotaste.R
@@ -19,13 +14,15 @@ import com.capstone.wastetotaste.data.RegisterUserData
 import com.capstone.wastetotaste.databinding.ActivitySignUpBinding
 import com.capstone.wastetotaste.viewmodel.AuthSplashVM
 import com.capstone.wastetotaste.viewmodel.LoginVM
+import com.capstone.wastetotaste.viewmodel.LoginVMFactory
 import com.capstone.wastetotaste.viewmodel.UserVMFactory
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
 
     private val loginVM: LoginVM by lazy {
-        ViewModelProvider(this)[LoginVM::class.java]
+        val preferences = UserPreferencesManager.getInstance(dataStore)
+        ViewModelProvider(this, LoginVMFactory(preferences) )[LoginVM::class.java]
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
