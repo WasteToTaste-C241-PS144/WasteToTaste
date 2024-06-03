@@ -1,18 +1,10 @@
 package com.capstone.wastetotaste
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.capstone.wastetotaste.databinding.ActivityLogInBinding
 import com.capstone.wastetotaste.databinding.ActivityMainBinding
-import com.capstone.wastetotaste.databinding.ActivitySignUpBinding
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -32,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar);
 
         navView.setupWithNavController(navController)
+
 
     }
 }

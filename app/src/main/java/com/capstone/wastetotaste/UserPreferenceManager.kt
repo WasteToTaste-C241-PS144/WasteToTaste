@@ -1,17 +1,14 @@
 package com.capstone.wastetotaste
 
 import androidx.datastore.core.DataStore
-import android.content.Context
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
-import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.Flow
 
 
-private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "user_prefs")
 class UserPreferencesManager private constructor(private val dataStore: DataStore<Preferences>) {
 
     fun getLoginStatus(): Flow<Boolean> {

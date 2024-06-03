@@ -17,20 +17,23 @@ import com.capstone.wastetotaste.data.LoginUserData
 import com.capstone.wastetotaste.databinding.ActivityLogInBinding
 import com.capstone.wastetotaste.viewmodel.AuthSplashVM
 import com.capstone.wastetotaste.viewmodel.LoginVM
+import com.capstone.wastetotaste.viewmodel.LoginVMFactory
 import com.capstone.wastetotaste.viewmodel.UserVMFactory
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
+
 class LogInActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLogInBinding
 
     private val loginVM: LoginVM by lazy {
-        ViewModelProvider(this)[LoginVM::class.java]
+        val preferences = UserPreferencesManager.getInstance(dataStore)
+
+        ViewModelProvider(this, LoginVMFactory(preferences))[LoginVM::class.java]
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLogInBinding.inflate(layoutInflater)
         setContentView(binding.root)
-//        setContentView(R.layout.activity_log_in)
         handleUserActions()
 //        playAnimation()
 
@@ -136,14 +139,6 @@ class LogInActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-//        binding.btnEye.setOnCheckedChangeListener { _, isChecked ->
-//            binding.PasswordLogin.transformationMethod = if (isChecked) {
-//                HideReturnsTransformationMethod.getInstance()
-//            } else {
-//                PasswordTransformationMethod.getInstance()
-//            }
-//            binding.PasswordLogin.text?.let { binding.PasswordLogin.setSelection(it.length) }
-//        }
     }
 
     private fun isDataValid(): Boolean {

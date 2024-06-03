@@ -94,4 +94,9 @@
     <string name="passwordLess">Password harus lebih dari 8 karakter</string>
     <string name="nullConfirmPass">Konfirmasi password tidak boleh kosong</string>
     <string name="halouser">Halo, %1$s!</string>
+    <string name="logout">Log Out</string>
+    <string name="logoutWarn">Kamu yakin mau keluar?</string>
+    <string name="logoutNo">Tidak</string>
+    <string name="logoutYes">Ya</string>
+    <string name="logoutSucceed">Sukses Logout</string>
 </resources>

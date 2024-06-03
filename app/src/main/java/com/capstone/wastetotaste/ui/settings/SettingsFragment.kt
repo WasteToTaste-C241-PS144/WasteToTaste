@@ -1,5 +1,7 @@
 package com.capstone.wastetotaste.ui.settings
 
+import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
 import androidx.fragment.app.viewModels
 import android.os.Bundle
@@ -7,17 +9,31 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.fragment.findNavController
+import android.widget.Toast
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.lifecycle.ViewModelProvider
 import com.capstone.wastetotaste.R
+import com.capstone.wastetotaste.UserPreferencesManager
 import com.capstone.wastetotaste.databinding.FragmentSettingsBinding
+import com.capstone.wastetotaste.ui.authentication.LogInActivity
+import com.capstone.wastetotaste.ui.authentication.dataStore
+import com.capstone.wastetotaste.viewmodel.AuthSplashVM
+import com.capstone.wastetotaste.viewmodel.UserVMFactory
 
 class SettingsFragment : Fragment() {
 
-    private var _binding: FragmentSettingsBinding? = null
 
+    private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!
+
+    private val preferences: UserPreferencesManager by lazy {
+        UserPreferencesManager.getInstance(requireContext().dataStore)
+    }
+
+    private val authSplashVM: AuthSplashVM by lazy {
+        ViewModelProvider(this, UserVMFactory(preferences))[AuthSplashVM::class.java]
+    }
 
     companion object {
         fun newInstance() = SettingsFragment()
@@ -35,17 +51,39 @@ class SettingsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-        return root
+
+        return binding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
         binding.btnAccountInfo.setOnClickListener{
             val intent = Intent(requireActivity(), AccountInfoActivity::class.java)
             startActivity(intent)
         }
+
+        binding.btnLogout.setOnClickListener {
+            showLogoutConfirmationDialog()
+        }
+    }
+
+    private fun showLogoutConfirmationDialog() {
+        val builder = AlertDialog.Builder(requireContext())
+        val alert = builder.create()
+        builder.setTitle(getString(R.string.logout))
+            .setMessage(getString(R.string.logoutWarn))
+            .setPositiveButton(getString(R.string.logoutNo)) { _, _ ->
+                alert.cancel()
+            }
+            .setNegativeButton(getString(R.string.logoutYes)) { _, _ ->
+                authSplashVM.logout(requireContext())
+            }
+            .show()
     }
 
     override fun onDestroyView() {
