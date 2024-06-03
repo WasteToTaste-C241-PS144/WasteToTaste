@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.core.DataStore
@@ -40,7 +41,7 @@ class LogInActivity : AppCompatActivity() {
         handleUserActions()
 //        playAnimation()
         val passwordEditText: PassCV = findViewById(R.id.PasswordLogin)
-        val togglePasswordButton: Button = findViewById(R.id.btn_eye_login)
+        val togglePasswordButton: ImageButton = findViewById(R.id.btn_eye_login)
 
         togglePasswordButton.setOnClickListener {
             passwordEditText.togglePasswordVisibility()

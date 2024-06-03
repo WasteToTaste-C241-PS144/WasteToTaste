@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -69,15 +70,16 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         val passwordEditText: PassCV = findViewById(R.id.edt_password_signup)
-        val togglePasswordButton: Button = findViewById(R.id.btn_eye_signup)
+        val togglePasswordButton: ImageButton = findViewById(R.id.btn_eye_signup)
         val passwordConfirmEditText: ConfirmPassCV = findViewById(R.id.edt_confirm_password_signup)
-        val toggleConfirmPasswordButton: Button = findViewById(R.id.btn_eye_signup_confirm)
+        val toggleConfirmPasswordButton: ImageButton = findViewById(R.id.btn_eye_signup_confirm)
 
         togglePasswordButton.setOnClickListener {
             passwordEditText.togglePasswordVisibility()
             togglePasswordButton.setBackgroundResource(
-                if (passwordEditText.isPasswordVisible)
+                if (passwordEditText.isPasswordVisible) {
                     R.drawable.ic_eye_closed // Change to the eye closed iconR.drawable.ic_eye_closed
+                }
                 else
 
                     R.drawable.ic_eye // Change to the eye open icon

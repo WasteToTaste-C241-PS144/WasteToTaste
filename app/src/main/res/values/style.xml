@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <style name="TextAppearance.App.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
+        <item name="fontFamily">@font/dosis_semi_bold</item>
+        <item name="android:fontFamily">@font/dosis_semi_bold</item>
+        <item name="android:textSize">27sp</item>
+    </style>
+
+    <style name="TextAppearance.SearchBar" parent="TextAppearance.Material3.SearchBar">
+        <item name="fontFamily">@font/inter_regular</item>
+        <item name="android:fontFamily">@font/inter_regular</item>
+        <item name="android:textSize">15.5sp</item>
+    </style>
+
+    <style name="TextAppearance.Settings" parent="TextAppearance.Material3.TitleLarge">
+        <item name="fontFamily">@font/inter_regular</item>
+        <item name="android:fontFamily">@font/inter_regular</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="EditText.Auth" parent="Widget.AppCompat.EditText">
+        <item name="backgroundTint">?attr/colorSurface</item>
+        <item name="android:layout_marginStart">65dp</item>
+        <item name="android:layout_marginEnd">30dp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="fontFamily">@font/inter_regular</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+
+    <style name="ImageView.Auth" parent="Widget.AppCompat.ImageButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:background">@drawable/rounded_rectangle</item>
+        <item name="android:layout_marginStart">17dp</item>
+        <item name="android:layout_marginEnd">17dp</item>
+    </style>
+
+    <style name="TextAppearance.App.BodyLarge" parent="TextAppearance.Material3.BodyLarge">
+        <item name="fontFamily">@font/inter_regular</item>
+        <item name="android:fontFamily">@font/inter_regular</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="Theme.WasteToTaste" parent="Base.Theme.WasteToTaste" />
+</resources>

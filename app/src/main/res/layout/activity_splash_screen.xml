@@ -5,8 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GetStartedActivity"
-    android:background="@drawable/background_tint">
+    tools:context=".GetStartedActivity">
 
     <TextView
         android:id="@+id/wasteToTasteString"
@@ -14,16 +13,16 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/dosis_semi_bold"
         android:gravity="top"
-        android:text="WasteToTaste"
-        android:textColor="@color/white"
-        android:textSize="50sp"
-        android:textStyle="bold"
+        android:text="Waste To Taste"
+        tools:alpha="1"
+        android:textColor="?attr/colorOnSurface"
+        android:textSize="47sp"
         android:alpha="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

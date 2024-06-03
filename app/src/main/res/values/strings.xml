@@ -99,4 +99,8 @@
     <string name="logoutNo">Tidak</string>
     <string name="logoutYes">Ya</string>
     <string name="logoutSucceed">Sukses Logout</string>
+    <string name="create_account">Buat Akun</string>
+    <string name="login_to_account">Masuk Akun</string>
+    <string name="get_started_instruction">Ubah sisa bahan makananmu menjadi hidangan lezat!</string>
+    <string name="get_started">Mulai</string>
 </resources>
