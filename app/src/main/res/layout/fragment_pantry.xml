@@ -6,30 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".ui.pantry.PantryFragment">
 
-    <com.google.android.material.search.SearchBar
+    <AutoCompleteTextView
         android:id="@+id/searchBar"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="12dp"
         android:hint="@string/searchbar_ingredients_hint"
+        android:background="@drawable/custom_search_bar"
+        android:paddingStart="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:textAppearance="@style/TextAppearance.SearchBar"
-        app:layout_constraintTop_toTopOf="parent">
-    </com.google.android.material.search.SearchBar>
+        app:layout_constraintTop_toTopOf="parent"/>
 
-    <com.google.android.material.search.SearchView
-        android:id="@+id/searchView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:hint="@string/searchbar_recipe_hint"
-        app:layout_anchor="@id/searchBar"
-        android:textAppearance="@style/TextAppearance.SearchBar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-    </com.google.android.material.search.SearchView>
+    <ImageView
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:background="@drawable/ic_search"
+        app:layout_constraintTop_toTopOf="@id/searchBar"
+        android:layout_marginStart="15dp"
+        app:layout_constraintBottom_toBottomOf="@id/searchBar"
+        app:layout_constraintStart_toStartOf="@id/searchBar"
+        app:layout_constraintEnd_toEndOf="@id/searchBar"
+        app:layout_constraintHorizontal_bias="0"
+        android:backgroundTint="?attr/colorOnSurfaceVariant"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_ingredients"
@@ -41,5 +42,4 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

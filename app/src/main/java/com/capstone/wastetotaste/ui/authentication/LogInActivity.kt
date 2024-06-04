@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -18,10 +17,6 @@ import com.capstone.wastetotaste.UserPreferencesManager
 import com.capstone.wastetotaste.cv.PassCV
 import com.capstone.wastetotaste.data.LoginUserData
 import com.capstone.wastetotaste.databinding.ActivityLogInBinding
-import com.capstone.wastetotaste.viewmodel.AuthSplashVM
-import com.capstone.wastetotaste.viewmodel.LoginVM
-import com.capstone.wastetotaste.viewmodel.LoginVMFactory
-import com.capstone.wastetotaste.viewmodel.UserVMFactory
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 

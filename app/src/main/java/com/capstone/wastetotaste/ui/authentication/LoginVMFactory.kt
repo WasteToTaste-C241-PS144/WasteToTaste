@@ -1,4 +1,4 @@
-package com.capstone.wastetotaste.viewmodel
+package com.capstone.wastetotaste.ui.authentication
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

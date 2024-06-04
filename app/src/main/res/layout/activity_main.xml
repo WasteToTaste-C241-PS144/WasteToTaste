@@ -24,7 +24,9 @@
             android:minHeight="?attr/actionBarSize"
             app:titleCentered="true"
             app:title="@string/app_name"
-            app:titleMarginBottom="15dp"
+            app:menu="@menu/pantry_menu"
+            android:paddingTop="2.5dp"
+            app:titleMarginBottom="13dp"
             app:titleTextAppearance="@style/TextAppearance.App.TitleLarge" />
 
     </com.google.android.material.appbar.AppBarLayout>

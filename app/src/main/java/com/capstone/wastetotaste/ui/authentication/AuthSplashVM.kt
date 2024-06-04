@@ -1,4 +1,4 @@
-package com.capstone.wastetotaste.viewmodel
+package com.capstone.wastetotaste.ui.authentication
 
 import android.content.Context
 import android.content.Intent
@@ -9,7 +9,6 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.capstone.wastetotaste.R
 import com.capstone.wastetotaste.UserPreferencesManager
-import com.capstone.wastetotaste.ui.authentication.LogInActivity
 import kotlinx.coroutines.launch
 
 class AuthSplashVM(private val userPref: UserPreferencesManager) : ViewModel() {

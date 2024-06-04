@@ -11,8 +11,8 @@ import com.capstone.wastetotaste.R
 import com.capstone.wastetotaste.UserPreferencesManager
 import com.capstone.wastetotaste.databinding.FragmentHomeBinding
 import com.capstone.wastetotaste.ui.authentication.dataStore
-import com.capstone.wastetotaste.viewmodel.AuthSplashVM
-import com.capstone.wastetotaste.viewmodel.UserVMFactory
+import com.capstone.wastetotaste.ui.authentication.AuthSplashVM
+import com.capstone.wastetotaste.ui.authentication.UserVMFactory
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null

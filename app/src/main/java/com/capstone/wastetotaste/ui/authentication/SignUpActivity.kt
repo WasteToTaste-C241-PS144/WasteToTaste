@@ -3,7 +3,6 @@ package com.capstone.wastetotaste.ui.authentication
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -16,10 +15,6 @@ import com.capstone.wastetotaste.cv.PassCV
 import com.capstone.wastetotaste.data.LoginUserData
 import com.capstone.wastetotaste.data.RegisterUserData
 import com.capstone.wastetotaste.databinding.ActivitySignUpBinding
-import com.capstone.wastetotaste.viewmodel.AuthSplashVM
-import com.capstone.wastetotaste.viewmodel.LoginVM
-import com.capstone.wastetotaste.viewmodel.LoginVMFactory
-import com.capstone.wastetotaste.viewmodel.UserVMFactory
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
