@@ -1,5 +1,46 @@
 package com.capstone.wastetotaste.adapter
 
-class IngredientsAdapter {
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.capstone.wastetotaste.R
+import com.capstone.wastetotaste.database.Ingredients
+import com.capstone.wastetotaste.databinding.ItemPantryBinding
+import com.capstone.wastetotaste.ui.pantry.PantryViewModel
+import java.text.SimpleDateFormat
+import java.util.*
 
+class IngredientAdapter(private val viewModel: PantryViewModel) : RecyclerView.Adapter<IngredientAdapter.IngredientViewHolder>() {
+
+    private var ingredients = emptyList<Ingredients>()
+
+    inner class IngredientViewHolder(private val binding: ItemPantryBinding) : RecyclerView.ViewHolder(binding.root){
+        fun bind(ingredient: Ingredients) {
+            binding.tvIngredients.text = ingredient.name
+            binding.btnDelete.setOnClickListener{
+                viewModel.delete(ingredient)
+            }
+            //binding.tvExpiredDate.text = ingredient.expiryDate.toString()
+        }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IngredientViewHolder {
+        val binding = ItemPantryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return IngredientViewHolder(binding)
+    }
+
+    override fun onBindViewHolder(holder: IngredientViewHolder, position: Int) {
+        val currentItem = ingredients[position]
+        holder.bind(currentItem)
+    }
+
+    override fun getItemCount(): Int {
+        return ingredients.size
+    }
+
+    fun setIngredients(ingredients: List<Ingredients>) {
+        this.ingredients = ingredients
+        notifyDataSetChanged()
+    }
 }

@@ -51,6 +51,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_instruction" />
 
         <com.capstone.wastetotaste.cv.EmailCV
+            android:autofillHints="emailAddress"
             android:id="@+id/CVEmail"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"

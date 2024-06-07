@@ -1,5 +1,6 @@
 package com.capstone.wastetotaste.ui.pantry
 
+import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.text.Editable
@@ -9,18 +10,25 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuHost
 import androidx.appcompat.widget.SearchView
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.capstone.wastetotaste.R
+import com.capstone.wastetotaste.adapter.IngredientAdapter
 import com.capstone.wastetotaste.data.PredefinedIngredients
-import com.capstone.wastetotaste.data.loadIngredients
 import com.capstone.wastetotaste.databinding.FragmentPantryBinding
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -39,7 +47,8 @@ class PantryFragment : Fragment() {
         fun newInstance() = PantryFragment()
     }
 
-    //private val viewModel: PantryAddUpdateViewModel by viewModels()
+    private lateinit var pantryViewModel: PantryViewModel
+    private lateinit var itemAdapter: IngredientAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,6 +80,8 @@ class PantryFragment : Fragment() {
         }, viewLifecycleOwner, Lifecycle.State.STARTED)
 
         predefinedIngredients = loadIngredients(requireContext())
+        pantryViewModel = obtainViewModel(this)
+        itemAdapter = IngredientAdapter(pantryViewModel)
 
         adapter = ArrayAdapter(requireContext(), R.layout.custom_list_item, R.id.itemText, predefinedIngredients.map { it.name })
         binding.searchBar.setAdapter(adapter)
@@ -82,21 +93,44 @@ class PantryFragment : Fragment() {
                 val newText = s.toString()
                 filterIngredients(newText)
             }
-
             override fun afterTextChanged(s: Editable?) {}
         })
 
         binding.searchBar.setOnItemClickListener { parent, view, position, id ->
             val selectedItem = parent.getItemAtPosition(position) as String
+            hideKeyboard(binding.searchBar, requireActivity())
             binding.searchBar.clearFocus()
             onSuggestionClicked(selectedItem)
         }
+
+        binding.rvIngredients.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvIngredients.adapter = itemAdapter
+
+        pantryViewModel.allIngredients.observe(requireActivity(), Observer { ingredients ->
+            ingredients?.let { itemAdapter.setIngredients(it) }
+        })
+
     }
 
     private fun onSuggestionClicked(item: String) {
-        // Show a toast with the selected ingredient name
         binding.searchBar.text = null
-        Toast.makeText(requireContext(), "You selected: $item", Toast.LENGTH_SHORT).show()
+        //pantryViewModel.insert(item)
+//        pantryViewModel.insert(item) { isUnique ->
+//            if (isUnique) {
+//                //Toast.makeText(requireActivity(), "$item berhasil ditambahkan", Toast.LENGTH_SHORT).show()
+//            } else {
+//                //Toast.makeText(requireActivity(), "$item sudah ada", Toast.LENGTH_SHORT).show()
+//            }
+//        }
+        pantryViewModel.insert(item) { success ->
+            activity?.runOnUiThread {
+                if (success) {
+                    Toast.makeText(activity, "$item berhasil ditambahkan", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(activity, "$item sudah ada", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
 
     private fun filterIngredients(query: String) {
@@ -116,5 +150,15 @@ class PantryFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun obtainViewModel(fragment: Fragment): PantryViewModel {
+        val factory = ViewModelFactory.getInstance(fragment.requireActivity().application)
+        return ViewModelProvider(fragment.requireActivity(), factory)[PantryViewModel::class.java]
+    }
+
+    private fun hideKeyboard(view: View, activity: FragmentActivity) {
+        val imm = activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
 }

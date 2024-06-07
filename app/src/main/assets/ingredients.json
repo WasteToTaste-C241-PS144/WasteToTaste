@@ -5,5 +5,11 @@
   {"name":  "garam"},
   {"name":  "gula"},
   {"name":  "sawi"},
-  {"name":  "gandum"}
+  {"name":  "gandum"},
+  {"name": "roti"},
+  {"name":  "kaldu bubuk"},
+  {"name": "baking powder"},
+  {"name":  "soda kue"},
+  {"name":  "tomat"},
+  {"name":  "cabe rawit"}
 ]

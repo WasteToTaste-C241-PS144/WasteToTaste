@@ -44,8 +44,6 @@ class HomeFragment : Fragment() {
             name?.let {
                 binding.greetings.text = getString(R.string.halouser, it)            }
         })
-
-
         return root
     }
 
