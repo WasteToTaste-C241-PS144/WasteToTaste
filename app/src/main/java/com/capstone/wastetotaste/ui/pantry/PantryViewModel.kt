@@ -39,6 +39,10 @@ class PantryViewModel(application: Application) : ViewModel() {
         mIngredientsRepository.delete(ingredient)
     }
 
+    fun deleteAllIngredients() {
+        mIngredientsRepository.deleteAllIngredients()
+    }
+
 
 
 //    fun insert(name: String){

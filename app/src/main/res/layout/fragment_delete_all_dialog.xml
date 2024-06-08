@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="20dp"
+    android:padding="20dp"
+    android:background="?attr/colorSurfaceBright"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/dialog_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/dialog_delete_all_title"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintBottom_toTopOf="@id/dialog_desc"
+        android:textSize="18sp"
+        android:fontFamily="@font/inter_semi_bold"/>
+
+    <TextView
+        android:id="@+id/dialog_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="27dp"
+        android:lineSpacingExtra="5dp"
+        android:textColor="?attr/colorOutline"
+        app:layout_constraintBottom_toTopOf="@+id/btn_delete_all"
+        app:layout_constraintTop_toBottomOf="@id/dialog_title"
+        app:layout_constraintStart_toStartOf="@id/dialog_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/dialog_delete_all_desc"
+        app:layout_constraintHorizontal_bias="0"
+        android:textSize="14sp"
+        android:fontFamily="@font/inter_regular"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_delete_all"
+        android:layout_width="80dp"
+        android:layout_height="35dp"
+        android:text="@string/delete"
+        android:backgroundTint="@color/red"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        app:layout_constraintHorizontal_bias="1"
+        android:textSize="14sp"
+        android:background="@drawable/custom_button_agree"
+        android:fontFamily="@font/inter_semi_bold"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_desc"
+        app:layout_constraintStart_toEndOf="@id/btn_cancel_delete_all"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_cancel_delete_all"
+        android:layout_width="80dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="7dp"
+        app:layout_constraintHorizontal_bias="1"
+        android:text="@string/cancel"
+        android:layout_marginTop="27dp"
+        android:textColor="?attr/colorOnSurface"
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        android:background="@drawable/custom_button_cancel"
+        android:fontFamily="@font/inter_semi_bold"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_desc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_delete_all"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

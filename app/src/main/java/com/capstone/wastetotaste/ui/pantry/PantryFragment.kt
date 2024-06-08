@@ -1,6 +1,5 @@
 package com.capstone.wastetotaste.ui.pantry
 
-import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.text.Editable
@@ -12,21 +11,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
-import android.widget.ListView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuHost
-import androidx.appcompat.widget.SearchView
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.capstone.wastetotaste.R
+import com.capstone.wastetotaste.ViewModelFactory
 import com.capstone.wastetotaste.adapter.IngredientAdapter
 import com.capstone.wastetotaste.data.PredefinedIngredients
 import com.capstone.wastetotaste.databinding.FragmentPantryBinding
@@ -67,6 +62,16 @@ class PantryFragment : Fragment() {
 
         val menuHost: MenuHost = requireActivity()
 
+        predefinedIngredients = loadIngredients(requireContext())
+        pantryViewModel = obtainViewModel(this)
+        itemAdapter = IngredientAdapter(pantryViewModel)
+        pantryViewModel.allIngredients.observe(requireActivity(), Observer { ingredients ->
+            ingredients?.let { itemAdapter.setIngredients(it) }
+        })
+
+        adapter = ArrayAdapter(requireContext(), R.layout.custom_list_item, R.id.itemText, predefinedIngredients.map { it.name })
+        binding.searchBar.setAdapter(adapter)
+
         menuHost.addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
                 menuInflater.inflate(R.menu.pantry_menu, menu)
@@ -74,17 +79,20 @@ class PantryFragment : Fragment() {
 
             override fun onMenuItemSelected(menuItem: android.view.MenuItem): Boolean {
                 return when (menuItem.itemId) {
+                    R.id.delete_all -> {
+                        val deleteAllDialogFragment = DeleteAllDialogFragment()
+
+                        val fragmentManager = childFragmentManager
+                        deleteAllDialogFragment.show(fragmentManager, DeleteAllDialogFragment::class.java.simpleName)
+                        true
+                    }
+                    R.id.delete_expired -> {
+                        true
+                    }
                     else -> false
                 }
             }
         }, viewLifecycleOwner, Lifecycle.State.STARTED)
-
-        predefinedIngredients = loadIngredients(requireContext())
-        pantryViewModel = obtainViewModel(this)
-        itemAdapter = IngredientAdapter(pantryViewModel)
-
-        adapter = ArrayAdapter(requireContext(), R.layout.custom_list_item, R.id.itemText, predefinedIngredients.map { it.name })
-        binding.searchBar.setAdapter(adapter)
 
         binding.searchBar.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -105,10 +113,6 @@ class PantryFragment : Fragment() {
 
         binding.rvIngredients.layoutManager = LinearLayoutManager(requireContext())
         binding.rvIngredients.adapter = itemAdapter
-
-        pantryViewModel.allIngredients.observe(requireActivity(), Observer { ingredients ->
-            ingredients?.let { itemAdapter.setIngredients(it) }
-        })
 
     }
 

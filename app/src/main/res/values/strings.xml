@@ -103,4 +103,8 @@
     <string name="login_to_account">Masuk Akun</string>
     <string name="get_started_instruction">Ubah sisa bahan makananmu menjadi hidangan lezat!</string>
     <string name="get_started">Mulai</string>
+    <string name="dialog_delete_all_desc">Data yang sudah dihapus tidak dapat dikembalikan</string>
+    <string name="dialog_delete_all_title">Hapus semua bahan?</string>
+    <string name="delete">Hapus</string>
+    <string name="cancel">Batal</string>
 </resources>

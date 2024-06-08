@@ -1,8 +1,10 @@
-package com.capstone.wastetotaste.ui.pantry
+package com.capstone.wastetotaste
 
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.capstone.wastetotaste.ui.pantry.DeleteAllDialogViewModel
+import com.capstone.wastetotaste.ui.pantry.PantryViewModel
 
 class ViewModelFactory private constructor(private val mApplication: Application) : ViewModelProvider.NewInstanceFactory() {
 
@@ -23,9 +25,10 @@ class ViewModelFactory private constructor(private val mApplication: Application
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(PantryViewModel::class.java)) {
-            return PantryViewModel(mApplication) as T
+        return when {
+            modelClass.isAssignableFrom(PantryViewModel::class.java) -> PantryViewModel(mApplication) as T
+            modelClass.isAssignableFrom(DeleteAllDialogViewModel::class.java) -> DeleteAllDialogViewModel(mApplication) as T
+            else -> throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
         }
-        throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
     }
 }

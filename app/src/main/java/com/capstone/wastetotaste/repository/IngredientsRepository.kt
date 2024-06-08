@@ -87,8 +87,10 @@ class IngredientsRepository(application: Application) {
 
     fun getAllIngredients(): LiveData<List<Ingredients>> = mIngredientsDAO.getAllIngredients()
 
-    fun getIngredientByName(name: String): Ingredients? {
-        return mIngredientsDAO.getIngredientByName(name)
+     fun deleteAllIngredients() {
+        executorService.execute {
+            mIngredientsDAO.deleteAllIngredients()
+        }
     }
 
 }

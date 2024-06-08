@@ -33,6 +33,6 @@ interface IngredientsDAO {
     @Query("SELECT * FROM ingredients WHERE expiry_date < :currentDate ORDER BY id ASC")
     fun getAllExpiredIngredients(currentDate: Long): LiveData<List<Ingredients>>
 
-    @Query("SELECT * FROM ingredients WHERE name = :name LIMIT 1")
-    fun getIngredientByName(name: String): Ingredients?
+    @Query("DELETE FROM ingredients")
+    fun deleteAllIngredients()
 }

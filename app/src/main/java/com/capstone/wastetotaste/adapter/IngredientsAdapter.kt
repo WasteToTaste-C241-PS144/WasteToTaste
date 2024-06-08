@@ -21,6 +21,9 @@ class IngredientAdapter(private val viewModel: PantryViewModel) : RecyclerView.A
             binding.btnDelete.setOnClickListener{
                 viewModel.delete(ingredient)
             }
+            binding.btnEdit.setOnClickListener{
+
+            }
             //binding.tvExpiredDate.text = ingredient.expiryDate.toString()
         }
     }
