@@ -4,7 +4,7 @@
     <item
         android:id="@+id/delete_all"
         android:title="@string/delete_all" />
-    <item
-        android:id="@+id/delete_expired"
-        android:title="Hapus Bahan Kadaluarsa" />
+<!--    <item-->
+<!--        android:id="@+id/delete_expired"-->
+<!--        android:title="Hapus Bahan Kadaluarsa" />-->
 </menu>

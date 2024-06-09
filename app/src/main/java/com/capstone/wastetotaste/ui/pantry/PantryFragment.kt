@@ -66,7 +66,9 @@ class PantryFragment : Fragment() {
         pantryViewModel = obtainViewModel(this)
         itemAdapter = IngredientAdapter(pantryViewModel)
         pantryViewModel.allIngredients.observe(requireActivity(), Observer { ingredients ->
-            ingredients?.let { itemAdapter.setIngredients(it) }
+            ingredients?.let { itemAdapter.setIngredients(it)
+                binding.btnSeeMatchingRecipes.visibility = if (it.isEmpty()) View.GONE else View.VISIBLE
+            }
         })
 
         adapter = ArrayAdapter(requireContext(), R.layout.custom_list_item, R.id.itemText, predefinedIngredients.map { it.name })
@@ -86,9 +88,9 @@ class PantryFragment : Fragment() {
                         deleteAllDialogFragment.show(fragmentManager, DeleteAllDialogFragment::class.java.simpleName)
                         true
                     }
-                    R.id.delete_expired -> {
-                        true
-                    }
+//                    R.id.delete_expired -> {
+//                        true
+//                    }
                     else -> false
                 }
             }

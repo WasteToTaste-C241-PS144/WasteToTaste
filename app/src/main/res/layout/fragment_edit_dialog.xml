@@ -14,35 +14,36 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/dialog_delete_all_title"
+        android:text="Masukkan Tanggal Kadaluwarsa"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintBottom_toTopOf="@id/edt_edit"
         android:textSize="18sp"
         android:fontFamily="@font/inter_semi_bold"/>
 
-    <TextView
+    <EditText
         android:id="@+id/edt_edit"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="27dp"
         android:lineSpacingExtra="5dp"
-        android:textColor="?attr/colorOutline"
-        app:layout_constraintBottom_toTopOf="@+id/btn_delete_all"
+        android:inputType="date"
+        android:textColor="?attr/colorOnSurface"
+        app:layout_constraintBottom_toTopOf="@+id/btn_save_edit"
         app:layout_constraintTop_toBottomOf="@id/edit_dialog_title"
         app:layout_constraintStart_toStartOf="@id/edit_dialog_title"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/dialog_delete_all_desc"
+        android:text="dd/mm/yyyy"
         app:layout_constraintHorizontal_bias="0"
-        android:textSize="14sp"
+        android:textSize="15sp"
         android:fontFamily="@font/inter_regular"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_delete_all"
+        android:id="@+id/btn_save_edit"
         android:layout_width="80dp"
         android:layout_height="35dp"
-        android:text="@string/delete"
-        android:backgroundTint="@color/red"
+        android:text="Simpan"
+        android:backgroundTint="@color/blue"
         android:textColor="@color/white"
         android:textAllCaps="false"
         app:layout_constraintHorizontal_bias="1"
@@ -50,12 +51,12 @@
         android:background="@drawable/custom_button_agree"
         android:fontFamily="@font/inter_semi_bold"
         app:layout_constraintTop_toBottomOf="@+id/edt_edit"
-        app:layout_constraintStart_toEndOf="@id/btn_cancel_delete_all"
+        app:layout_constraintStart_toEndOf="@id/btn_cancel_edit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_cancel_delete_all"
+        android:id="@+id/btn_cancel_edit"
         android:layout_width="80dp"
         android:layout_height="35dp"
         android:layout_marginEnd="7dp"
@@ -70,7 +71,7 @@
         android:fontFamily="@font/inter_semi_bold"
         app:layout_constraintTop_toBottomOf="@+id/edt_edit"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btn_delete_all"
+        app:layout_constraintEnd_toStartOf="@id/btn_save_edit"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
 

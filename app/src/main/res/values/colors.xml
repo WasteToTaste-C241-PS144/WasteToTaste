@@ -4,7 +4,8 @@
     <color name="white">#FEF7FF</color>
     <color name="green">#307E82</color>
 
-    <color name="red">#A32323</color>
+    <color name="red">#A32327</color>
+    <color name="blue">#3455CA</color>
 
     <style name="ProgressBarStyle">
         <item name="colorAccent">@color/white</item>

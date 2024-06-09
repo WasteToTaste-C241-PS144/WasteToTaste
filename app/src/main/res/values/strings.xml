@@ -9,7 +9,7 @@
     <string name="title_settings">Pengaturan</string>
     <string name="recipe_name">Nama Resep</string>
     <string name="ingredients_needed">Anda membutuhkan n bahan lagi</string>
-    <string name="ingredients">bahan</string>
+    <string name="ingredient">bahan</string>
     <string name="greetings">Halo!</string>
     <string name="greetings2">Mau masak apa hari ini?</string>
     <string name="tampilan">Tampilan</string>
@@ -46,43 +46,6 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
-    <string name="lorem_ipsum">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
-        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
-        dui nec risus. Maecenas non sodales nisi, vel dictum dolor. Class aptent taciti sociosqu ad
-        litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse blandit eleifend
-        diam, vel rutrum tellus vulputate quis. Aliquam eget libero aliquet, imperdiet nisl a,
-        ornare ex. Sed rhoncus est ut libero porta lobortis. Fusce in dictum tellus.\n\n
-        Suspendisse interdum ornare ante. Aliquam nec cursus lorem. Morbi id magna felis. Vivamus
-        egestas, est a condimentum egestas, turpis nisl iaculis ipsum, in dictum tellus dolor sed
-        neque. Morbi tellus erat, dapibus ut sem a, iaculis tincidunt dui. Interdum et malesuada
-        fames ac ante ipsum primis in faucibus. Curabitur et eros porttitor, ultricies urna vitae,
-        molestie nibh. Phasellus at commodo eros, non aliquet metus. Sed maximus nisl nec dolor
-        bibendum, vel congue leo egestas.\n\n
-        Sed interdum tortor nibh, in sagittis risus mollis quis. Curabitur mi odio, condimentum sit
-        amet auctor at, mollis non turpis. Nullam pretium libero vestibulum, finibus orci vel,
-        molestie quam. Fusce blandit tincidunt nulla, quis sollicitudin libero facilisis et. Integer
-        interdum nunc ligula, et fermentum metus hendrerit id. Vestibulum lectus felis, dictum at
-        lacinia sit amet, tristique id quam. Cras eu consequat dui. Suspendisse sodales nunc ligula,
-        in lobortis sem porta sed. Integer id ultrices magna, in luctus elit. Sed a pellentesque
-        est.\n\n
-        Aenean nunc velit, lacinia sed dolor sed, ultrices viverra nulla. Etiam a venenatis nibh.
-        Morbi laoreet, tortor sed facilisis varius, nibh orci rhoncus nulla, id elementum leo dui
-        non lorem. Nam mollis ipsum quis auctor varius. Quisque elementum eu libero sed commodo. In
-        eros nisl, imperdiet vel imperdiet et, scelerisque a mauris. Pellentesque varius ex nunc,
-        quis imperdiet eros placerat ac. Duis finibus orci et est auctor tincidunt. Sed non viverra
-        ipsum. Nunc quis augue egestas, cursus lorem at, molestie sem. Morbi a consectetur ipsum, a
-        placerat diam. Etiam vulputate dignissim convallis. Integer faucibus mauris sit amet finibus
-        convallis.\n\n
-        Phasellus in aliquet mi. Pellentesque habitant morbi tristique senectus et netus et
-        malesuada fames ac turpis egestas. In volutpat arcu ut felis sagittis, in finibus massa
-        gravida. Pellentesque id tellus orci. Integer dictum, lorem sed efficitur ullamcorper,
-        libero justo consectetur ipsum, in mollis nisl ex sed nisl. Donec maximus ullamcorper
-        sodales. Praesent bibendum rhoncus tellus nec feugiat. In a ornare nulla. Donec rhoncus
-        libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
-        vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
-    </string>
     <string name="delete_all">Hapus Semua</string>
     <string name="nullEmail">Email tidak boleh kosong</string>
     <string name="nullPass">Password tidak boleh kosong</string>
@@ -107,4 +70,29 @@
     <string name="dialog_delete_all_title">Hapus semua bahan?</string>
     <string name="delete">Hapus</string>
     <string name="cancel">Batal</string>
+    <string name="unknown">tidak diketahui</string>
+    <string name="ingredients">Bahan-bahan</string>
+    <string name="dummy_recipe_ingredients">
+        2 potong ayam
+        \n1 butir telur
+        \n5 sendok tepung terigu
+        \n3 sendok tepung maizena
+        \n3 siung bawang putih
+        \nSecukupnya merica
+        \nSecukupnya garam
+        \nSecukupnya minyak goreng
+        \n1 batang daun kemangi
+    </string>
+    <string name="dummy_recipe_instruction">
+        1. Masukkan ayam. Tambahkan bawang putih halus, merica, dan garam. (Bisa menambahkan bumbu penyedap jika Anda sukai) Oh iya maaf, mericanya terlihat seperti ketumbar yaa. karena stok merica bubuk habis alhasil pakai merica asli dan males diulek sampai halus.
+        \n2. Remas-remas ayam, sampai bumbu tercampur rata dan teresap. Tinggalkan selama kurang lebih 2 jam (semakin lama semakin baik, agar bumbu meresap pada ayam)
+        \n3. Setelah Anda merasa bumbu telah meresap, masukkan 1 butir telur. Kocok hingga semua permukaan ayam terlumuri telur.
+        \n4. Siapkan tepung terigu dan tepung maizena, campurkan. Lalu masukkan ayam yang telah dilumuri telur kedalam tepung. Pastikan semua permukaan ayam tertutupi tepung yaa.
+        \n5. Setelah minyak goreng panas, masukkan ayam. Goreng ayam dengan api kecil agar ayam matang sampai didalamnya. Goreng sampai berubah warna menjadi kuning keemasan lalu balik perlahan.
+        \n6. Tunggu sampai kedua sisi ayam matang dan berubah menjadi kuning keemasan. Lalu tiriskan. (Bisa juga dijadiin resep ayam krispi hihi)
+        \n7. Sambel: masukkan bawang putih yang telah di goreng, cabe, garam. Ulek sampai halus. Tambahkan 2 sendok minyak goreng panas bekas menggoreng ayam.
+        \n8. Geprek ayam pada sambel. Berikan daun kemangi jika Anda suka. Ayam geprek pedas siap disantap!
+        \n9. Jika ingin ikutin makanan kekinian, bisa ditambahin keju parut atau lelehan keju mozarella yaa.
+    </string>
+    <string name="instruction">Cara Membuat</string>
 </resources>
