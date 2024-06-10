@@ -8,8 +8,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
 import com.capstone.wastetotaste.R
+import com.capstone.wastetotaste.SettingViewModelFactory
 import com.capstone.wastetotaste.UserPreferencesManager
 import com.capstone.wastetotaste.databinding.FragmentSettingsBinding
 import com.capstone.wastetotaste.ui.authentication.dataStore
@@ -56,6 +58,28 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val themePref = ThemesSetting.getInstance(requireContext().dataStore)
+        val settingsViewModel = ViewModelProvider(this, SettingViewModelFactory(themePref)).get(SettingsViewModel::class.java)
+
+
+        settingsViewModel.getThemeSettings().observe(viewLifecycleOwner) { isNightThemeOn: Boolean ->
+            if (isNightThemeOn) {
+                // Terapkan tema gelap
+                // Misalnya:
+                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                 binding.switchTheme.isChecked = true
+            } else {
+                // Terapkan tema terang
+                // Misalnya:
+                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                 binding.switchTheme.isChecked = false
+            }
+        }
+
+        // Mendeteksi perubahan penggunaan switch tema
+        binding.switchTheme.setOnCheckedChangeListener { _, isChecked ->
+            settingsViewModel.saveThemeSetting(isChecked)
+        }
 
         binding.btnAccountInfo.setOnClickListener{
             val intent = Intent(requireActivity(), AccountInfoActivity::class.java)

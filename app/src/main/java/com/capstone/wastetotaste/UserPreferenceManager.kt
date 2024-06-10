@@ -57,6 +57,8 @@ class UserPreferencesManager private constructor(private val dataStore: DataStor
         }
     }
 
+
+
     companion object {
         @Volatile
         private var INSTANCE: UserPreferencesManager? = null

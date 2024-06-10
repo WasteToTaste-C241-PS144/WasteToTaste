@@ -3,7 +3,8 @@
     <style name="Base.Theme.WasteToTaste" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
-        <item name="colorPrimary">?attr/colorSurface</item>
+
+        <item name="colorPrimary">#F80000</item>
         <item name="textAppearanceLargePopupMenu">@style/TextAppearance.App.BodyLarge</item>
         <item name="textAppearanceSmallPopupMenu">@style/TextAppearance.App.BodyLarge</item>
         <item name="popupMenuBackground">@drawable/custom_popup_background</item>

@@ -21,18 +21,33 @@
             android:textColor="?attr/colorOutline"
             android:layout_marginHorizontal="20dp"/>
 
-        <TextView
-            android:id="@+id/btn_theme"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/inter_regular"
             android:padding="16dp"
-            android:textSize="15sp"
             android:paddingStart="40dp"
-            android:backgroundTint="?attr/colorSurface"
-            android:text="@string/tema"
-            android:gravity="left"
-            android:textColor="?attr/colorOnSurface"/>
+            android:backgroundTint="?attr/colorSurface">
+
+            <TextView
+                android:id="@+id/tv_theme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_regular"
+                android:textSize="15sp"
+                android:text="@string/tema"
+                android:gravity="left"
+                android:textColor="?attr/colorOnSurface"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"/>
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switch_theme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:checked="false"/>
+        </RelativeLayout>
 
         <com.google.android.material.divider.MaterialDivider
             android:layout_width="match_parent"
