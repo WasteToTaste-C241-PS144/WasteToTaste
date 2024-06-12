@@ -64,13 +64,11 @@ class SettingsFragment : Fragment() {
 
         settingsViewModel.getThemeSettings().observe(viewLifecycleOwner) { isNightThemeOn: Boolean ->
             if (isNightThemeOn) {
-                // Terapkan tema gelap
-                // Misalnya:
+
                  AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                  binding.switchTheme.isChecked = true
             } else {
-                // Terapkan tema terang
-                // Misalnya:
+
                  AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
                  binding.switchTheme.isChecked = false
             }
