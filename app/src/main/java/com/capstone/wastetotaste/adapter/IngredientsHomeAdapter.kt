@@ -6,30 +6,25 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.capstone.wastetotaste.R
 import com.capstone.wastetotaste.database.Ingredients
+import com.capstone.wastetotaste.databinding.ItemIngredientsBinding
 import com.capstone.wastetotaste.databinding.ItemPantry2Binding
+import com.capstone.wastetotaste.ui.home.HomeViewModel
 import com.capstone.wastetotaste.ui.pantry.PantryViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
-class IngredientsAdapter(private val viewModel: PantryViewModel) : RecyclerView.Adapter<IngredientsAdapter.IngredientViewHolder>() {
+class IngredientsHomeAdapter(private val viewModel: HomeViewModel) : RecyclerView.Adapter<IngredientsHomeAdapter.IngredientViewHolder>() {
 
     private var ingredients = emptyList<Ingredients>()
 
-    inner class IngredientViewHolder(private val binding: ItemPantry2Binding) : RecyclerView.ViewHolder(binding.root){
+    inner class IngredientViewHolder(private val binding: ItemIngredientsBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(ingredient: Ingredients) {
-            binding.tvIngredients.text = ingredient.name
-            binding.btnDelete.setOnClickListener{
-                viewModel.delete(ingredient)
-            }
-//            binding.btnEdit.setOnClickListener{
-//
-//            }
-            //binding.tvExpiredDate.text = ingredient.expiryDate.toString()
+            binding.tvIngredientsHome.text = ingredient.name
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IngredientViewHolder {
-        val binding = ItemPantry2Binding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemIngredientsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return IngredientViewHolder(binding)
     }
 

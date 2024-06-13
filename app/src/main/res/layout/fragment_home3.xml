@@ -7,7 +7,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@color/green"
     tools:context=".ui.home.HomeFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,12 +16,11 @@
                 <ImageView
                     android:id="@+id/rectangle"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    app:layout_constraintTop_toBottomOf="@id/greetings2"
+                    android:layout_height="100dp"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="30dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintVertical_bias="0"
                     android:background="@drawable/custom_home_container"/>
 
                 <TextView
@@ -30,16 +28,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/halouser"
-                    android:layout_marginTop="30dp"
                     android:letterSpacing="0.02"
                     android:layout_marginHorizontal="18dp"
                     android:textSize="27sp"
                     android:textColor="@color/white"
                     android:fontFamily="@font/dosis_semi_bold"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toTopOf="@id/greetings2" />
+                    app:layout_constraintTop_toTopOf="@id/rectangle"
+                    app:layout_constraintStart_toStartOf="@id/rectangle"
+                    app:layout_constraintEnd_toEndOf="@id/rectangle"
+                    app:layout_constraintBottom_toTopOf="@id/greetings2"
+                    app:layout_constraintVertical_chainStyle="packed"/>
 
                 <TextView
                     android:id="@+id/greetings2"
@@ -55,7 +53,7 @@
                     app:layout_constraintTop_toBottomOf="@id/greetings"
                     app:layout_constraintStart_toStartOf="@id/greetings"
                     app:layout_constraintEnd_toEndOf="@id/greetings"
-                    app:layout_constraintBottom_toTopOf="@id/rectangle"/>
+                    app:layout_constraintBottom_toBottomOf="@id/rectangle"/>
 
                 <TextView
                     android:id="@+id/tv_my_pantry"
@@ -70,7 +68,7 @@
                     app:layout_constraintHorizontal_bias="0"
                     android:layout_marginStart="18dp"
                     android:layout_marginTop="15dp"
-                    app:layout_constraintTop_toTopOf="@id/rectangle"
+                    app:layout_constraintTop_toBottomOf="@id/rectangle"
                     app:layout_constraintBottom_toTopOf="@id/pantry_container"/>
 
                 <TextView
@@ -85,7 +83,7 @@
                     android:fontFamily="@font/inter_regular"
                     app:layout_constraintStart_toEndOf="@id/tv_my_pantry"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/rectangle"
+                    app:layout_constraintTop_toBottomOf="@id/rectangle"
                     app:layout_constraintBottom_toTopOf="@id/pantry_container"
                     android:layout_marginEnd="19dp"
                     app:layout_constraintHorizontal_bias="1"

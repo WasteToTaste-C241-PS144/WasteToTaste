@@ -4,9 +4,11 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardBackgroundColor="?attr/colorSurfaceContainerHighest"
-    app:cardCornerRadius="5dp">
+    app:cardCornerRadius="5dp"
+    android:layout_margin="5dp">
 
     <TextView
+        android:id="@+id/tv_ingredients_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"

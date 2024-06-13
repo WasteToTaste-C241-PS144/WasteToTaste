@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Waste To Taste</string>
     <string name="searchbar_recipe_hint">Cari resep</string>
-    <string name="searchbar_ingredients_hint">Cari bahan</string>
+    <string name="searchbar_ingredients_hint">Cari dan tambahkan bahan</string>
     <string name="title_home">Beranda</string>
     <string name="title_pantry">Bahan</string>
     <string name="title_recipe">Resep</string>

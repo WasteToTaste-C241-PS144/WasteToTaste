@@ -1,4 +1,4 @@
-package com.capstone.wastetotaste.ui.favorite
+package com.capstone.wastetotaste.ui.bookmark
 
 import androidx.fragment.app.viewModels
 import android.os.Bundle
@@ -8,13 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import com.capstone.wastetotaste.R
 
-class FavoriteFragment : Fragment() {
+class BookmarkFragment : Fragment() {
 
     companion object {
-        fun newInstance() = FavoriteFragment()
+        fun newInstance() = BookmarkFragment()
     }
 
-    private val viewModel: FavoriteViewModel by viewModels()
+    private val viewModel: BookmarkViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +26,6 @@ class FavoriteFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_favorite, container, false)
+        return inflater.inflate(R.layout.fragment_bookmark, container, false)
     }
 }

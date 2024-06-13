@@ -1,34 +1,41 @@
 package com.capstone.wastetotaste.ui.home
 
-import androidx.fragment.app.viewModels
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.capstone.wastetotaste.MainActivity
 import com.capstone.wastetotaste.R
 import com.capstone.wastetotaste.UserPreferencesManager
+import com.capstone.wastetotaste.ViewModelFactory
+import com.capstone.wastetotaste.adapter.IngredientsHomeAdapter
 import com.capstone.wastetotaste.databinding.FragmentHomeBinding
-import com.capstone.wastetotaste.ui.authentication.dataStore
 import com.capstone.wastetotaste.ui.authentication.AuthSplashVM
 import com.capstone.wastetotaste.ui.authentication.UserVMFactory
+import com.capstone.wastetotaste.ui.authentication.dataStore
+import com.google.android.flexbox.FlexDirection
+import com.google.android.flexbox.FlexboxLayoutManager
+import com.google.android.flexbox.JustifyContent
+import com.google.android.material.bottomnavigation.BottomNavigationView
+
 
 class HomeFragment : Fragment() {
-    private var _binding: FragmentHomeBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentHomeBinding
 
-    private val viewModel: HomeViewModel by viewModels()
+    private lateinit var homeViewModel: HomeViewModel
     private lateinit var authSplashVM: AuthSplashVM
+    private lateinit var itemAdapter: IngredientsHomeAdapter
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
 
@@ -47,8 +54,29 @@ class HomeFragment : Fragment() {
         return root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        homeViewModel = obtainViewModel(this)
+        itemAdapter = IngredientsHomeAdapter(homeViewModel)
+        homeViewModel.allIngredients.observe(requireActivity(), Observer { ingredients ->
+            ingredients?.let { itemAdapter.setIngredients(it) }
+        })
+        binding.tvPantrySeeAll.setOnClickListener{
+            (activity as? MainActivity)?.findViewById<BottomNavigationView>(R.id.nav_view)?.selectedItemId = R.id.navigation_pantry
+        }
+        //binding.rvHomeIngredients.layoutManager = LinearLayoutManager(requireContext())
+        val layoutManager = FlexboxLayoutManager(requireContext())
+        layoutManager.flexDirection = FlexDirection.ROW
+        binding.rvHomeIngredients.setLayoutManager(layoutManager)
+        binding.rvHomeIngredients.adapter = itemAdapter
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+    }
+
+    private fun obtainViewModel(fragment: Fragment): HomeViewModel {
+        val factory = ViewModelFactory.getInstance(fragment.requireActivity().application)
+        return ViewModelProvider(fragment.requireActivity(), factory)[HomeViewModel::class.java]
     }
 }

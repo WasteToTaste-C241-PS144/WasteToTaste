@@ -19,12 +19,15 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.capstone.wastetotaste.MainActivity
 import com.capstone.wastetotaste.R
 import com.capstone.wastetotaste.ViewModelFactory
-import com.capstone.wastetotaste.adapter.IngredientAdapter
+import com.capstone.wastetotaste.adapter.IngredientsAdapter
 import com.capstone.wastetotaste.data.PredefinedIngredients
 import com.capstone.wastetotaste.databinding.FragmentPantryBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.InputStreamReader
@@ -32,10 +35,9 @@ import java.io.InputStreamReader
 
 class PantryFragment : Fragment() {
 
-    private var _binding: FragmentPantryBinding? = null
+    private lateinit var binding: FragmentPantryBinding
     private lateinit var predefinedIngredients: List<PredefinedIngredients>
     private lateinit var adapter: ArrayAdapter<String>
-    private val binding get() = _binding!!
 
 
     companion object {
@@ -43,7 +45,7 @@ class PantryFragment : Fragment() {
     }
 
     private lateinit var pantryViewModel: PantryViewModel
-    private lateinit var itemAdapter: IngredientAdapter
+    private lateinit var itemAdapter: IngredientsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,18 +55,17 @@ class PantryFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentPantryBinding.inflate(inflater, container, false)
+        binding = FragmentPantryBinding.inflate(inflater, container, false)
         val root: View = binding.root
         return root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val menuHost: MenuHost = requireActivity()
 
         predefinedIngredients = loadIngredients(requireContext())
         pantryViewModel = obtainViewModel(this)
-        itemAdapter = IngredientAdapter(pantryViewModel)
+        itemAdapter = IngredientsAdapter(pantryViewModel)
         pantryViewModel.allIngredients.observe(requireActivity(), Observer { ingredients ->
             ingredients?.let { itemAdapter.setIngredients(it)
                 binding.btnSeeMatchingRecipes.visibility = if (it.isEmpty()) View.GONE else View.VISIBLE
@@ -116,6 +117,9 @@ class PantryFragment : Fragment() {
         binding.rvIngredients.layoutManager = LinearLayoutManager(requireContext())
         binding.rvIngredients.adapter = itemAdapter
 
+        binding.btnSeeMatchingRecipes.setOnClickListener{
+            (activity as? MainActivity)?.findViewById<BottomNavigationView>(R.id.nav_view)?.selectedItemId = R.id.navigation_recipe
+        }
     }
 
     private fun onSuggestionClicked(item: String) {
@@ -155,7 +159,6 @@ class PantryFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
     }
 
     private fun obtainViewModel(fragment: Fragment): PantryViewModel {

@@ -11,6 +11,7 @@ import androidx.room.TypeConverters
 
 abstract class AppRoomDatabase: RoomDatabase() {
     abstract fun ingredientsDAO(): IngredientsDAO
+    //abstract fun favoriteRecipeDAO(): FavoriteRecipeDAO
 
     companion object {
         @Volatile
@@ -20,7 +21,7 @@ abstract class AppRoomDatabase: RoomDatabase() {
             if (INSTANCE == null) {
                 synchronized(AppRoomDatabase::class.java) {
                     INSTANCE = Room.databaseBuilder(context.applicationContext,
-                        AppRoomDatabase::class.java, "note_database")
+                        AppRoomDatabase::class.java, "waste_to_taste_database")
                         .build()
                 }
             }
