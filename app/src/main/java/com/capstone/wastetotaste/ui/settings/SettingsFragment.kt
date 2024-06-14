@@ -28,7 +28,7 @@ class SettingsFragment : Fragment() {
         UserPreferencesManager.getInstance(requireContext().dataStore)
     }
 
-    private val authSplashVM: AuthSplashVM by lazy {
+    val authSplashVM: AuthSplashVM by lazy {
         ViewModelProvider(this, UserVMFactory(preferences))[AuthSplashVM::class.java]
     }
 
@@ -74,7 +74,6 @@ class SettingsFragment : Fragment() {
             }
         }
 
-        // Mendeteksi perubahan penggunaan switch tema
         binding.switchTheme.setOnCheckedChangeListener { _, isChecked ->
             settingsViewModel.saveThemeSetting(isChecked)
         }
@@ -89,20 +88,28 @@ class SettingsFragment : Fragment() {
         }
     }
 
-    private fun showLogoutConfirmationDialog() {
-        val builder = AlertDialog.Builder(requireContext())
-        val alert = builder.create()
-        builder.setTitle(getString(R.string.logout))
-            .setMessage(getString(R.string.logoutWarn))
-            .setPositiveButton(getString(R.string.logoutNo)) { _, _ ->
-                alert.cancel()
-            }
-            .setNegativeButton(getString(R.string.logoutYes)) { _, _ ->
-                authSplashVM.logout(requireContext())
-            }
-            .show()
-    }
+//    private fun showLogoutConfirmationDialog() {
+//        val builder = AlertDialog.Builder(requireContext())
+//        val alert = builder.create()
+//        builder.setTitle(getString(R.string.logout))
+//            .setMessage(getString(R.string.logoutWarn))
+//            .setPositiveButton(getString(R.string.logoutNo)) { _, _ ->
+//                alert.cancel()
+//            }
+//            .setNegativeButton(getString(R.string.logoutYes)) { _, _ ->
+//                authSplashVM.logout(requireContext())
+////                auth.signOut()
+//            }
+//            .show()
+//    }
 
+
+    private fun showLogoutConfirmationDialog() {
+        val dialog = LogoutConfirmationDialogFragment {
+            authSplashVM.logout(requireContext())
+        }
+        dialog.show(parentFragmentManager, "LogoutConfirmationDialogFragment")
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

@@ -23,11 +23,11 @@ class UserPreferencesManager private constructor(private val dataStore: DataStor
         }
     }
 
-    fun getToken(): Flow<String> {
-        return dataStore.data.map { preferences ->
-            preferences[TOKEN] ?: ""
-        }
-    }
+//    fun getToken(): Flow<String> {
+//        return dataStore.data.map { preferences ->
+//            preferences[TOKEN] ?: ""
+//        }
+//    }
 
 
     suspend fun storeToken(token: String) {
@@ -35,6 +35,16 @@ class UserPreferencesManager private constructor(private val dataStore: DataStor
             preferences[TOKEN] = token
         }
     }
+
+//    fun getRefreshToken(): Flow<String> = dataStore.data.map { preferences ->
+//        preferences[REFRESH_TOKEN_KEY] ?: ""
+//    }
+
+//    suspend fun storeRefreshToken(refreshToken: String) {
+//        dataStore.edit { preferences ->
+//            preferences[REFRESH_TOKEN_KEY] = refreshToken
+//        }
+//    }
 
     fun getName(): Flow<String> {
         return dataStore.data.map { preferences ->
@@ -74,6 +84,8 @@ class UserPreferencesManager private constructor(private val dataStore: DataStor
         private val LOGIN_STATUS = booleanPreferencesKey("login_status")
         private val TOKEN = stringPreferencesKey("token")
         private val NAME = stringPreferencesKey("name")
+//        private val REFRESH_TOKEN_KEY = stringPreferencesKey("refresh_token")
+
 
     }
 }

@@ -95,4 +95,6 @@
         \n9. Jika ingin ikutin makanan kekinian, bisa ditambahin keju parut atau lelehan keju mozarella yaa.
     </string>
     <string name="instruction">Cara Membuat</string>
+    <string name="dialog_logout">Logout</string>
+    <string name="dialog_logout_desc">Kamu yakin mau keluar?</string>
 </resources>

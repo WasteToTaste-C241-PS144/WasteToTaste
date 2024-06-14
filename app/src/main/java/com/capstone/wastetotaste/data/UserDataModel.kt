@@ -2,47 +2,104 @@ package com.capstone.wastetotaste.data
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
-data class RegisterUserData (
+//data class RegisterUserData (
+//    var name: String,
+//    var email: String,
+//    var password: String
+//)
+//data class LoginUserData(
+//    var email: String,
+//    var password: String
+//)
+//@Parcelize
+//data class ResponseRegister(
+//
+//    @field:SerializedName("error")
+//    val error: Boolean,
+//
+//    @field:SerializedName("message")
+//    val message: String
+//) : Parcelable
+//
+//@Parcelize
+//data class ResponseLogin(
+//
+//    @field:SerializedName("loginResult")
+//    val loginResult: LoginResult,
+//
+//    @field:SerializedName("error")
+//    val error: Boolean,
+//
+//    @field:SerializedName("message")
+//    val message: String
+//) : Parcelable
+//
+//@Parcelize
+//data class LoginResult(
+//
+//    @field:SerializedName("name")
+//    val name: String,
+//
+//    @field:SerializedName("userId")
+//    val userId: String,
+//
+//    @field:SerializedName("token")
+//    val token: String
+//) : Parcelable
+
+data class RegisterUserData(
     var name: String,
     var email: String,
     var password: String
 )
+
 data class LoginUserData(
     var email: String,
     var password: String
 )
+
+//data class LogoutRequestData(
+//    @field:SerializedName("token")
+//    val token: String
+//)
+//
+//data class RefreshTokenData(
+//    @field:SerializedName("refresh_token")
+//    val refreshToken: String
+//)
+
 @Parcelize
-data class ResponseRegister(
-
-    @field:SerializedName("error")
-    val error: Boolean,
-
-    @field:SerializedName("message")
-    val message: String
-) : Parcelable
-
-@Parcelize
-data class ResponseLogin(
-
-    @field:SerializedName("loginResult")
-    val loginResult: LoginResult,
-
-    @field:SerializedName("error")
-    val error: Boolean,
-
-    @field:SerializedName("message")
-    val message: String
+data class RegisterResponse(
+    val token: String
 ) : Parcelable
 
 @Parcelize
 data class LoginResult(
-
-    @field:SerializedName("name")
     val name: String,
+    val token: String,
 
-    @field:SerializedName("userId")
-    val userId: String,
+): Parcelable
 
-    @field:SerializedName("token")
-    val token: String
+@Parcelize
+data class LoginResponse(
+    val token: String,
+    val loginResult: LoginResult
 ) : Parcelable
+
+
+//@Parcelize
+//data class LoginResult(
+//    @field:SerializedName("name")
+//    val name: String,
+//
+//    @field:SerializedName("userId")
+//    val userId: String,
+//
+//    @field:SerializedName("token")
+//    val token: String,
+//
+//    @field:SerializedName("refresh_token")
+//    val refreshToken: String
+//) : Parcelable
+
+

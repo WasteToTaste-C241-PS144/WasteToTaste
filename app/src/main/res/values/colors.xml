@@ -8,6 +8,6 @@
     <color name="blue">#3455CA</color>
 
     <style name="ProgressBarStyle">
-        <item name="colorAccent">@color/white</item>
+        <item name="colorAccent">@color/black</item>
     </style>
 </resources>

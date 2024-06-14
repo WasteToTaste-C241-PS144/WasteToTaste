@@ -3,6 +3,7 @@ plugins {
     id ("org.jetbrains.kotlin.android")
     id("kotlin-parcelize")
     id ("kotlin-kapt")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -25,12 +26,12 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField("String", "API_KEY", "\"8ca8354eb0554353a420f4838c2a2fd1\"")
+        buildConfigField("String", "API_KEY", "\"${project.findProperty("API_KEY")}\"")
     }
 
     buildTypes {
         debug{
-            buildConfigField("String", "API_URL", "\"https://story-api.dicoding.dev/v1/\"")
+            buildConfigField("String", "API_URL", "\"https://wastetotaste-lficrzkhvq-et.a.run.app/wastetotaste/\"")
         }
         release {
             isMinifyEnabled = false
@@ -38,7 +39,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            buildConfigField("String", "API_URL", "\"https://story-api.dicoding.dev/v1/\"")
+            buildConfigField("String", "API_URL", "\"https://wastetotaste-lficrzkhvq-et.a.run.app/wastetotaste/\"")
         }
     }
     compileOptions {
@@ -63,6 +64,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.firebase.auth.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -103,6 +105,7 @@ dependencies {
 
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
-
+    implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
+    implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.android.flexbox:flexbox:3.0.0")
 }

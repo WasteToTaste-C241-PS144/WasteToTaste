@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.capstone.wastetotaste.R
 import com.capstone.wastetotaste.databinding.FragmentAccountInfoBinding
+import com.google.firebase.auth.FirebaseAuth
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -38,6 +39,19 @@ class AccountInfoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val auth = FirebaseAuth.getInstance()
+        val currentUser = auth.currentUser
+        // Memeriksa apakah currentUser null (tidak ada pengguna yang login)
+        if (currentUser != null) {
+            // Mengambil email pengguna dari currentUser
+            val userEmail = currentUser.email
+
+            // Menampilkan email pengguna di TextView
+            userEmail?.let {
+                binding.tvUserEmail.text = it
+            }
+        }
         binding.btnChangeEmail.setOnClickListener {
             val changeEmailFragment = ChangeEmailFragment()
             val fragmentManager = parentFragmentManager

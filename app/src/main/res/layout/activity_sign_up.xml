@@ -25,7 +25,9 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed" />
+            app:layout_constraintVertical_chainStyle="packed"
+            android:alpha="0"
+            tools:alpha="1"/>
 
         <TextView
             android:id="@+id/tv_instruction"
@@ -40,7 +42,9 @@
             android:text="@string/sign_up_instruction"
             android:fontFamily="@font/inter_regular"
             android:textSize="14.5sp"
-            android:textColor="?attr/colorOnSurface"/>
+            android:textColor="?attr/colorOnSurface"
+            android:alpha="0"
+            tools:alpha="1"/>
 
         <ImageView
             android:id="@+id/iv_name"
@@ -48,7 +52,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_instruction"
-            app:layout_constraintBottom_toTopOf="@id/iv_email"/>
+            app:layout_constraintBottom_toTopOf="@id/iv_email"
+            android:alpha="0"
+            tools:alpha="1"/>
 
 
         <com.capstone.wastetotaste.cv.NameCV
@@ -61,20 +67,12 @@
             app:layout_constraintEnd_toEndOf="@id/iv_name"
             android:hint="@string/name"
             style="@style/EditText.Auth"
-            />
+            android:alpha="0"
+            tools:alpha="1"/>
 
-<!--        <EditText-->
-<!--            android:id="@+id/edt_name"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_width="match_parent"-->
-<!--            app:layout_constraintTop_toTopOf="@id/iv_name"-->
-<!--            app:layout_constraintBottom_toBottomOf="@id/iv_name"-->
-<!--            app:layout_constraintStart_toStartOf="@id/iv_name"-->
-<!--            app:layout_constraintEnd_toEndOf="@id/iv_name"-->
-<!--            android:hint="@string/name"-->
-<!--            style="@style/EditText.Auth" />-->
 
         <ImageView
+            android:id="@+id/img_name"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginStart="15dp"
@@ -83,7 +81,9 @@
             app:layout_constraintTop_toTopOf="@id/iv_name"
             app:layout_constraintBottom_toBottomOf="@id/iv_name"
             app:layout_constraintEnd_toStartOf="@id/edt_name_signup"
-            android:backgroundTint="?attr/colorOnSurface"/>
+            android:backgroundTint="?attr/colorOnSurface"
+            android:alpha="0"
+            tools:alpha="1"/>
 
         <ImageView
             android:id="@+id/iv_email"
@@ -92,7 +92,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_name"
-            app:layout_constraintBottom_toTopOf="@id/iv_password"/>
+            app:layout_constraintBottom_toTopOf="@id/iv_password"
+            android:alpha="0"
+            tools:alpha="1"/>
 
         <com.capstone.wastetotaste.cv.EmailCV
             android:id="@+id/edt_email_signup"
@@ -105,9 +107,11 @@
             android:hint="@string/email"
             android:inputType="textEmailAddress"
             style="@style/EditText.Auth"
-            />
+            android:alpha="0"
+            tools:alpha="1"/>
 
         <ImageView
+            android:id="@+id/img_email"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:background="@drawable/ic_email"
@@ -116,7 +120,9 @@
             app:layout_constraintTop_toTopOf="@id/iv_email"
             app:layout_constraintBottom_toBottomOf="@id/iv_email"
             app:layout_constraintEnd_toStartOf="@id/edt_email_signup"
-            android:backgroundTint="?attr/colorOnSurface"/>
+            android:backgroundTint="?attr/colorOnSurface"
+            android:alpha="0"
+            tools:alpha="1"/>
 
         <ImageView
             android:layout_marginTop="12dp"
@@ -125,7 +131,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_email"
-            app:layout_constraintBottom_toTopOf="@id/iv_confirm_password"/>
+            app:layout_constraintBottom_toTopOf="@id/iv_confirm_password"
+            android:alpha="0"
+            tools:alpha="1"/>
 
 
         <com.capstone.wastetotaste.cv.PassCV
@@ -140,6 +148,8 @@
             android:hint="@string/password"
             android:inputType="textPassword"
             style="@style/EditText.Auth"
+            android:alpha="0"
+            tools:alpha="1"
             />
 
         <ImageButton
@@ -152,9 +162,12 @@
             app:layout_constraintTop_toTopOf="@id/iv_password"
             app:layout_constraintBottom_toBottomOf="@id/iv_password"
             android:backgroundTint="?attr/colorOutlineVariant"
-            android:background="@drawable/ic_eye"/>
+            android:background="@drawable/ic_eye"
+            android:alpha="0"
+            tools:alpha="1"/>
 
         <ImageView
+            android:id="@+id/img_password"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:background="@drawable/ic_password"
@@ -163,8 +176,9 @@
             app:layout_constraintTop_toTopOf="@id/iv_password"
             app:layout_constraintBottom_toBottomOf="@id/iv_password"
             app:layout_constraintEnd_toStartOf="@id/edt_password_signup"
-            android:backgroundTint="?attr/colorOnSurface"/>
-        /////
+            android:backgroundTint="?attr/colorOnSurface"
+            android:alpha="0"
+            tools:alpha="1"/>
 
         <ImageView
             android:layout_marginTop="12dp"
@@ -173,7 +187,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_password"
-            app:layout_constraintBottom_toTopOf="@id/btn_signup"/>
+            app:layout_constraintBottom_toTopOf="@id/btn_signup"
+            android:alpha="0"
+            tools:alpha="1"/>
 
 
         <com.capstone.wastetotaste.cv.ConfirmPassCV
@@ -188,6 +204,8 @@
             android:hint="@string/confirm_password"
             android:inputType="textPassword"
             style="@style/EditText.Auth"
+            android:alpha="0"
+            tools:alpha="1"
             />
 
         <ImageButton
@@ -200,9 +218,12 @@
             app:layout_constraintTop_toTopOf="@id/iv_confirm_password"
             app:layout_constraintBottom_toBottomOf="@id/iv_confirm_password"
             android:backgroundTint="?attr/colorOutlineVariant"
-            android:background="@drawable/ic_eye"/>
+            android:background="@drawable/ic_eye"
+            android:alpha="0"
+            tools:alpha="1"/>
 
         <ImageView
+            android:id="@+id/img_conf_password"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:background="@drawable/ic_password"
@@ -211,7 +232,9 @@
             app:layout_constraintTop_toTopOf="@id/iv_confirm_password"
             app:layout_constraintBottom_toBottomOf="@id/iv_confirm_password"
             app:layout_constraintEnd_toStartOf="@id/edt_confirm_password_signup"
-            android:backgroundTint="?attr/colorOnSurface"/>
+            android:backgroundTint="?attr/colorOnSurface"
+            android:alpha="0"
+            tools:alpha="1"/>
 
         <Button
             android:id="@+id/btn_signup"
@@ -225,7 +248,9 @@
             app:layout_constraintBottom_toBottomOf="@id/tv_already_have_account"
             android:textSize="15sp"
             android:layout_marginTop="40dp"
-            android:textColor="?attr/colorSurface"/>
+            android:textColor="?attr/colorSurface"
+            android:alpha="0"
+            tools:alpha="1"/>
 
         <TextView
             android:id="@+id/tv_already_have_account"
@@ -242,7 +267,9 @@
             app:layout_constraintTop_toBottomOf="@id/btn_signup"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/btn_to_login"
-            app:layout_constraintHorizontal_chainStyle="packed"/>
+            app:layout_constraintHorizontal_chainStyle="packed"
+            android:alpha="0"
+            tools:alpha="1"/>
 
         <TextView
             android:id="@+id/btn_to_login"
@@ -259,7 +286,9 @@
             app:layout_constraintStart_toEndOf="@+id/tv_already_have_account"
             app:layout_constraintTop_toTopOf="@id/tv_already_have_account"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="35dp"/>
+            android:layout_marginBottom="35dp"
+            android:alpha="0"
+            tools:alpha="1"/>
 
         <ProgressBar
             android:id="@+id/progressBar2"

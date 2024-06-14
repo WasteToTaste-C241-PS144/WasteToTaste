@@ -24,7 +24,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/tv_instruction"
             app:layout_constraintVertical_chainStyle="packed"
-            android:layout_marginTop="35dp"/>
+            android:layout_marginTop="35dp"
+            android:alpha="0"
+            tools:alpha="1"/>
 
         <TextView
             android:id="@+id/tv_instruction"
@@ -32,14 +34,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:layout_marginBottom="15dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_welcome"
-            app:layout_constraintBottom_toTopOf="@+id/iv_email"
-            android:text="Silahkan masuk untuk melanjutkan"
             android:fontFamily="@font/inter_regular"
+            android:text="Silahkan masuk untuk melanjutkan"
+            android:textColor="?attr/colorOnSurface"
             android:textSize="14.5sp"
-            android:textColor="?attr/colorOnSurface"/>
+            app:layout_constraintBottom_toTopOf="@+id/iv_email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_welcome"
+            android:alpha="0"
+            tools:alpha="1" />
 
         <ImageView
             android:id="@+id/iv_email"
@@ -48,7 +52,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_instruction" />
+            app:layout_constraintTop_toBottomOf="@id/tv_instruction"
+            android:alpha="0"
+            tools:alpha="1"/>
 
         <com.capstone.wastetotaste.cv.EmailCV
             android:autofillHints="emailAddress"
@@ -61,21 +67,13 @@
             app:layout_constraintEnd_toEndOf="@id/iv_email"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
-            style="@style/EditText.Auth"/>
+            style="@style/EditText.Auth"
+            android:alpha="0"
+            tools:alpha="1"/>
 
-<!--        <EditText-->
-<!--            android:id="@+id/edt_email"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_width="match_parent"-->
-<!--            app:layout_constraintTop_toTopOf="@id/iv_email"-->
-<!--            app:layout_constraintBottom_toBottomOf="@id/iv_email"-->
-<!--            app:layout_constraintStart_toStartOf="@id/iv_email"-->
-<!--            app:layout_constraintEnd_toEndOf="@id/iv_email"-->
-<!--            android:hint="@string/email"-->
-<!--            android:inputType="textEmailAddress"-->
-<!--            style="@style/EditText.Auth"/>-->
 
         <ImageView
+            android:id="@+id/img_email"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginStart="15dp"
@@ -84,16 +82,21 @@
             app:layout_constraintTop_toTopOf="@id/iv_email"
             app:layout_constraintBottom_toBottomOf="@id/iv_email"
             app:layout_constraintEnd_toStartOf="@id/CVEmail"
-            android:backgroundTint="?attr/colorOnSurface"/>
+            android:backgroundTint="?attr/colorOnSurface"
+            android:alpha="0"
+            tools:alpha="1"/>
 
         <ImageView
-            android:layout_marginTop="12dp"
             android:id="@+id/iv_password"
+            android:layout_marginTop="12dp"
             style="@style/ImageView.Auth"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_email"
-            app:layout_constraintBottom_toTopOf="@id/btn_login"/>
+            app:layout_constraintBottom_toTopOf="@id/btn_login"
+            android:alpha="0"
+            tools:alpha="1"
+            />
 
 
         <com.capstone.wastetotaste.cv.PassCV
@@ -107,7 +110,9 @@
             app:layout_constraintEnd_toEndOf="@id/iv_password"
             android:hint="@string/password"
             android:inputType="textPassword"
-            style="@style/EditText.Auth"/>
+            style="@style/EditText.Auth"
+            android:alpha="0"
+            tools:alpha="1"/>
 
 
         <ImageButton
@@ -122,9 +127,11 @@
             app:layout_constraintHorizontal_bias="0.536"
             app:layout_constraintStart_toEndOf="@+id/PasswordLogin"
             app:layout_constraintTop_toTopOf="@id/iv_password"
-             />
+            android:alpha="0"
+            tools:alpha="1"/>
 
         <ImageView
+            android:id="@+id/img_password"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginStart="15dp"
@@ -133,7 +140,9 @@
             app:layout_constraintTop_toTopOf="@id/iv_password"
             app:layout_constraintBottom_toBottomOf="@id/iv_password"
             app:layout_constraintEnd_toStartOf="@id/PasswordLogin"
-            android:backgroundTint="?attr/colorOnSurface"/>
+            android:backgroundTint="?attr/colorOnSurface"
+            android:alpha="0"
+            tools:alpha="1"/>
 
         <Button
             android:id="@+id/btn_login"
@@ -147,7 +156,9 @@
             app:layout_constraintBottom_toBottomOf="@id/tv_already_have_account"
             android:textSize="15sp"
             android:layout_marginTop="40dp"
-            android:textColor="?attr/colorSurface"/>
+            android:textColor="?attr/colorSurface"
+            android:alpha="0"
+            tools:alpha="1"/>
 
         <TextView
             android:id="@+id/tv_already_have_account"
@@ -164,7 +175,9 @@
             app:layout_constraintTop_toBottomOf="@id/btn_login"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/btn_to_signup"
-            app:layout_constraintHorizontal_chainStyle="packed"/>
+            app:layout_constraintHorizontal_chainStyle="packed"
+            android:alpha="0"
+            tools:alpha="1"/>
 
         <TextView
             android:id="@+id/btn_to_signup"
@@ -181,7 +194,9 @@
             app:layout_constraintStart_toEndOf="@+id/tv_already_have_account"
             app:layout_constraintTop_toTopOf="@id/tv_already_have_account"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="35dp"/>
+            android:layout_marginBottom="35dp"
+            android:alpha="0"
+            tools:alpha="1"/>
 
         <ProgressBar
             android:id="@+id/progressBar"
@@ -193,7 +208,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
