@@ -16,6 +16,7 @@ class ConfirmPassCV : AppCompatEditText, View.OnFocusChangeListener {
 
     var confirmPassMatched = false
     var isPasswordVisible = false
+    private var passwordFieldId: Int = 0
 
     init {
         init()
@@ -73,11 +74,15 @@ class ConfirmPassCV : AppCompatEditText, View.OnFocusChangeListener {
         }
     }
 
+    fun setPasswordFieldId(fieldId: Int) {
+        this.passwordFieldId = fieldId
+    }
+
+
     private fun checkConfirmPasswordValidity() {
         val pass = text.toString().trim()
         val confirmPass =
-            (parent as ViewGroup).findViewById<PassCV>(R.id.edt_password_signup).text.toString()
-                .trim()
+            (parent as ViewGroup).findViewById<PassCV>(passwordFieldId).text.toString().trim()
 
         confirmPassMatched = pass.length >= 8 && pass == confirmPass
         error = if (!confirmPassMatched) {
@@ -86,4 +91,5 @@ class ConfirmPassCV : AppCompatEditText, View.OnFocusChangeListener {
             null
         }
     }
+
 }

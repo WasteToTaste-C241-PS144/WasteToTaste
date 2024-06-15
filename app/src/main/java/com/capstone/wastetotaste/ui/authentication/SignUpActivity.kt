@@ -46,6 +46,7 @@ class SignUpActivity : AppCompatActivity() {
         val passwordEditText: PassCV = findViewById(R.id.edt_password_signup)
         val togglePasswordButton: ImageButton = findViewById(R.id.btn_eye_signup)
         val passwordConfirmEditText: ConfirmPassCV = findViewById(R.id.edt_confirm_password_signup)
+        passwordConfirmEditText.setPasswordFieldId(R.id.edt_password_signup)
         val toggleConfirmPasswordButton: ImageButton = findViewById(R.id.btn_eye_signup_confirm)
 
         togglePasswordButton.setOnClickListener {

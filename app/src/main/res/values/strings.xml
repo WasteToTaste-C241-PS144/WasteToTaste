@@ -97,4 +97,8 @@
     <string name="instruction">Cara Membuat</string>
     <string name="dialog_logout">Logout</string>
     <string name="dialog_logout_desc">Kamu yakin mau keluar?</string>
+    <string name="inputPassword">Masukkan password</string>
+    <string name="inputOldPassword">Masukkan password lama</string>
+    <string name="inputNewPassword">Masukkan password baru</string>
+    <string name="inputConfirmPassword">Konfirmasi password baru</string>
 </resources>
