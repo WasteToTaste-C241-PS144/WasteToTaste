@@ -1,6 +1,7 @@
 package com.capstone.wastetotaste.ui.settings
 
 import android.os.Bundle
+import android.util.DisplayMetrics
 import androidx.fragment.app.DialogFragment
 import android.view.LayoutInflater
 import android.view.View
@@ -29,5 +30,22 @@ class LogoutConfirmationDialogFragment(private val onLogoutConfirmed: () -> Unit
         }
 
         return view
+    }
+
+    override fun onStart() {
+        super.onStart()
+        // Set the maximum width of the dialog
+        dialog?.window?.setLayout(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+
+        // Get the screen width and set the desired maximum width
+        val displayMetrics = DisplayMetrics()
+        activity?.windowManager?.defaultDisplay?.getMetrics(displayMetrics)
+        val screenWidth = displayMetrics.widthPixels
+        val maxWidth = (screenWidth * 0.9).toInt() // 90% of screen width
+
+        dialog?.window?.setLayout(maxWidth, ViewGroup.LayoutParams.WRAP_CONTENT)
     }
 }

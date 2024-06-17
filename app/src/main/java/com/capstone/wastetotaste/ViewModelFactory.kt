@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.capstone.wastetotaste.ui.home.HomeViewModel
 import com.capstone.wastetotaste.ui.pantry.DeleteAllDialogViewModel
 import com.capstone.wastetotaste.ui.pantry.PantryViewModel
+import com.capstone.wastetotaste.ui.recipe.RecipeViewModel
 
 class ViewModelFactory private constructor(private val mApplication: Application) : ViewModelProvider.NewInstanceFactory() {
 
@@ -30,6 +31,7 @@ class ViewModelFactory private constructor(private val mApplication: Application
             modelClass.isAssignableFrom(PantryViewModel::class.java) -> PantryViewModel(mApplication) as T
             modelClass.isAssignableFrom(DeleteAllDialogViewModel::class.java) -> DeleteAllDialogViewModel(mApplication) as T
             modelClass.isAssignableFrom(HomeViewModel::class.java) -> HomeViewModel(mApplication) as T
+            modelClass.isAssignableFrom(RecipeViewModel::class.java) -> RecipeViewModel(mApplication) as T
             else -> throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
         }
     }

@@ -22,6 +22,9 @@ interface IngredientsDAO {
     @Query("SELECT * FROM ingredients ORDER BY id ASC")
     fun getAllIngredients(): LiveData<List<Ingredients>>
 
+    @Query("SELECT name FROM ingredients ORDER BY id ASC")
+    fun getAllIngredientsName(): LiveData<List<String>>
+
     @Query("""
         SELECT * FROM ingredients 
         WHERE expiry_date > :currentDate

@@ -34,27 +34,6 @@ class IngredientsRepository(application: Application) {
         return mIngredientsDAO.getAllExpiredIngredients(currentDate)
     }
 
-//     fun insert(ingredients: Ingredients, callback: (Boolean) -> Unit) {
-//         executorService.execute {
-//             val existingIngredient = mIngredientsDAO.getIngredientByName(ingredients.name)
-//             val isUnique = existingIngredient == null
-//
-//             if (isUnique) {
-//                 mIngredientsDAO.insert(ingredients)
-//             }
-//             callback(isUnique)
-//         }
-//    }
-
-//     fun insert(ingredients: Ingredients) {
-////        return if (mIngredientsDAO.getIngredientByName(ingredients.name) == null) {
-//         mIngredientsDAO.insert(ingredients)
-////            true
-////        } else {
-////            false
-////        }
-//    }
-
     fun insert(ingredient: Ingredients, onResult: (Boolean) -> Unit) {
         executorService.execute {
             try {
@@ -65,8 +44,6 @@ class IngredientsRepository(application: Application) {
             }
         }
     }
-
-
 
     fun delete(ingredients: Ingredients) {
         executorService.execute { mIngredientsDAO.delete(ingredients) }
@@ -86,6 +63,7 @@ class IngredientsRepository(application: Application) {
     }
 
     fun getAllIngredients(): LiveData<List<Ingredients>> = mIngredientsDAO.getAllIngredients()
+    fun getAllIngredientsName(): LiveData<List<String>> = mIngredientsDAO.getAllIngredientsName()
 
      fun deleteAllIngredients() {
         executorService.execute {

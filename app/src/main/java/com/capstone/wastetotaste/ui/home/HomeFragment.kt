@@ -64,7 +64,6 @@ class HomeFragment : Fragment() {
         binding.tvPantrySeeAll.setOnClickListener{
             (activity as? MainActivity)?.findViewById<BottomNavigationView>(R.id.nav_view)?.selectedItemId = R.id.navigation_pantry
         }
-        //binding.rvHomeIngredients.layoutManager = LinearLayoutManager(requireContext())
         val layoutManager = FlexboxLayoutManager(requireContext())
         layoutManager.flexDirection = FlexDirection.ROW
         binding.rvHomeIngredients.setLayoutManager(layoutManager)

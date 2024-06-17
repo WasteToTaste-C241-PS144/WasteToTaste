@@ -32,6 +32,7 @@ android {
     buildTypes {
         debug{
             buildConfigField("String", "API_URL", "\"https://wastetotaste-lficrzkhvq-et.a.run.app/wastetotaste/\"")
+            buildConfigField("String", "API_PREDICT_URL", "\"${project.findProperty("API_PREDICT_URL")}\"")
         }
         release {
             isMinifyEnabled = false
@@ -40,6 +41,7 @@ android {
                 "proguard-rules.pro"
             )
             buildConfigField("String", "API_URL", "\"https://wastetotaste-lficrzkhvq-et.a.run.app/wastetotaste/\"")
+            buildConfigField("String", "API_PREDICT_URL", "\"${project.findProperty("API_PREDICT_URL")}\"")
         }
     }
     compileOptions {
