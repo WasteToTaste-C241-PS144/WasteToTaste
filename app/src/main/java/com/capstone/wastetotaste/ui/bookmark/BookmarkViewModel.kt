@@ -5,12 +5,15 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.capstone.wastetotaste.data.Recipe
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class BookmarkViewModel : ViewModel() {
 
     private val firestore = FirebaseFirestore.getInstance()
     private val recipesCollection = firestore.collection("recipes")
+    private val auth = FirebaseAuth.getInstance()
+
 
     private val _bookmarkRecipes = MutableLiveData<List<Recipe>>()
     val bookmarkRecipes: LiveData<List<Recipe>>
@@ -21,9 +24,12 @@ class BookmarkViewModel : ViewModel() {
     }
 
     private fun loadBookmarkRecipes() {
-        // Query Firestore for bookmarked recipes
-        recipesCollection.whereEqualTo("bookmarked", true)
-            .addSnapshotListener { snapshot, exception ->
+        val user = auth.currentUser
+        if (user != null) {
+            val userId = user.uid
+            val userBookmarksCollection = firestore.collection("users").document(userId).collection("bookmarks")
+
+            userBookmarksCollection.addSnapshotListener { snapshot, exception ->
                 if (exception != null) {
                     // Handle error
                     return@addSnapshotListener
@@ -39,5 +45,6 @@ class BookmarkViewModel : ViewModel() {
 
                 _bookmarkRecipes.value = recipesList
             }
+        }
     }
 }
