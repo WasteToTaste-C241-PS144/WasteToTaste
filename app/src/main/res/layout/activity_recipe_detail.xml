@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:fillViewport="true">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/AppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
         android:elevation="10dp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/topAppBar"
@@ -22,13 +20,24 @@
             android:layout_height="60dp"
             android:minHeight="?attr/actionBarSize"
             app:titleCentered="true"
-            app:menu="@menu/recipe_detail_menu"
             android:paddingEnd="3dp"
             app:title="@string/app_name"
             app:titleMarginBottom="13dp"
             app:titleTextAppearance="@style/TextAppearance.App.TitleLarge"
             app:navigationIconTint="?attr/colorOnSurface"
-            app:navigationIcon="@drawable/ic_back"/>
+            app:navigationIcon="@drawable/ic_back">
+
+            <ToggleButton
+                android:id="@+id/toggleBookmark"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:textOff=""
+                android:textOn=""
+                android:background="@drawable/ic_bookmark"
+                android:checked="false"
+                android:layout_gravity="end"
+                android:layout_marginEnd="16dp"/>
+        </com.google.android.material.appbar.MaterialToolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -43,7 +52,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/iv_recipe"
@@ -121,8 +130,6 @@
                 android:fontFamily="@font/inter_regular"
                 android:lineSpacingExtra="5dp"
                 tools:text="@string/dummy_recipe_instruction"/>
-
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

@@ -35,6 +35,8 @@ roomCompiler = "2.5.1"
 roomKtx = "2.5.1"
 swiperefreshlayout = "1.1.0"
 firebaseAuthKtx = "23.0.0"
+googleServices = "4.4.2"
+firebaseFirestore = "25.0.0"
 
 [libraries]
 android-async-http = { module = "com.loopj.android:android-async-http", version.ref = "androidAsyncHttp" }
@@ -76,6 +78,8 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 car-ui-lib = { group = "com.android.car.ui", name = "car-ui-lib", version.ref = "carUiLib" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "converterGson" }
 firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx", version.ref = "firebaseAuthKtx" }
+google-services = { group = "com.google.gms", name = "google-services", version.ref = "googleServices" }
+firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore", version.ref = "firebaseFirestore" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

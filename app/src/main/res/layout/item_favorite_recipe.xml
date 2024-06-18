@@ -52,7 +52,7 @@
             android:text="@string/recipe_name"
             android:textSize="15dp"
             card_view:layout_constraintBottom_toBottomOf="parent"
-            card_view:layout_constraintEnd_toStartOf="@id/iv_bookmark"
+            card_view:layout_constraintEnd_toStartOf="@id/btn_bookmark"
             card_view:layout_constraintHorizontal_bias="0.0"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="@id/rectangle"
@@ -67,30 +67,26 @@
             android:text="@string/ingredients_needed"
             android:textSize="12dp"
             card_view:layout_constraintBottom_toBottomOf="parent"
-            card_view:layout_constraintEnd_toStartOf="@id/iv_bookmark"
+            card_view:layout_constraintEnd_toStartOf="@id/btn_bookmark"
             card_view:layout_constraintHorizontal_bias="0.0"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toBottomOf="@id/tv_title"
             card_view:layout_constraintVertical_bias="0.2" />
 
-
-        <ImageView
-            android:id="@+id/iv_bookmark"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_marginStart="192dp"
-            android:textOff=""
-            android:textOn=""
-            android:background="@drawable/ic_bookmark"
-            android:checked="false"
-            android:layout_gravity="end"
+        <ImageButton
+            android:id="@+id/btn_bookmark"
+            android:backgroundTint="?attr/colorOnSurface"
             android:layout_marginEnd="16dp"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:layout_marginStart="192dp"
+            android:background="@drawable/ic_like"
             card_view:layout_constraintBottom_toBottomOf="@id/rectangle"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintHorizontal_bias="1"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="@id/rectangle"
-            card_view:layout_constraintVertical_bias="0.5"/>
+            card_view:layout_constraintVertical_bias="0.5" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

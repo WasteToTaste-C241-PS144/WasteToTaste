@@ -5,7 +5,7 @@
     <string name="title_home">Beranda</string>
     <string name="title_pantry">Bahan</string>
     <string name="title_recipe">Resep</string>
-    <string name="title_favorite">Favorit</string>
+    <string name="title_favorite">Bookmark</string>
     <string name="title_settings">Pengaturan</string>
     <string name="recipe_name">Nama Resep</string>
     <string name="ingredients_needed">Anda membutuhkan n bahan lagi</string>

@@ -29,5 +29,8 @@ data class Recipe(
 	val title: String? = null,
 
 	@field:SerializedName("steps")
-	val steps: List<String?>? = null
+	val steps: List<String?>? = null,
+
+	var isBookmarked: Boolean = false  // tambahkan atribut ini
+
 ): Parcelable

@@ -110,4 +110,7 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.android.flexbox:flexbox:3.0.0")
+    implementation ("com.google.firebase:firebase-firestore:24.0.0")
+
+
 }
