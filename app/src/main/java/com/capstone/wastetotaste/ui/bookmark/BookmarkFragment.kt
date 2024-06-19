@@ -2,6 +2,7 @@ package com.capstone.wastetotaste.ui.bookmark
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,7 +37,8 @@ class BookmarkFragment : Fragment() {
 
         adapter = ItemRecipeAdapter(emptyList(), object : ItemRecipeAdapter.OnItemClickCallback {
             override fun onItemClicked(recipe: Recipe) {
-                val moveWithObjectIntent = Intent(requireContext(), RecipeDetailActivity::class.java)
+                val moveWithObjectIntent =
+                    Intent(requireContext(), RecipeDetailActivity::class.java)
                 moveWithObjectIntent.putExtra(RecipeDetailActivity.EXTRA_RECIPE, recipe)
                 startActivity(moveWithObjectIntent)
             }
@@ -46,7 +48,20 @@ class BookmarkFragment : Fragment() {
         binding.rvFavorite.layoutManager = LinearLayoutManager(requireContext())
 
         viewModel.bookmarkRecipes.observe(viewLifecycleOwner, Observer { recipes ->
-            adapter.setRecipes(recipes) // Use setter method to update adapter data
+            adapter.setRecipes(recipes)
+            if (recipes.isEmpty()) {
+                binding.rvFavorite.visibility = View.GONE
+                binding.tvNotFound1.visibility = View.VISIBLE
+                binding.tvNotFound2.visibility = View.VISIBLE
+                binding.ivNotyet.visibility = View.VISIBLE
+                Log.d("BookmarkFragment", "No bookmarks found, showing ivNoBookmark")
+            } else {
+                binding.rvFavorite.visibility = View.VISIBLE
+                binding.tvNotFound1.visibility = View.GONE
+                binding.tvNotFound2.visibility = View.GONE
+                binding.ivNotyet.visibility = View.GONE
+                Log.d("BookmarkFragment", "Bookmarks found, hiding ivNoBookmark")
+            }
         })
 
     }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.bookmark.BookmarkFragment">
@@ -11,9 +11,48 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_notyet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="185dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/tv_not_found1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.522"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_no_bookmark" />
+
+    <TextView
+        android:id="@+id/tv_not_found1"
+        android:layout_width="245dp"
+        android:layout_height="34dp"
+        android:fontFamily="@font/dosis_semi_bold"
+        android:text="Belum Ada Bookmark"
+        android:textAlignment="center"
+        android:textSize="22sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/iv_notyet"
+        app:layout_constraintStart_toStartOf="@+id/iv_notyet"
+        app:layout_constraintTop_toBottomOf="@+id/iv_notyet" />
+
+    <TextView
+        android:id="@+id/tv_not_found2"
+        android:layout_width="245dp"
+        android:layout_height="35dp"
+        android:fontFamily="@font/inter_regular"
+        android:text="Jelajahi lebih banyak dan tekan bookmark untuk menyimpan resep favoritmu"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/tv_not_found1"
+        app:layout_constraintStart_toStartOf="@+id/tv_not_found1"
+        app:layout_constraintTop_toBottomOf="@+id/tv_not_found1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
