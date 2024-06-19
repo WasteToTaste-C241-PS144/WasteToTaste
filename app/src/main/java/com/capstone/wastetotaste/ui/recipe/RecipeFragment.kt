@@ -19,6 +19,7 @@ class RecipeFragment : Fragment() {
 
     private lateinit var binding: FragmentRecipeBinding
     private lateinit var viewModel: RecipeViewModel
+    private lateinit var adapter: RecipeAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,7 +41,7 @@ class RecipeFragment : Fragment() {
             if (ingredients.isNotEmpty()) viewModel.predictRecipe(IngredientsRequest(ingredients))
         })
 
-        val adapter = RecipeAdapter(viewModel)
+        adapter = RecipeAdapter(viewModel)
         binding.rvRecipe.adapter = adapter
 
         viewModel.recipePrediction.observe(viewLifecycleOwner) { listRecipe ->
@@ -54,7 +55,6 @@ class RecipeFragment : Fragment() {
                 startActivity(moveWithObjectIntent)
             }
         })
-
     }
 
     private fun obtainViewModel(fragment: Fragment): RecipeViewModel {
@@ -62,3 +62,5 @@ class RecipeFragment : Fragment() {
         return ViewModelProvider(fragment.requireActivity(), factory)[RecipeViewModel::class.java]
     }
 }
+
+

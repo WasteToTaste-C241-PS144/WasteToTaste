@@ -17,18 +17,6 @@ class PantryViewModel(application: Application) : ViewModel() {
     private val mIngredientsRepository: IngredientsRepository = IngredientsRepository(application)
     val allIngredients: LiveData<List<Ingredients>> = mIngredientsRepository.getAllIngredients()
 
-//    fun insert(name: String, callback: (Boolean) -> Unit) {
-//        val ingredient = Ingredients(name = name, expiryDate = null)
-//        mIngredientsRepository.insert(ingredient, callback)
-//    }
-
-//    fun insert(name: String) = viewModelScope.launch(
-//        Dispatchers.IO) {
-//        async {
-//            val ingredients = Ingredients(name = name, expiryDate = null)
-//            mIngredientsRepository.insert(ingredients)
-//        }.await()
-//    }
 
     fun insert(name: String, onResult: (Boolean) -> Unit) {
         val ingredient = Ingredients(name = name, expiryDate = null)
@@ -44,10 +32,5 @@ class PantryViewModel(application: Application) : ViewModel() {
     }
 
 
-
-//    fun insert(name: String){
-//        val ingredient = Ingredients(name = name, expiryDate = null)
-//        mIngredientsRepository.insert(ingredient)
-//    }
 }
 

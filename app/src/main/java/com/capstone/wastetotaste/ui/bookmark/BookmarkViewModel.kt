@@ -11,7 +11,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 class BookmarkViewModel : ViewModel() {
 
     private val firestore = FirebaseFirestore.getInstance()
-    private val recipesCollection = firestore.collection("recipes")
+//    private val recipesCollection = firestore.collection("recipes")
     private val auth = FirebaseAuth.getInstance()
 
 
