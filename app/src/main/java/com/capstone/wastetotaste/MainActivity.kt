@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.capstone.wastetotaste.databinding.ActivityMainBinding
+import com.capstone.wastetotaste.ui.home.HomeFragment
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -24,7 +25,5 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar);
 
         navView.setupWithNavController(navController)
-
-
     }
 }

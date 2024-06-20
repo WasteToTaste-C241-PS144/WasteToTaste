@@ -1,65 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context=".ui.bookmark.BookmarkFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_favorite"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/iv_notyet"
-        android:layout_width="0dp"
-        app:layout_constraintVertical_chainStyle="packed"
-        android:layout_height="0dp"
-        app:layout_constraintDimensionRatio="H,368:277"
-        android:layout_marginHorizontal="60dp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/tv_not_found1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.522"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/no_recommendation_found" />
-
-    <TextView
-        android:id="@+id/tv_not_found1"
-        android:layout_width="245dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/dosis_semi_bold"
-        android:text="Belum Ada Bookmark"
-        app:layout_constraintBottom_toTopOf="@id/tv_not_found2"
-        android:textAlignment="center"
-        android:textSize="22sp"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="@+id/iv_notyet"
-        app:layout_constraintStart_toStartOf="@+id/iv_notyet"
-        app:layout_constraintTop_toBottomOf="@+id/iv_notyet" />
-
-    <TextView
-        android:id="@+id/tv_not_found2"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_marginTop="10dp"
-        android:lineSpacingExtra="2dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/inter_regular"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:text="Jelajahi lebih banyak dan tekan\nbookmark untuk menyimpan resep\nfavoritmu"
-        android:textAlignment="center"
-        android:textSize="15sp"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="@+id/tv_not_found1"
-        app:layout_constraintStart_toStartOf="@+id/tv_not_found1"
-        app:layout_constraintTop_toBottomOf="@+id/tv_not_found1" />
+        android:id="@+id/bookmarkLayout"
+        android:layout_height="wrap_content">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_favorite"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_notyet"
+                android:layout_width="0dp"
+                app:layout_constraintVertical_chainStyle="packed"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="H,368:277"
+                android:layout_marginHorizontal="60dp"
+                android:visibility="visible"
+                app:layout_constraintBottom_toTopOf="@+id/tv_not_found1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.522"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/no_recommendation_found" />
+
+            <TextView
+                android:id="@+id/tv_not_found1"
+                android:layout_width="245dp"
+                android:layout_height="34dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/dosis_semi_bold"
+                android:text="Belum Ada Bookmark"
+                app:layout_constraintBottom_toTopOf="@id/tv_not_found2"
+                android:textAlignment="center"
+                android:textSize="22sp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="@+id/iv_notyet"
+                app:layout_constraintStart_toStartOf="@+id/iv_notyet"
+                app:layout_constraintTop_toBottomOf="@+id/iv_notyet" />
+
+            <TextView
+                android:id="@+id/tv_not_found2"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:lineSpacingExtra="2dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_regular"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="Jelajahi lebih banyak dan tekan\nbookmark untuk menyimpan resep\nfavoritmu"
+                android:textAlignment="center"
+                android:textSize="15sp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="@+id/tv_not_found1"
+                app:layout_constraintStart_toStartOf="@+id/tv_not_found1"
+                app:layout_constraintTop_toBottomOf="@+id/tv_not_found1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

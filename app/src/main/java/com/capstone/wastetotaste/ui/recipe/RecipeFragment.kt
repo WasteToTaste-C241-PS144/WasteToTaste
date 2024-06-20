@@ -2,6 +2,7 @@ package com.capstone.wastetotaste.ui.recipe
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.LayoutInflater
@@ -11,6 +12,8 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
@@ -132,6 +135,12 @@ class RecipeFragment : Fragment() {
         }
 
         binding.recipeSearchBar.setSaveEnabled(false)
+
+        if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            removeBottomConstraint()
+            setLeftRightMargins(binding.ivNoRecipeFound, 500, 500, 70)
+            setLeftRightMargins(binding.ivNoRecommedationFound, 500, 500, 70)
+        }
     }
 
     private fun obtainViewModel(fragment: Fragment): RecipeViewModel {
@@ -142,6 +151,31 @@ class RecipeFragment : Fragment() {
     private fun hideKeyboard(view: View, activity: FragmentActivity) {
         val imm = activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view.windowToken, 0)
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            removeBottomConstraint()
+            setLeftRightMargins(binding.ivNoRecipeFound, 500, 500, 70)
+            setLeftRightMargins(binding.ivNoRecommedationFound, 500, 500, 70)
+        }
+    }
+
+    private fun removeBottomConstraint() {
+        val constraintSet = ConstraintSet()
+        constraintSet.clone(binding.recipePageLayout)
+        constraintSet.clear(binding.noRecipeFound.id, ConstraintSet.BOTTOM)
+        constraintSet.clear(binding.noRecommendationFound.id, ConstraintSet.BOTTOM)
+        constraintSet.applyTo(binding.recipePageLayout)
+    }
+
+    private fun setLeftRightMargins(view: View, left: Int, right: Int, top: Int) {
+        val params = view.layoutParams as ConstraintLayout.LayoutParams
+        params.leftMargin = left
+        params.rightMargin = right
+        params.topMargin = top
+        view.layoutParams = params
     }
 }
 

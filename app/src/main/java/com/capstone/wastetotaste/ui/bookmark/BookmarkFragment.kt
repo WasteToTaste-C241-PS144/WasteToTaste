@@ -1,11 +1,15 @@
 package com.capstone.wastetotaste.ui.bookmark
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
+import androidx.core.view.marginStart
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -63,6 +67,32 @@ class BookmarkFragment : Fragment() {
                 Log.d("BookmarkFragment", "Bookmarks found, hiding ivNoBookmark")
             }
         })
+        if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            removeBottomConstraint()
+            setLeftRightMargins(binding.ivNotyet, 500, 500, 50)
+        }
+    }
 
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            removeBottomConstraint()
+            setLeftRightMargins(binding.ivNotyet, 500, 500, 50)
+        }
+    }
+
+    private fun removeBottomConstraint() {
+        val constraintSet = ConstraintSet()
+        constraintSet.clone(binding.bookmarkLayout)
+        constraintSet.clear(binding.tvNotFound2.id, ConstraintSet.BOTTOM)
+        constraintSet.applyTo(binding.bookmarkLayout)
+    }
+
+    private fun setLeftRightMargins(view: View, left: Int, right: Int, top: Int) {
+        val params = view.layoutParams as ConstraintLayout.LayoutParams
+        params.leftMargin = left
+        params.rightMargin = right
+        params.topMargin = top
+        view.layoutParams = params
     }
 }

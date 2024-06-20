@@ -3,6 +3,7 @@ package com.capstone.wastetotaste.ui.home
 import android.R.id.hint
 import android.R.id.message
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.LayoutInflater
@@ -10,6 +11,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -127,8 +130,12 @@ class HomeFragment : Fragment() {
                 }
             }
         })
-
         binding.recipeHomeSearchBar.setSaveEnabled(false)
+
+        if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            removeBottomConstraint()
+            setLeftRightMargins(binding.ivHomeEmpty, 500, 500, 90)
+        }
     }
 
     private fun obtainViewModel(fragment: Fragment): HomeViewModel {
@@ -136,4 +143,26 @@ class HomeFragment : Fragment() {
         return ViewModelProvider(fragment.requireActivity(), factory)[HomeViewModel::class.java]
     }
 
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            removeBottomConstraint()
+            setLeftRightMargins(binding.ivHomeEmpty, 500, 500, 70)
+        }
+    }
+
+    private fun removeBottomConstraint() {
+        val constraintSet = ConstraintSet()
+        constraintSet.clone(binding.homeLayout)
+        constraintSet.clear(binding.homeEmpty.id, ConstraintSet.BOTTOM)
+        constraintSet.applyTo(binding.homeLayout)
+    }
+
+    private fun setLeftRightMargins(view: View, left: Int, right: Int, top: Int) {
+        val params = view.layoutParams as ConstraintLayout.LayoutParams
+        params.leftMargin = left
+        params.rightMargin = right
+        params.topMargin = top
+        view.layoutParams = params
+    }
 }

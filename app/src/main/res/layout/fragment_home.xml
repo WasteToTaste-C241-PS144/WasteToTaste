@@ -9,6 +9,7 @@
     tools:context=".ui.home.HomeFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/home_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -56,32 +57,6 @@
                     app:layout_constraintStart_toStartOf="@id/greetings"
                     app:layout_constraintEnd_toEndOf="@id/greetings"/>
 
-<!--                <com.google.android.material.search.SearchBar-->
-<!--                    android:id="@+id/pantry_search_bar"-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="48dp"-->
-<!--                    android:layout_marginBottom="26dp"-->
-<!--                    android:layout_marginHorizontal="15dp"-->
-<!--                    android:hint="@string/searchbar_recipe_hint"-->
-<!--                    android:textAppearance="@style/TextAppearance.SearchBar"-->
-<!--                    app:layout_constraintBottom_toBottomOf="@+id/rectangle"-->
-<!--                    app:layout_constraintEnd_toEndOf="@id/rectangle"-->
-<!--                    app:layout_constraintStart_toStartOf="@id/rectangle"-->
-<!--                    app:layout_constraintTop_toBottomOf="@id/greetings2" />-->
-
-<!--                <com.google.android.material.search.SearchView-->
-<!--                    android:id="@+id/searchView"-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="0dp"-->
-<!--                    android:hint="@string/searchbar_recipe_hint"-->
-<!--                    app:layout_anchor="@id/pantry_search_bar"-->
-<!--                    android:textAppearance="@style/TextAppearance.SearchBar"-->
-<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                    app:layout_constraintEnd_toEndOf="parent"-->
-<!--                    app:layout_constraintStart_toStartOf="parent"-->
-<!--                    app:layout_constraintTop_toBottomOf="parent">-->
-<!--                </com.google.android.material.search.SearchView>-->
-
                 <AutoCompleteTextView
                     android:id="@+id/recipe_home_search_bar"
                     android:maxLines="1"
@@ -103,6 +78,7 @@
                     app:layout_constraintBottom_toBottomOf="@id/rectangle"/>
 
                 <ImageView
+                    android:id="@+id/iv_search_home"
                     android:layout_width="22dp"
                     android:layout_height="22dp"
                     android:background="@drawable/ic_search"
@@ -251,6 +227,7 @@
 
                         <ImageView
                             android:id="@+id/iv_home_empty"
+                            android:layout_marginTop="10dp"
                             android:layout_width="0dp"
                             android:layout_height="0dp"
                             app:layout_constraintDimensionRatio="H,368:271"
