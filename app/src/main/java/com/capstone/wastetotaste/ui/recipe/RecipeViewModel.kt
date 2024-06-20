@@ -25,6 +25,10 @@ class RecipeViewModel(application: Application) : ViewModel() {
     private val firestore = FirebaseFirestore.getInstance()
     private val auth = FirebaseAuth.getInstance()
 
+    fun setValue(value: ArrayList<Recipe>){
+        _recipePrediction.value = value
+    }
+
     fun predictRecipe(request: IngredientsRequest) {
         val client = ApiConfig.getApiPredictService().predictRecipe(request)
         client.enqueue(object : Callback<RecipeResponse> {

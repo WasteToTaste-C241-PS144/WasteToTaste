@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
+import android.util.Log
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
@@ -76,7 +77,10 @@ class RecipeFragment : Fragment() {
                         val inputText = binding.recipeSearchBar.text.toString().trim()
                         if(inputText.isNotEmpty()){
                             viewModel.searchRecipe(inputText)
-                        } else  viewModel.searchRecipe("*")
+                            Log.d("RecipeFragment", "MASOKKK SEARCH")
+                        } else {
+                            viewModel.searchRecipe("*")
+                        }
                         binding.recipeSearchBar.clearFocus()
                         hideKeyboard(binding.recipeSearchBar, requireActivity())
                         true
@@ -89,15 +93,17 @@ class RecipeFragment : Fragment() {
         adapter = RecipeAdapter(viewModel)
         binding.rvRecipe.adapter = adapter
 
-        if (savedInstanceState != null) {
-            val savedRecipes = savedInstanceState.getParcelableArrayList<Recipe>(KEY_SEARCH_RESULT)
-            if (savedRecipes != null) {
-                viewModel._recipePrediction.value = savedRecipes
-                viewModel.isSearching.value = true
-            }
-        }
+//        if (savedInstanceState != null) {
+//            Log.d("RecipeFragment", "MASOKK NGEMBALIIN VALUE2")
+//            val savedRecipes = savedInstanceState.getParcelableArrayList<Recipe>(KEY_SEARCH_RESULT)
+//            if (savedRecipes != null) {
+//                viewModel.setValue(savedRecipes)
+//                viewModel.isSearching.value = true
+//            }
+//        }
 
         viewModel._recipePrediction.observe(viewLifecycleOwner) { listRecipe ->
+            Log.d("RecipeFragment", "MASOKK OBSERVER")
             viewModel.isSearching.observe(viewLifecycleOwner) {isSearching ->
                 if(listRecipe.isEmpty() && isSearching){
                     binding.noRecipeFound.visibility = View.VISIBLE
@@ -154,7 +160,9 @@ class RecipeFragment : Fragment() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putParcelableArrayList(KEY_SEARCH_RESULT, ArrayList(viewModel._recipePrediction.value))
+        if(viewModel.isSearching.value == true){
+            outState.putParcelableArrayList(KEY_SEARCH_RESULT, ArrayList(viewModel._recipePrediction.value))
+        }
     }
 
     private fun obtainViewModel(fragment: Fragment): RecipeViewModel {
