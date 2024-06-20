@@ -95,7 +95,7 @@ class RecipeResultActivity : AppCompatActivity() {
             }
         })
 
-        viewModel._searchResult.observe(this) { listRecipe ->
+        viewModel.searchResult.observe(this) { listRecipe ->
             if(listRecipe.isEmpty()){
                 binding.homeNoRecipeFound.visibility = View.VISIBLE
             }
@@ -109,7 +109,7 @@ class RecipeResultActivity : AppCompatActivity() {
             override fun onItemClicked(recipe: Recipe) {
                 val moveWithObjectIntent = Intent(this@RecipeResultActivity, RecipeDetailActivity::class.java)
                 moveWithObjectIntent.putExtra(RecipeDetailActivity.EXTRA_RECIPE, recipe)
-                startActivity(moveWithObjectIntent)
+                startActivityForResult(moveWithObjectIntent, REQUEST_CODE_RECIPE_DETAIL)
             }
         })
 
@@ -135,9 +135,23 @@ class RecipeResultActivity : AppCompatActivity() {
         val imm = activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CODE_RECIPE_DETAIL && resultCode == Activity.RESULT_OK) {
+            data?.let {
+                val updatedRecipe = it.getParcelableExtra<Recipe>(RecipeDetailActivity.EXTRA_RECIPE)
+                updatedRecipe?.let { recipe ->
+                    viewModel.updateRecipeInPredictionList(recipe.id!!, recipe.isBookmarked)
+                }
+            }
+        }
+    }
     companion object {
         const val EXTRA_HINT = "extra_hint"
         private const val KEY_SEARCH_RESULT = "key_search_result"
+        const val REQUEST_CODE_RECIPE_DETAIL = 1
+
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {

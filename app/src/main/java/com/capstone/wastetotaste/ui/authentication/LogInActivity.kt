@@ -63,11 +63,6 @@ class LogInActivity : AppCompatActivity() {
 
 
     private fun playAnimation() {
-//        ObjectAnimator.ofFloat(binding.tvWelcome, View.TRANSLATION_X, -30f, 30f).apply {
-//            duration = 6000
-//            repeatCount = ObjectAnimator.INFINITE
-//            repeatMode = ObjectAnimator.REVERSE
-//        }.start()
         val tvWelcome =
             ObjectAnimator.ofFloat(binding.tvWelcome, View.ALPHA, 1f).setDuration(200)
         val tvLoginDescriptionAnn =

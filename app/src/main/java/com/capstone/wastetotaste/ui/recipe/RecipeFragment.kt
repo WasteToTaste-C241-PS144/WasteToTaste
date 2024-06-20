@@ -102,7 +102,7 @@ class RecipeFragment : Fragment() {
 //            }
 //        }
 
-        viewModel._recipePrediction.observe(viewLifecycleOwner) { listRecipe ->
+        viewModel.recipePrediction.observe(viewLifecycleOwner) { listRecipe ->
             Log.d("RecipeFragment", "MASOKK OBSERVER")
             viewModel.isSearching.observe(viewLifecycleOwner) {isSearching ->
                 if(listRecipe.isEmpty() && isSearching){

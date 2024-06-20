@@ -2,6 +2,8 @@ package com.capstone.wastetotaste.ui.home
 
 import android.app.Application
 import android.util.Log
+import android.widget.Toast
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -14,12 +16,14 @@ import retrofit2.Response
 import retrofit2.Call
 import retrofit2.Callback
 
-class RecipeResultViewModel(application: Application) : ViewModel() {
+class RecipeResultViewModel(application: Application) : AndroidViewModel(application) {
     val _searchResult = MutableLiveData<List<Recipe>>()
-    //val searchResult: LiveData<List<Recipe>> get() = _searchResult
+    val searchResult: LiveData<List<Recipe>> get() = _searchResult
     private val firestore = FirebaseFirestore.getInstance()
     private val auth = FirebaseAuth.getInstance()
-
+    private fun showToast(message: String) {
+        Toast.makeText(getApplication(), message, Toast.LENGTH_SHORT).show()
+    }
     fun addToBookmarks(recipe: Recipe) {
         val userId = auth.currentUser?.uid
         userId?.let {
@@ -27,11 +31,11 @@ class RecipeResultViewModel(application: Application) : ViewModel() {
                 .collection("bookmarks").document(recipe.id.toString())
                 .set(recipe)
                 .addOnSuccessListener {
-                    Log.d(TAG, "Recipe added to bookmarks")
+                    showToast("Resep berhasil dibookmark")
                     updateRecipeInPredictionList(recipe.id!!, true)
                 }
                 .addOnFailureListener { e ->
-                    Log.e(TAG, "Error adding recipe to bookmarks", e)
+                    showToast("Resep gagal dibookmark: ${e.message}")
                 }
         } ?: run {
             Log.e(TAG, "Current user is null")
@@ -45,18 +49,17 @@ class RecipeResultViewModel(application: Application) : ViewModel() {
                 .collection("bookmarks").document(recipe.id.toString())
                 .delete()
                 .addOnSuccessListener {
-                    Log.d(TAG, "Recipe removed from bookmarks")
+                    showToast("Resep berhasil dihapus dari bookmark")
                     updateRecipeInPredictionList(recipe.id!!, false)
                 }
                 .addOnFailureListener { e ->
-                    Log.e(TAG, "Error removing recipe from bookmarks", e)
+                    showToast("Resep gagal dihapus dari bookmark: ${e.message}")
                 }
         } ?: run {
             Log.e(TAG, "Current user is null")
         }
     }
-
-    private fun updateRecipeInPredictionList(recipeId: Int, isBookmarked: Boolean) {
+     fun updateRecipeInPredictionList(recipeId: Int, isBookmarked: Boolean) {
         _searchResult.value?.let { list ->
             val updatedList = list.map {
                 if (it.id == recipeId) {
@@ -92,11 +95,9 @@ class RecipeResultViewModel(application: Application) : ViewModel() {
                 }
         }
     }
-
     companion object {
         private const val TAG = "RecipeViewModel"
     }
-
     fun searchRecipe(query: String) {
         val client = ApiConfig.getApiPredictService().searchRecipe(query)
         client.enqueue(object : Callback<RecipeResponse> {
@@ -111,13 +112,11 @@ class RecipeResultViewModel(application: Application) : ViewModel() {
                     Log.e(TAG, "onFailure: ${response.message()}")
                 }
             }
-
             override fun onFailure(call: Call<RecipeResponse>, t: Throwable) {
                 Log.e(TAG, "onFailure: ${t.message}")
             }
         })
     }
-
     fun emptyRecipe(){
         _searchResult.value = emptyList()
     }

@@ -2,6 +2,8 @@ package com.capstone.wastetotaste.ui.recipe
 
 import android.app.Application
 import android.util.Log
+import android.widget.Toast
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -17,14 +19,21 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.http.Query
 
-class RecipeViewModel(application: Application) : ViewModel() {
+class RecipeViewModel(application: Application) : AndroidViewModel(application) {
     val _recipePrediction = MutableLiveData<List<Recipe>>()
+    val recipePrediction: LiveData<List<Recipe>> get() = _recipePrediction
     private val mIngredientsRepository: IngredientsRepository = IngredientsRepository(application)
     val allIngredients: LiveData<List<String>> = mIngredientsRepository.getAllIngredientsName()
     val isSearching = MutableLiveData<Boolean>()
     private val firestore = FirebaseFirestore.getInstance()
     private val auth = FirebaseAuth.getInstance()
 
+    init {
+        observeBookmarks()
+    }
+    private fun showToast(message: String) {
+        Toast.makeText(getApplication(), message, Toast.LENGTH_SHORT).show()
+    }
     fun setValue(value: ArrayList<Recipe>){
         _recipePrediction.value = value
     }
@@ -57,11 +66,11 @@ class RecipeViewModel(application: Application) : ViewModel() {
                 .collection("bookmarks").document(recipe.id.toString())
                 .set(recipe)
                 .addOnSuccessListener {
-                    Log.d(TAG, "Recipe added to bookmarks")
+                    showToast("Resep berhasil dibookmark")
                     updateRecipeInPredictionList(recipe.id!!, true)
                 }
                 .addOnFailureListener { e ->
-                    Log.e(TAG, "Error adding recipe to bookmarks", e)
+                    showToast("Resep gagal dibookmark: ${e.message}")
                 }
         } ?: run {
             Log.e(TAG, "Current user is null")
@@ -75,11 +84,11 @@ class RecipeViewModel(application: Application) : ViewModel() {
                 .collection("bookmarks").document(recipe.id.toString())
                 .delete()
                 .addOnSuccessListener {
-                    Log.d(TAG, "Recipe removed from bookmarks")
+                    showToast("Resep berhasil dihapus dari bookmark")
                     updateRecipeInPredictionList(recipe.id!!, false)
                 }
                 .addOnFailureListener { e ->
-                    Log.e(TAG, "Error removing recipe from bookmarks", e)
+                    showToast("Resep gagal dihapus dari bookmark: ${e.message}")
                 }
         } ?: run {
             Log.e(TAG, "Current user is null")
@@ -121,6 +130,35 @@ class RecipeViewModel(application: Application) : ViewModel() {
                     Log.e(TAG, "Error fetching bookmarks", e)
                 }
         }
+    }
+
+    private fun observeBookmarks() {
+        val user = auth.currentUser
+        if (user != null) {
+            val userId = user.uid
+            firestore.collection("users").document(userId).collection("bookmarks")
+                .addSnapshotListener { snapshots, e ->
+                    if (e != null) {
+                        Log.w("RecipeViewModel", "listen:error", e)
+                        return@addSnapshotListener
+                    }
+
+                    val bookmarkedRecipes = mutableListOf<Recipe>()
+                    for (doc in snapshots!!) {
+                        val recipe = doc.toObject(Recipe::class.java)
+                        bookmarkedRecipes.add(recipe)
+                    }
+                    updateBookmarkedRecipes(bookmarkedRecipes)
+                }
+        }
+    }
+
+    private fun updateBookmarkedRecipes(bookmarkedRecipes: List<Recipe>) {
+        val currentRecipes = _recipePrediction.value?.toMutableList() ?: mutableListOf()
+        for (recipe in currentRecipes) {
+            recipe.isBookmarked = bookmarkedRecipes.any { it.id == recipe.id }
+        }
+        _recipePrediction.postValue(currentRecipes)
     }
 
     companion object {

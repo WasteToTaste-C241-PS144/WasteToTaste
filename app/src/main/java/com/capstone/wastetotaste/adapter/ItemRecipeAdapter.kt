@@ -1,8 +1,10 @@
 package com.capstone.wastetotaste.adapter
 
+import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.capstone.wastetotaste.R
@@ -34,7 +36,7 @@ class ItemRecipeAdapter(
         }
 
         holder.binding.tbBookmark.setOnClickListener {
-            toggleBookmarkState(recipe)
+            toggleBookmarkState(holder.itemView.context, recipe)
         }
     }
 
@@ -47,7 +49,7 @@ class ItemRecipeAdapter(
         notifyDataSetChanged()
     }
 
-    private fun toggleBookmarkState(recipe: Recipe) {
+    private fun toggleBookmarkState(context: Context, recipe: Recipe) {
         recipe.isBookmarked = !recipe.isBookmarked // Toggle bookmark state locally
         val user = FirebaseAuth.getInstance().currentUser
         user?.let { currentUser ->
@@ -61,25 +63,27 @@ class ItemRecipeAdapter(
             if (recipe.isBookmarked) {
                 bookmarksCollection.set(recipe)
                     .addOnSuccessListener {
-                        Log.d(TAG, "Recipe bookmarked successfully")
+                        showToast(context, "Resep berhasil dibookmark")
                     }
                     .addOnFailureListener { e ->
-                        Log.e(TAG, "Error bookmarking recipe", e)
+                        showToast(context, "Resep gagal dibookmark: ${e.message}")
                         recipe.isBookmarked = !recipe.isBookmarked // Rollback on failure
                     }
             } else {
                 bookmarksCollection.delete()
                     .addOnSuccessListener {
-                        Log.d(TAG, "Recipe removed from bookmarks successfully")
+                        showToast(context, "Resep berhasil dihapus dari bookmark")
                     }
                     .addOnFailureListener { e ->
-                        Log.e(TAG, "Error removing recipe from bookmarks", e)
+                        showToast(context, "Resep gagal dihapus dari bookmark: ${e.message}")
                         recipe.isBookmarked = !recipe.isBookmarked // Rollback on failure
                     }
             }
         }
     }
-
+    private fun showToast(context: Context, message: String) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+    }
     class ViewHolder(val binding: ItemRecipeBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(recipe: Recipe) {
             binding.tvTitle.text = recipe.title
@@ -87,7 +91,6 @@ class ItemRecipeAdapter(
                 .load(recipe.imgUrl)
                 .into(binding.imgItemPhoto)
 
-            // Set initial state of toggle button based on recipe's bookmark status
             val iconResId = if (recipe.isBookmarked) R.drawable.ic_bookmark_filled else R.drawable.ic_bookmark
             binding.tbBookmark.setBackgroundResource(iconResId)
         }

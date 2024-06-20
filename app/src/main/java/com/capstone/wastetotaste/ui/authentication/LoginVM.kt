@@ -57,7 +57,7 @@ class LoginVM(private val userPref: UserPreferencesManager) : ViewModel() {
                         ?.addOnCompleteListener { updateTask ->
                             _loading.value = false
                             if (updateTask.isSuccessful) {
-                                _registrationResult.value = Result.success("Registration successful!")
+                                _registrationResult.value = Result.success("Registrasi berhasil!")
                                 loginUser(email, password)
                             } else {
                                 _registrationResult.value = Result.failure(Exception("Failed to update profile."))
@@ -65,7 +65,7 @@ class LoginVM(private val userPref: UserPreferencesManager) : ViewModel() {
                         }
                 } else {
                     _loading.value = false
-                    _registrationResult.value = Result.failure(task.exception ?: Exception("Registration failed"))
+                    _registrationResult.value = Result.failure(task.exception ?: Exception("Registrasi gagal"))
                 }
             }
     }
@@ -81,85 +81,11 @@ class LoginVM(private val userPref: UserPreferencesManager) : ViewModel() {
                         userPref.storeLoginStatus(true)
                         userPref.storeToken(user?.uid ?: "")
                         userPref.storeName(user?.displayName ?: "")
-                        _registrationResult.value = Result.success("Login successful!")
+                        _registrationResult.value = Result.success("Login berhasil!")
                     }
                 } else {
-                    _registrationResult.value = Result.failure(task.exception ?: Exception("Login failed"))
+                    _registrationResult.value = Result.failure(task.exception ?: Exception("Login gagal"))
                 }
             }
     }
 }
-
-//    fun getResponseLogin(loginUserData: LoginUserData) {
-//        _isLoggingIn.value = true
-//        val api = ApiConfig.getApiService().loginUser(loginUserData)
-//        api.enqueue(object : retrofit2.Callback<LoginResponse> {
-//            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-//                _isLoggingIn.value = false
-//                val responseBody = response.body()
-//
-//                responseBody?.let {
-//                    // Simpan token dan nama pengguna ke preferensi
-//                    viewModelScope.launch {
-//                        userPref.storeName(it.loginResult.name)
-//                        userPref.storeToken(it.loginResult.token)
-//                    }
-//                }
-//
-//                if (response.isSuccessful) {
-//                    isErrorLogin = false
-//                    _authenticatedUser.value = responseBody!!
-//                    _msgLogin.value = "Selamat Datang ${_authenticatedUser.value!!.loginResult.name}!"
-//                } else {
-//                    isErrorLogin = true
-//                    when (response.code()) {
-//                        401 -> _msgLogin.value =
-//                            "Email atau password yang anda masukan salah, silahkan coba lagi"
-//                        408 -> _msgLogin.value =
-//                            "Periksa koneksi internet anda dan coba lagi"
-//                        else -> _msgLogin.value = "Pesan error: " + response.message()
-//                    }
-//                }
-//            }
-//
-//            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-//                isErrorLogin = true
-//                _isLoggingIn.value = false
-//                _msgLogin.value = "Pesan error: " + t.message.toString()
-//            }
-//
-//        })
-//    }
-//
-//    fun getResponseRegister(registDataUser: RegisterUserData) {
-//        _isRegistering.value = true
-//        val api = ApiConfig.getApiService().registerUser(registDataUser)
-//        api.enqueue(object : retrofit2.Callback<RegisterResponse> {
-//            override fun onResponse(
-//                call: Call<RegisterResponse>,
-//                response: Response<RegisterResponse>
-//            ) {
-//                _isRegistering.value = false
-//                if (response.isSuccessful) {
-//                    isErrorRegist = false
-//                    _msgRegistration.value = "Registrasi berhasil"
-//                } else {
-//                    isErrorRegist = true
-//                    when (response.code()) {
-//                        200 -> _msgRegistration.value =
-//                            "1"
-//                        408 -> _msgRegistration.value =
-//                            "Periksa koneksi internet Anda dan coba lagi"
-//                        else -> _msgRegistration.value = "Error: " + response.message()
-//                    }
-//                }
-//            }
-//
-//            override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
-//                isErrorRegist = true
-//                _isRegistering.value = false
-//                _msgRegistration.value = "Pesan error: " + t.message.toString()
-//            }
-//
-//        })
-//    }
