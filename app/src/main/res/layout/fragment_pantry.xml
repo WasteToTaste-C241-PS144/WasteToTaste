@@ -7,9 +7,12 @@
     tools:context=".ui.pantry.PantryFragment">
 
     <AutoCompleteTextView
-        android:id="@+id/searchBar"
+        android:id="@+id/pantry_search_bar"
         android:layout_width="0dp"
         android:layout_height="50dp"
+        android:maxLines="1"
+        android:paddingVertical="5dp"
+        android:paddingEnd="30dp"
         android:layout_marginHorizontal="15dp"
         android:layout_marginTop="12dp"
         android:hint="@string/searchbar_ingredients_hint"
@@ -24,11 +27,11 @@
         android:layout_width="22dp"
         android:layout_height="22dp"
         android:background="@drawable/ic_add"
-        app:layout_constraintTop_toTopOf="@id/searchBar"
+        app:layout_constraintTop_toTopOf="@id/pantry_search_bar"
         android:layout_marginStart="15dp"
-        app:layout_constraintBottom_toBottomOf="@id/searchBar"
-        app:layout_constraintStart_toStartOf="@id/searchBar"
-        app:layout_constraintEnd_toEndOf="@id/searchBar"
+        app:layout_constraintBottom_toBottomOf="@id/pantry_search_bar"
+        app:layout_constraintStart_toStartOf="@id/pantry_search_bar"
+        app:layout_constraintEnd_toEndOf="@id/pantry_search_bar"
         app:layout_constraintHorizontal_bias="0"
         android:backgroundTint="?attr/colorOnSurfaceVariant"/>
 
@@ -38,15 +41,15 @@
         android:layout_height="0dp"
         android:layout_marginTop="15dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@id/searchBar"
+        app:layout_constraintTop_toBottomOf="@id/pantry_search_bar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:listitem="@layout/item_pantry2"
+        tools:listitem="@layout/item_ingredients_preview"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="200dp"
         android:clickable="false"
         android:background="@drawable/rectangle_gradient"
         app:layout_constraintBottom_toBottomOf="parent"/>
@@ -54,9 +57,8 @@
     <Button
         android:id="@+id/btn_see_matching_recipes"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="58dp"
         android:layout_marginHorizontal="17dp"
-        android:layout_marginBottom="5dp"
         android:textColor="?attr/colorSurface"
         android:textSize="15sp"
         android:text="Lihat resep yang sesuai"

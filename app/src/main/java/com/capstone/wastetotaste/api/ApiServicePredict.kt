@@ -10,6 +10,8 @@ interface ApiServicePredict {
         @Body request: IngredientsRequest
     ): Call<RecipeResponse>
 
-    @GET("recipe")
-    fun getRecipe(): Call<RecipeResponse>
+    @GET("recipes")
+    fun searchRecipe(
+        @Query("search") query: String
+    ): Call<RecipeResponse>
 }

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@color/green"
     tools:context=".ui.home.HomeFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,35 +15,37 @@
                 <ImageView
                     android:id="@+id/rectangle"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    app:layout_constraintTop_toBottomOf="@id/greetings2"
+                    android:layout_height="170dp"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="30dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:background="@drawable/custom_home_container"/>
+                    app:layout_constraintVertical_bias="0"
+                    android:background="@color/green"/>
 
                 <TextView
                     android:id="@+id/greetings"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:ellipsize="end"
                     android:text="@string/halouser"
-                    android:layout_marginTop="30dp"
+                    app:layout_constraintVertical_chainStyle="packed"
                     android:letterSpacing="0.02"
-                    android:layout_marginHorizontal="18dp"
-                    android:textSize="27sp"
+                    app:layout_constraintBottom_toTopOf="@id/greetings2"
+                    android:layout_marginHorizontal="28dp"
+                    android:textSize="26sp"
                     android:textColor="@color/white"
                     android:fontFamily="@font/dosis_semi_bold"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toTopOf="@id/greetings2" />
+                    app:layout_constraintTop_toTopOf="@id/rectangle"
+                    app:layout_constraintStart_toStartOf="@id/rectangle"
+                    app:layout_constraintEnd_toEndOf="@id/rectangle"/>
 
                 <TextView
                     android:id="@+id/greetings2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
+                    android:layout_marginTop="5dp"
+                    app:layout_constraintBottom_toTopOf="@id/recipe_home_search_bar"
                     android:layout_marginStart="1dp"
                     android:text="@string/greetings2"
                     android:letterSpacing="0.02"
@@ -54,72 +54,247 @@
                     android:fontFamily="@font/inter_regular"
                     app:layout_constraintTop_toBottomOf="@id/greetings"
                     app:layout_constraintStart_toStartOf="@id/greetings"
-                    app:layout_constraintEnd_toEndOf="@id/greetings"
-                    app:layout_constraintBottom_toTopOf="@id/rectangle"/>
+                    app:layout_constraintEnd_toEndOf="@id/greetings"/>
 
-                <TextView
-                    android:id="@+id/tv_my_pantry"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lemari Bahan"
-                    android:textSize="21sp"
-                    android:textColor="?attr/colorOnSurface"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:fontFamily="@font/dosis_semi_bold"
-                    app:layout_constraintHorizontal_bias="0"
-                    android:layout_marginStart="18dp"
-                    android:layout_marginTop="15dp"
-                    app:layout_constraintTop_toTopOf="@id/rectangle"
-                    app:layout_constraintBottom_toTopOf="@id/pantry_container"/>
+<!--                <com.google.android.material.search.SearchBar-->
+<!--                    android:id="@+id/pantry_search_bar"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="48dp"-->
+<!--                    android:layout_marginBottom="26dp"-->
+<!--                    android:layout_marginHorizontal="15dp"-->
+<!--                    android:hint="@string/searchbar_recipe_hint"-->
+<!--                    android:textAppearance="@style/TextAppearance.SearchBar"-->
+<!--                    app:layout_constraintBottom_toBottomOf="@+id/rectangle"-->
+<!--                    app:layout_constraintEnd_toEndOf="@id/rectangle"-->
+<!--                    app:layout_constraintStart_toStartOf="@id/rectangle"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/greetings2" />-->
 
-                <TextView
-                    android:id="@+id/tv_pantry_see_all"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lihat Semua"
-                    android:layout_marginBottom="10dp"
-                    android:textSize="13sp"
-                    android:clickable="true"
-                    android:textColor="?attr/colorOnSurface"
-                    android:fontFamily="@font/inter_regular"
-                    app:layout_constraintStart_toEndOf="@id/tv_my_pantry"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/rectangle"
-                    app:layout_constraintBottom_toTopOf="@id/pantry_container"
-                    android:layout_marginEnd="19dp"
-                    app:layout_constraintHorizontal_bias="1"
-                    app:layout_constraintVertical_bias="1"/>
+<!--                <com.google.android.material.search.SearchView-->
+<!--                    android:id="@+id/searchView"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="0dp"-->
+<!--                    android:hint="@string/searchbar_recipe_hint"-->
+<!--                    app:layout_anchor="@id/pantry_search_bar"-->
+<!--                    android:textAppearance="@style/TextAppearance.SearchBar"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toBottomOf="parent">-->
+<!--                </com.google.android.material.search.SearchView>-->
+
+                <AutoCompleteTextView
+                    android:id="@+id/recipe_home_search_bar"
+                    android:maxLines="1"
+                    android:paddingVertical="5dp"
+                    android:paddingEnd="30dp"
+                    android:inputType="text"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginHorizontal="15dp"
+                    android:imeOptions="actionSearch"
+                    android:layout_marginTop="12dp"
+                    android:hint="@string/searchbar_recipe_hint"
+                    android:background="@drawable/custom_search_bar"
+                    android:paddingStart="50dp"
+                    app:layout_constraintEnd_toEndOf="@id/rectangle"
+                    app:layout_constraintStart_toStartOf="@id/rectangle"
+                    android:textAppearance="@style/TextAppearance.SearchBar"
+                    app:layout_constraintTop_toBottomOf="@id/greetings2"
+                    app:layout_constraintBottom_toBottomOf="@id/rectangle"/>
 
                 <ImageView
-                    android:id="@+id/pantry_container"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:background="@drawable/ic_search"
+                    app:layout_constraintTop_toTopOf="@id/recipe_home_search_bar"
+                    android:layout_marginStart="15dp"
+                    app:layout_constraintBottom_toBottomOf="@id/recipe_home_search_bar"
+                    app:layout_constraintStart_toStartOf="@id/recipe_home_search_bar"
+                    app:layout_constraintEnd_toEndOf="@id/recipe_home_search_bar"
+                    app:layout_constraintHorizontal_bias="0"
+                    android:backgroundTint="?attr/colorOnSurfaceVariant"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/home_preview"
                     android:layout_width="match_parent"
-                    android:layout_height="135dp"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginTop="10dp"
-                    android:elevation="10dp"
-                    android:background="@drawable/home_pantry_container"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/rectangle"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_my_pantry">
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintEnd_toEndOf="parent">
 
-                </ImageView>
+                        <TextView
+                            android:id="@+id/tv_my_pantry"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Lemari Bahan"
+                            android:letterSpacing="0.01"
+                            android:layout_marginTop="11dp"
+                            android:textSize="19sp"
+                            android:textColor="?attr/colorOnSurface"
+                            app:layout_constraintVertical_chainStyle="packed"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:fontFamily="@font/dosis_semi_bold"
+                            app:layout_constraintHorizontal_bias="0"
+                            android:layout_marginStart="18dp"
+                            app:layout_constraintVertical_bias="0"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toTopOf="@id/pantry_container"/>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_home_ingredients"
-                    android:layout_width="0dp"
-                    android:layout_margin="12dp"
+                        <TextView
+                            android:id="@+id/tv_pantry_see_all"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Lihat Semua"
+                            android:layout_marginBottom="1dp"
+                            android:textSize="13sp"
+                            android:textColor="?attr/colorOnSurface"
+                            android:fontFamily="@font/inter_regular"
+                            app:layout_constraintStart_toEndOf="@id/tv_my_pantry"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/tv_my_pantry"
+                            app:layout_constraintBottom_toBottomOf="@id/tv_my_pantry"
+                            android:layout_marginEnd="21dp"
+                            app:layout_constraintHorizontal_bias="1"
+                            app:layout_constraintVertical_bias="1"/>
+
+                        <ImageView
+                            android:id="@+id/pantry_container"
+                            android:layout_width="match_parent"
+                            android:layout_height="135dp"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginTop="9dp"
+                            android:elevation="7dp"
+                            android:background="@drawable/home_pantry_container"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintBottom_toTopOf="@id/tv_recommendation"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tv_my_pantry"/>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_home_ingredients"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_margin="12dp"
+                            android:elevation="10dp"
+                            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                            app:layout_constraintBottom_toBottomOf="@id/pantry_container"
+                            app:layout_constraintEnd_toEndOf="@id/pantry_container"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="@id/pantry_container"
+                            app:layout_constraintTop_toTopOf="@id/pantry_container"
+                            app:layout_constraintVertical_bias="0.0"
+                            tools:listitem="@layout/item_ingredients" />
+
+                        <TextView
+                            android:id="@+id/tv_recommendation"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Berdasarkan Bahanmu"
+                            android:letterSpacing="0.01"
+                            android:textSize="19sp"
+                            android:textColor="?attr/colorOnSurface"
+                            app:layout_constraintVertical_chainStyle="packed"
+                            app:layout_constraintStart_toStartOf="@id/tv_my_pantry"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:fontFamily="@font/dosis_semi_bold"
+                            app:layout_constraintHorizontal_bias="0"
+                            app:layout_constraintVertical_bias="0"
+                            android:layout_marginTop="17dp"
+                            app:layout_constraintTop_toBottomOf="@id/pantry_container"
+                            app:layout_constraintBottom_toTopOf="@id/rv_home_recipe"/>
+
+                        <TextView
+                            android:id="@+id/tv_recipe_see_all"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Lihat Semua"
+                            android:layout_marginBottom="1dp"
+                            android:textSize="13sp"
+                            android:textColor="?attr/colorOnSurface"
+                            android:fontFamily="@font/inter_regular"
+                            app:layout_constraintStart_toEndOf="@id/tv_recommendation"
+                            app:layout_constraintEnd_toEndOf="@id/tv_pantry_see_all"
+                            app:layout_constraintTop_toTopOf="@id/tv_recommendation"
+                            app:layout_constraintBottom_toBottomOf="@id/tv_recommendation"
+                            app:layout_constraintHorizontal_bias="1"
+                            app:layout_constraintVertical_bias="1"/>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_home_recipe"
+                            android:paddingHorizontal="11dp"
+                            android:clipToPadding="false"
+                            android:layout_marginBottom="5dp"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@id/tv_recommendation"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_marginTop="9dp"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:elevation="10dp"
-                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                    tools:listitem="@layout/item_ingredients"
-                    app:layout_constraintStart_toStartOf="@id/pantry_container"
-                    app:layout_constraintEnd_toEndOf="@id/pantry_container"
-                    app:layout_constraintTop_toTopOf="@id/pantry_container"
-                    app:layout_constraintBottom_toBottomOf="@id/pantry_container"/>
+                    android:id="@+id/home_empty"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    app:layout_constraintTop_toBottomOf="@id/rectangle"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintEnd_toEndOf="parent">
 
+                        <ImageView
+                            android:id="@+id/iv_home_empty"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:layout_constraintDimensionRatio="H,368:271"
+                            android:background="@drawable/home_empty"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toTopOf="@id/tv_home_empty"
+                            android:layout_marginHorizontal="70dp"
+                            app:layout_constraintVertical_chainStyle="packed"/>
 
+                        <TextView
+                            android:id="@+id/tv_home_empty"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="30dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="30dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/iv_home_empty"
+                            android:text="Tambahkan beberapa bahan untuk \nmemulai"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center"
+                            android:lineSpacingExtra="2dp"
+                            android:textSize="15sp"
+                            android:textColor="?attr/colorOnSurface"
+                            app:layout_constraintBottom_toTopOf="@id/btn_go_to_pantry_home"/>
 
+                        <Button
+                            android:id="@+id/btn_go_to_pantry_home"
+                            android:layout_width="wrap_content"
+                            android:layout_height="58dp"
+                            android:paddingHorizontal="40dp"
+                            android:textColor="?attr/colorSurface"
+                            android:textSize="15sp"
+                            android:text="Pergi ke Halaman Bahan"
+                            android:outlineProvider="bounds"
+                            app:layout_constraintTop_toBottomOf="@id/tv_home_empty"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:fontFamily="@font/inter_bold"
+                            android:backgroundTint="?attr/colorOnSurface"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 </ScrollView>

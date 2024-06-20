@@ -18,23 +18,27 @@
 
     <ImageView
         android:id="@+id/iv_notyet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="185dp"
+        android:layout_width="0dp"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="H,368:277"
+        android:layout_marginHorizontal="60dp"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/tv_not_found1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.522"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_no_bookmark" />
+        app:srcCompat="@drawable/no_recommendation_found" />
 
     <TextView
         android:id="@+id/tv_not_found1"
         android:layout_width="245dp"
         android:layout_height="34dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/dosis_semi_bold"
         android:text="Belum Ada Bookmark"
+        app:layout_constraintBottom_toTopOf="@id/tv_not_found2"
         android:textAlignment="center"
         android:textSize="22sp"
         android:visibility="visible"
@@ -44,12 +48,15 @@
 
     <TextView
         android:id="@+id/tv_not_found2"
-        android:layout_width="245dp"
-        android:layout_height="35dp"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:lineSpacingExtra="2dp"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/inter_regular"
-        android:text="Jelajahi lebih banyak dan tekan bookmark untuk menyimpan resep favoritmu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Jelajahi lebih banyak dan tekan\nbookmark untuk menyimpan resep\nfavoritmu"
         android:textAlignment="center"
-        android:textSize="14sp"
+        android:textSize="15sp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="@+id/tv_not_found1"
         app:layout_constraintStart_toStartOf="@+id/tv_not_found1"

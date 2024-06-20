@@ -8,8 +8,7 @@
     android:layout_gravity="center"
     android:layout_marginHorizontal="15dp"
     android:layout_marginVertical="5dp"
-    card_view:cardCornerRadius="15dp"
-    card_view:cardElevation="10dp">
+    card_view:cardCornerRadius="15dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -30,8 +29,9 @@
         <ImageView
             android:id="@+id/rectangle"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:background="?attr/colorSurfaceBright"
+            android:layout_height="100dp"
+            android:backgroundTint="#141218"
+            android:background="@drawable/rectangle_gradient"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintHorizontal_bias="0.0"
@@ -44,53 +44,41 @@
             android:layout_width="0dp"
             android:layout_marginEnd="30dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="13dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginStart="19dp"
             android:fontFamily="@font/inter_bold"
+            android:layout_marginTop="3dp"
             android:maxLines="1"
             android:ellipsize="end"
+            android:textColor="@color/white"
             android:text="@string/recipe_name"
-            android:textSize="15dp"
+            android:textSize="15sp"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toStartOf="@id/tb_bookmark"
             card_view:layout_constraintHorizontal_bias="0.0"
             card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toTopOf="@id/rectangle"
-            card_view:layout_constraintVertical_bias="0.55" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="13dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/inter_regular"
-            android:text="@string/ingredients_needed"
-            android:textSize="12dp"
-            card_view:layout_constraintBottom_toBottomOf="parent"
-            card_view:layout_constraintEnd_toStartOf="@id/tb_bookmark"
-            card_view:layout_constraintHorizontal_bias="0.0"
-            card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@id/tv_title"
-            card_view:layout_constraintVertical_bias="0.2" />
-
+            card_view:layout_constraintTop_toTopOf="@id/tb_bookmark"
+            card_view:layout_constraintVertical_bias="0" />
 
         <ToggleButton
             android:id="@+id/tb_bookmark"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginStart="192dp"
+            android:layout_marginTop="45dp"
             android:textOff=""
             android:textOn=""
+            android:backgroundTint="@color/white"
             android:background="@drawable/ic_bookmark"
             android:checked="false"
             android:layout_gravity="end"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="13dp"
             card_view:layout_constraintBottom_toBottomOf="@id/rectangle"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintHorizontal_bias="1"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="@id/rectangle"
             card_view:layout_constraintVertical_bias="0.5"/>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

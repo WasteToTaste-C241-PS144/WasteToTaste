@@ -9,9 +9,6 @@
     "name": "daun jeruk"
   },
   {
-    "name": "bawang putih"
-  },
-  {
     "name": "ketumbar"
   },
   {
@@ -36,16 +33,10 @@
     "name": "daging ayam"
   },
   {
-    "name": "gula garam"
-  },
-  {
     "name": "tepung ayam serbaguna"
   },
   {
     "name": "minyak"
-  },
-  {
-    "name": "cabe rawit merah putih"
   },
   {
     "name": "kulit ayam"
@@ -55,9 +46,6 @@
   },
   {
     "name": "pisang"
-  },
-  {
-    "name": "daun"
   },
   {
     "name": "daun salam"
@@ -85,9 +73,6 @@
   },
   {
     "name": "kaldu ayam masako"
-  },
-  {
-    "name": "dada tulang"
   },
   {
     "name": "bawang bombay"
@@ -138,13 +123,10 @@
     "name": "keju"
   },
   {
-    "name": "maizena"
-  },
-  {
     "name": "saus tiram"
   },
   {
-    "name": "kaldu jamur"
+    "name": "kaldu ayam"
   },
   {
     "name": "wortel"
@@ -204,9 +186,6 @@
     "name": "kentang"
   },
   {
-    "name": "wortel"
-  },
-  {
     "name": "makaroni"
   },
   {
@@ -225,10 +204,7 @@
     "name": "tepung panir"
   },
   {
-    "name": "ekor gurame"
-  },
-  {
-    "name": "cabai merah cabai"
+    "name": "cabai merah"
   },
   {
     "name": "cabai rawit"
@@ -255,7 +231,7 @@
     "name": "lada"
   },
   {
-    "name": "ikan mujaer gurame"
+    "name": "ikan mujaer"
   },
   {
     "name": "bawang bombai"
@@ -279,22 +255,7 @@
     "name": "daun kunyit"
   },
   {
-    "name": "asam"
-  },
-  {
     "name": "belimbing"
-  },
-  {
-    "name": "cabai merah"
-  },
-  {
-    "name": "sendok garam"
-  },
-  {
-    "name": "sendok gula"
-  },
-  {
-    "name": "telur"
   },
   {
     "name": "avocado"
@@ -327,19 +288,7 @@
     "name": "ikan patin"
   },
   {
-    "name": "merah keriting"
-  },
-  {
-    "name": "rawit"
-  },
-  {
     "name": "lengkuas"
-  },
-  {
-    "name": "sendok kecap"
-  },
-  {
-    "name": "cabe hijau biji"
   },
   {
     "name": "tauco"
@@ -351,22 +300,10 @@
     "name": "patin"
   },
   {
-    "name": "hijau keriting"
-  },
-  {
-    "name": "cengek"
-  },
-  {
     "name": "cabai"
   },
   {
-    "name": "ekor merah"
-  },
-  {
     "name": "jeruk"
-  },
-  {
-    "name": "ekor ikan gurame"
   },
   {
     "name": "tepung serbaguna"
@@ -381,13 +318,10 @@
     "name": "ikan tongkol"
   },
   {
-    "name": "ekor ikan nila"
+    "name": "ikan nila"
   },
   {
     "name": "buncis"
-  },
-  {
-    "name": "saos"
   },
   {
     "name": "saos tomat"
@@ -396,13 +330,7 @@
     "name": "saos tiram"
   },
   {
-    "name": "lada merica"
-  },
-  {
-    "name": "ekor ikan kerapu"
-  },
-  {
-    "name": "kambing"
+    "name": "ikan kerapu"
   },
   {
     "name": "pepaya"
@@ -417,9 +345,6 @@
     "name": "limau"
   },
   {
-    "name": "daging kambing paha tulang"
-  },
-  {
     "name": "jinten"
   },
   {
@@ -429,37 +354,19 @@
     "name": "kapulaga hijau"
   },
   {
-    "name": "daging kambing"
-  },
-  {
     "name": "tulang sumsum"
-  },
-  {
-    "name": "hijau"
-  },
-  {
-    "name": "miri"
   },
   {
     "name": "masako"
   },
   {
-    "name": "sendok putih"
-  },
-  {
     "name": "kelapa"
-  },
-  {
-    "name": "garam daging kambing"
-  },
-  {
-    "name": "kacang tanah"
   },
   {
     "name": "gula merah"
   },
   {
-    "name": "acar wortel timun bawang cabe rawit"
+    "name": "acar"
   },
   {
     "name": "kaki kambing"
@@ -474,10 +381,7 @@
     "name": "kapulaga"
   },
   {
-    "name": "kambing bumbu"
-  },
-  {
-    "name": "santan kelapa santan"
+    "name": "santan kelapa"
   },
   {
     "name": "susu"
@@ -486,19 +390,7 @@
     "name": "daun jeruk purut"
   },
   {
-    "name": "daun kari"
-  },
-  {
-    "name": "sendok teh"
-  },
-  {
     "name": "cabai rawit merah"
-  },
-  {
-    "name": "sendok"
-  },
-  {
-    "name": "iga kambing daging kambing"
   },
   {
     "name": "kol"
@@ -507,28 +399,19 @@
     "name": "telor ayam"
   },
   {
-    "name": "rawit biji"
-  },
-  {
     "name": "daging"
   },
   {
     "name": "royko"
   },
   {
-    "name": "bawang putih bawang"
+    "name": "bawang putih"
   },
   {
     "name": "iga kambing"
   },
   {
-    "name": "daging kambing lemak"
-  },
-  {
-    "name": "salam sereh"
-  },
-  {
-    "name": "putih merah"
+    "name": "salam"
   },
   {
     "name": "royco sapi"
@@ -540,16 +423,7 @@
     "name": "kubis"
   },
   {
-    "name": "mrica"
-  },
-  {
-    "name": "asam kanji"
-  },
-  {
-    "name": "daging kambing tulang"
-  },
-  {
-    "name": "tomat tomat merah"
+    "name": "daging kambing"
   },
   {
     "name": "balado"
@@ -570,16 +444,7 @@
     "name": "biji pala"
   },
   {
-    "name": "biji jeruk nipis"
-  },
-  {
     "name": "kecap"
-  },
-  {
-    "name": "daging sapi"
-  },
-  {
-    "name": "bawang merah"
   },
   {
     "name": "spaghetti"
@@ -606,9 +471,6 @@
     "name": "lada putih"
   },
   {
-    "name": "cengkeh"
-  },
-  {
     "name": "jahe"
   },
   {
@@ -624,22 +486,13 @@
     "name": "cabe hijau"
   },
   {
-    "name": "hitam"
-  },
-  {
-    "name": "royco kaldu sapi"
-  },
-  {
     "name": "minyak wijen"
   },
   {
     "name": "kacang merah"
   },
   {
-    "name": "jawa"
-  },
-  {
-    "name": "biji garam"
+    "name": "asam jawa"
   },
   {
     "name": "cabai merah keriting"
@@ -660,9 +513,6 @@
     "name": "cabe ijo keriting"
   },
   {
-    "name": "gula merica"
-  },
-  {
     "name": "kornet sapi"
   },
   {
@@ -670,9 +520,6 @@
   },
   {
     "name": "seledri"
-  },
-  {
-    "name": "daging sapi lemak"
   },
   {
     "name": "madu"
@@ -685,15 +532,6 @@
   },
   {
     "name": "kulit"
-  },
-  {
-    "name": "terigu air kulit"
-  },
-  {
-    "name": "garam gula kaldu"
-  },
-  {
-    "name": "cabe merah kriting"
   },
   {
     "name": "tepung terigu"
@@ -714,9 +552,6 @@
     "name": "sawi putih"
   },
   {
-    "name": "tangkai daun"
-  },
-  {
     "name": "cengkeh merah"
   },
   {
@@ -729,13 +564,10 @@
     "name": "jengkol"
   },
   {
-    "name": "cina putih"
+    "name": "tahu cina putih"
   },
   {
     "name": "telor"
-  },
-  {
-    "name": "tepung maizena"
   },
   {
     "name": "bonggol brokoli"
@@ -783,25 +615,10 @@
     "name": "petis udang"
   },
   {
-    "name": "telur telur"
-  },
-  {
-    "name": "tepung air"
-  },
-  {
-    "name": "garam kaldu"
-  },
-  {
-    "name": "cabe cabe"
-  },
-  {
-    "name": "kari"
+    "name": "telur"
   },
   {
     "name": "saus sambel"
-  },
-  {
-    "name": "merica kaldu"
   },
   {
     "name": "sosis"
@@ -816,7 +633,7 @@
     "name": "pasir"
   },
   {
-    "name": "bakso sosis"
+    "name": "bakso"
   },
   {
     "name": "tangkai daun bawang"
@@ -832,15 +649,6 @@
   },
   {
     "name": "cabe keriting"
-  },
-  {
-    "name": "panir"
-  },
-  {
-    "name": "daging ayam"
-  },
-  {
-    "name": "tepung panir"
   },
   {
     "name": "cabe lombok merah"
@@ -859,9 +667,6 @@
   },
   {
     "name": "terong"
-  },
-  {
-    "name": "gula"
   },
   {
     "name": "teh"
@@ -888,9 +693,6 @@
     "name": "kembang kulit"
   },
   {
-    "name": "susu"
-  },
-  {
     "name": "mutiara"
   },
   {
@@ -900,13 +702,10 @@
     "name": "minyak sayur"
   },
   {
-    "name": "ekor ikan tenggiri"
+    "name": "ikan tenggiri"
   },
   {
     "name": "putih telur"
-  },
-  {
-    "name": "gula jawa"
   },
   {
     "name": "tepung kanji"
@@ -919,12 +718,6 @@
   },
   {
     "name": "kecap ikan"
-  },
-  {
-    "name": "udang"
-  },
-  {
-    "name": "bawang putih"
   },
   {
     "name": "es batu"

@@ -7,4 +7,6 @@
         <item name="textAppearanceSmallPopupMenu">@style/TextAppearance.App.BodyLarge</item>
         <item name="popupMenuBackground">@drawable/custom_popup_background</item>
     </style>
+
+    <style name="Theme.WasteToTaste" parent="Base.Theme.WasteToTaste" />
 </resources>

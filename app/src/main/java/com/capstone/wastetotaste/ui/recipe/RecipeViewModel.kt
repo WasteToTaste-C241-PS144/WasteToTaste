@@ -1,7 +1,6 @@
 package com.capstone.wastetotaste.ui.recipe
 
 import android.app.Application
-import android.content.ContentValues.TAG
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -10,19 +9,20 @@ import com.capstone.wastetotaste.api.ApiConfig
 import com.capstone.wastetotaste.api.IngredientsRequest
 import com.capstone.wastetotaste.data.Recipe
 import com.capstone.wastetotaste.data.RecipeResponse
-import com.capstone.wastetotaste.database.Ingredients
 import com.capstone.wastetotaste.repository.IngredientsRepository
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import retrofit2.Response
 import retrofit2.Call
 import retrofit2.Callback
+import retrofit2.http.Query
 
 class RecipeViewModel(application: Application) : ViewModel() {
     private val _recipePrediction = MutableLiveData<List<Recipe>>()
+    val recipePrediction: LiveData<List<Recipe>> get() = _recipePrediction
     private val mIngredientsRepository: IngredientsRepository = IngredientsRepository(application)
     val allIngredients: LiveData<List<String>> = mIngredientsRepository.getAllIngredientsName()
-    val recipePrediction: LiveData<List<Recipe>> get() = _recipePrediction
+    val isSearching = MutableLiveData<Boolean>()
     private val firestore = FirebaseFirestore.getInstance()
     private val auth = FirebaseAuth.getInstance()
 
@@ -122,5 +122,31 @@ class RecipeViewModel(application: Application) : ViewModel() {
 
     companion object {
         private const val TAG = "RecipeViewModel"
+    }
+
+    fun searchRecipe(query: String) {
+        isSearching.value = true
+        val client = ApiConfig.getApiPredictService().searchRecipe(query)
+        client.enqueue(object : Callback<RecipeResponse> {
+            override fun onResponse(call: Call<RecipeResponse>, response: Response<RecipeResponse>) {
+                if (response.isSuccessful) {
+                    val responseBody = response.body()
+                    if (responseBody != null) {
+                        _recipePrediction.value = responseBody.data
+                        checkBookmarks()
+                    }
+                } else {
+                    Log.e(TAG, "onFailure: ${response.message()}")
+                }
+            }
+
+            override fun onFailure(call: Call<RecipeResponse>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message}")
+            }
+        })
+    }
+
+    fun emptyRecipe(){
+        _recipePrediction.value = emptyList()
     }
 }

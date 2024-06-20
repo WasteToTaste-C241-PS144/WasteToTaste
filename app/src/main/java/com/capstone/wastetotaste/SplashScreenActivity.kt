@@ -45,7 +45,7 @@ class SplashScreenActivity : AppCompatActivity() {
             }
 
             binding.wasteToTasteString.animate()
-                .setDuration(1500)
+                .setDuration(500)
                 .alpha(1f)
                 .withEndAction {
                     startActivity(intent)

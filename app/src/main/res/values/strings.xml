@@ -101,4 +101,6 @@
     <string name="inputOldPassword">Masukkan password lama</string>
     <string name="inputNewPassword">Masukkan password baru</string>
     <string name="inputConfirmPassword">Konfirmasi password baru</string>
+    <string name="can_not_find_recipe">Resep tidak ditemukan</string>
+    <string name="based_on_your_ingredients">Berdasarkan bahan yang kamu miliki :</string>
 </resources>

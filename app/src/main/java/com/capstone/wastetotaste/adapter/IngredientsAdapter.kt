@@ -1,50 +1,60 @@
 package com.capstone.wastetotaste.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.capstone.wastetotaste.R
 import com.capstone.wastetotaste.database.Ingredients
-import com.capstone.wastetotaste.databinding.ItemPantry2Binding
+import com.capstone.wastetotaste.databinding.ItemEmptyBinding
+import com.capstone.wastetotaste.databinding.ItemIngredientsPreviewBinding
 import com.capstone.wastetotaste.ui.pantry.PantryViewModel
-import java.text.SimpleDateFormat
-import java.util.*
 
-class IngredientsAdapter(private val viewModel: PantryViewModel) : RecyclerView.Adapter<IngredientsAdapter.IngredientViewHolder>() {
+class IngredientsAdapter(private val viewModel: PantryViewModel) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var ingredients = emptyList<Ingredients>()
 
-    inner class IngredientViewHolder(private val binding: ItemPantry2Binding) : RecyclerView.ViewHolder(binding.root){
+    inner class IngredientViewHolder(private val binding: ItemIngredientsPreviewBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(ingredient: Ingredients) {
             binding.tvIngredients.text = ingredient.name
             binding.btnDelete.setOnClickListener{
                 viewModel.delete(ingredient)
             }
-//            binding.btnEdit.setOnClickListener{
-//
-//            }
-            //binding.tvExpiredDate.text = ingredient.expiryDate.toString()
+        }
+    }
+    inner class EmptyViewHolder(private val binding: ItemEmptyBinding) : RecyclerView.ViewHolder(binding.root){}
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        return if (viewType == VIEW_TYPE_ITEM) {
+            val binding = ItemIngredientsPreviewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            IngredientViewHolder(binding)
+        } else {
+            val binding = ItemEmptyBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            EmptyViewHolder(binding)
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IngredientViewHolder {
-        val binding = ItemPantry2Binding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return IngredientViewHolder(binding)
-    }
-
-    override fun onBindViewHolder(holder: IngredientViewHolder, position: Int) {
-        val currentItem = ingredients[position]
-        holder.bind(currentItem)
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        if(holder is IngredientViewHolder){
+            val currentItem = ingredients[position]
+            holder.bind(currentItem)
+        }
     }
 
     override fun getItemCount(): Int {
-        return ingredients.size
+        return if (ingredients.size > MIN_ITEMS) ingredients.size+1 else ingredients.size
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return if (position < ingredients.size) VIEW_TYPE_ITEM else VIEW_TYPE_EMPTY
     }
 
     fun setIngredients(ingredients: List<Ingredients>) {
         this.ingredients = ingredients
         notifyDataSetChanged()
     }
-}
 
+    companion object {
+        private const val MIN_ITEMS = 8
+        private const val VIEW_TYPE_ITEM = 0
+        private const val VIEW_TYPE_EMPTY = 1
+    }
+}

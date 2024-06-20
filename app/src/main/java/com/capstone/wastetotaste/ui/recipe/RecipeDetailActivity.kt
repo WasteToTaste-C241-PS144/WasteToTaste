@@ -62,14 +62,25 @@ class RecipeDetailActivity : AppCompatActivity() {
                         val updatedRecipe = documentSnapshot.toObject(Recipe::class.java)
                         updatedRecipe?.let {
                             recipe.isBookmarked = it.isBookmarked // Update local recipe with Firestore data
-                            val iconResId = if (recipe.isBookmarked) R.drawable.ic_bookmark_filled else R.drawable.ic_bookmark
-                            binding.toggleBookmark.setBackgroundResource(iconResId)
+                            //val iconResId = if (recipe.isBookmarked) R.drawable.ic_bookmark_filled else R.drawable.ic_bookmark
+                            //binding.toggleBookmark.setBackgroundResource(iconResId)
+
+                            binding.toggleBookmark.setBackgroundResource(
+                                if (recipe.isBookmarked)
+                                    R.drawable.ic_bookmark_filled // Change to the eye closed icon
+                                else
+                                    R.drawable.ic_bookmark // Change to the eye open icon
+                            )
                         }
                     }
                 }
                 .addOnFailureListener { exception ->
                     Log.e(TAG, "Error fetching recipe details", exception)
                 }
+        }
+
+        binding.topAppBar.setNavigationOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
         }
     }
 

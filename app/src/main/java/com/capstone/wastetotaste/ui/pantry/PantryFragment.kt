@@ -19,7 +19,6 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.capstone.wastetotaste.MainActivity
 import com.capstone.wastetotaste.R
@@ -73,7 +72,7 @@ class PantryFragment : Fragment() {
         })
 
         adapter = ArrayAdapter(requireContext(), R.layout.custom_list_item, R.id.itemText, predefinedIngredients.map { it.name })
-        binding.searchBar.setAdapter(adapter)
+        binding.pantrySearchBar.setAdapter(adapter)
 
         menuHost.addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
@@ -97,7 +96,7 @@ class PantryFragment : Fragment() {
             }
         }, viewLifecycleOwner, Lifecycle.State.STARTED)
 
-        binding.searchBar.addTextChangedListener(object : TextWatcher {
+        binding.pantrySearchBar.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -107,10 +106,10 @@ class PantryFragment : Fragment() {
             override fun afterTextChanged(s: Editable?) {}
         })
 
-        binding.searchBar.setOnItemClickListener { parent, view, position, id ->
+        binding.pantrySearchBar.setOnItemClickListener { parent, view, position, id ->
             val selectedItem = parent.getItemAtPosition(position) as String
-            hideKeyboard(binding.searchBar, requireActivity())
-            binding.searchBar.clearFocus()
+            hideKeyboard(binding.pantrySearchBar, requireActivity())
+            binding.pantrySearchBar.clearFocus()
             onSuggestionClicked(selectedItem)
         }
 
@@ -120,18 +119,12 @@ class PantryFragment : Fragment() {
         binding.btnSeeMatchingRecipes.setOnClickListener{
             (activity as? MainActivity)?.findViewById<BottomNavigationView>(R.id.nav_view)?.selectedItemId = R.id.navigation_recipe
         }
+
+        binding.pantrySearchBar.setSaveEnabled(false)
     }
 
     private fun onSuggestionClicked(item: String) {
-        binding.searchBar.text = null
-        //pantryViewModel.insert(item)
-//        pantryViewModel.insert(item) { isUnique ->
-//            if (isUnique) {
-//                //Toast.makeText(requireActivity(), "$item berhasil ditambahkan", Toast.LENGTH_SHORT).show()
-//            } else {
-//                //Toast.makeText(requireActivity(), "$item sudah ada", Toast.LENGTH_SHORT).show()
-//            }
-//        }
+        binding.pantrySearchBar.text = null
         pantryViewModel.insert(item) { success ->
             activity?.runOnUiThread {
                 if (success) {
