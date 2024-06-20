@@ -18,8 +18,7 @@ import retrofit2.Callback
 import retrofit2.http.Query
 
 class RecipeViewModel(application: Application) : ViewModel() {
-    private val _recipePrediction = MutableLiveData<List<Recipe>>()
-    val recipePrediction: LiveData<List<Recipe>> get() = _recipePrediction
+    val _recipePrediction = MutableLiveData<List<Recipe>>()
     private val mIngredientsRepository: IngredientsRepository = IngredientsRepository(application)
     val allIngredients: LiveData<List<String>> = mIngredientsRepository.getAllIngredientsName()
     val isSearching = MutableLiveData<Boolean>()

@@ -26,6 +26,7 @@ import com.capstone.wastetotaste.adapter.RecipeAdapter
 import com.capstone.wastetotaste.api.IngredientsRequest
 import com.capstone.wastetotaste.data.Recipe
 import com.capstone.wastetotaste.databinding.FragmentRecipeBinding
+import com.capstone.wastetotaste.ui.home.RecipeResultActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class RecipeFragment : Fragment() {
@@ -88,7 +89,15 @@ class RecipeFragment : Fragment() {
         adapter = RecipeAdapter(viewModel)
         binding.rvRecipe.adapter = adapter
 
-        viewModel.recipePrediction.observe(viewLifecycleOwner) { listRecipe ->
+        if (savedInstanceState != null) {
+            val savedRecipes = savedInstanceState.getParcelableArrayList<Recipe>(KEY_SEARCH_RESULT)
+            if (savedRecipes != null) {
+                viewModel._recipePrediction.value = savedRecipes
+                viewModel.isSearching.value = true
+            }
+        }
+
+        viewModel._recipePrediction.observe(viewLifecycleOwner) { listRecipe ->
             viewModel.isSearching.observe(viewLifecycleOwner) {isSearching ->
                 if(listRecipe.isEmpty() && isSearching){
                     binding.noRecipeFound.visibility = View.VISIBLE
@@ -143,6 +152,11 @@ class RecipeFragment : Fragment() {
         }
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putParcelableArrayList(KEY_SEARCH_RESULT, ArrayList(viewModel._recipePrediction.value))
+    }
+
     private fun obtainViewModel(fragment: Fragment): RecipeViewModel {
         val factory = ViewModelFactory.getInstance(fragment.requireActivity().application)
         return ViewModelProvider(fragment.requireActivity(), factory)[RecipeViewModel::class.java]
@@ -168,6 +182,10 @@ class RecipeFragment : Fragment() {
         constraintSet.clear(binding.noRecipeFound.id, ConstraintSet.BOTTOM)
         constraintSet.clear(binding.noRecommendationFound.id, ConstraintSet.BOTTOM)
         constraintSet.applyTo(binding.recipePageLayout)
+    }
+
+    companion object {
+        private const val KEY_SEARCH_RESULT = "key_search_result"
     }
 
     private fun setLeftRightMargins(view: View, left: Int, right: Int, top: Int) {

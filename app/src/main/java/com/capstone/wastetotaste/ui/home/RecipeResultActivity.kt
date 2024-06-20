@@ -51,6 +51,14 @@ class RecipeResultActivity : AppCompatActivity() {
         }
 
         viewModel = obtainViewModel(this)
+
+        if (savedInstanceState != null) {
+            val savedRecipes = savedInstanceState.getParcelableArrayList<Recipe>(KEY_SEARCH_RESULT)
+            if (savedRecipes != null) {
+                viewModel._searchResult.value = savedRecipes
+            }
+        }
+
         hint = intent.getStringExtra(EXTRA_HINT).toString()
         binding.recipeHomeSearchBarResult.setText(hint)
         val inputText = binding.recipeHomeSearchBarResult.text.toString()
@@ -87,7 +95,7 @@ class RecipeResultActivity : AppCompatActivity() {
             }
         })
 
-        viewModel.searchResult.observe(this) { listRecipe ->
+        viewModel._searchResult.observe(this) { listRecipe ->
             if(listRecipe.isEmpty()){
                 binding.homeNoRecipeFound.visibility = View.VISIBLE
             }
@@ -113,6 +121,11 @@ class RecipeResultActivity : AppCompatActivity() {
         }
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putParcelableArrayList(KEY_SEARCH_RESULT, ArrayList(viewModel._searchResult.value))
+    }
+
     private fun obtainViewModel(activity: Activity): RecipeResultViewModel {
         val factory = ViewModelFactory.getInstance(activity.application)
         return ViewModelProvider(this, factory)[RecipeResultViewModel::class.java]
@@ -124,6 +137,7 @@ class RecipeResultActivity : AppCompatActivity() {
     }
     companion object {
         const val EXTRA_HINT = "extra_hint"
+        private const val KEY_SEARCH_RESULT = "key_search_result"
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {

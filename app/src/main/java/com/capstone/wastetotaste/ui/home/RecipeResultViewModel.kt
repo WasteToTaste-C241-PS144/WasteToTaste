@@ -15,8 +15,8 @@ import retrofit2.Call
 import retrofit2.Callback
 
 class RecipeResultViewModel(application: Application) : ViewModel() {
-    private val _searchResult = MutableLiveData<List<Recipe>>()
-    val searchResult: LiveData<List<Recipe>> get() = _searchResult
+    val _searchResult = MutableLiveData<List<Recipe>>()
+    //val searchResult: LiveData<List<Recipe>> get() = _searchResult
     private val firestore = FirebaseFirestore.getInstance()
     private val auth = FirebaseAuth.getInstance()
 
