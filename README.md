@@ -56,4 +56,5 @@ Allow users to search recipes by the name.
 
 # Documentation App
 
+![WhatsApp Image 2024-06-20 at 4 55 02 PM](https://github.com/WasteToTaste-C241-PS144/WasteToTaste/assets/106097005/c3c06921-e7fc-4b72-a042-ac50bd540c0f)
 
