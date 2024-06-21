@@ -49,15 +49,15 @@ Use git clone followed by the repository URL:
 git clone https://github.com/WasteToTaste-C241-PS144/WasteToTaste.git
 This will create a local copy of the repository in the current directory.
 
-Setting Up google-services.json
+Setting Up google-services.json: 
 Replace YOUR_API_KEY in the app/google-services.json file with your actual Firebase API Key.
 
 Build and Run the App
 1. Open Android Studio
 2. Open the Project
-3. Gradle Sync
+3. Gradle Sync:
 Android Studio will automatically start syncing Gradle files and downloading necessary dependencies. Wait for this process to complete.
-4. Build and Run:
+5. Build and Run:
 Once Gradle sync is complete and the project is loaded, click on the green play button (Run 'app') in the toolbar. Choose your target device (either a physical device or   an Android Virtual Device). Android Studio will build the project and deploy the app to the selected device.
 
 
