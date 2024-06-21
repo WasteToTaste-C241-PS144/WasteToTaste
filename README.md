@@ -39,27 +39,27 @@ Allow users to search recipes by the name.
 |   Cloud Computing  | [Github](https://github.com/pijarpahlawan/wtt-api)                                                         |
 
 # Steps
-##1. Clone the Repository
-1. Open Git Bash or Terminal:
-2. Navigate to Desired Directory:
-Change directory to where you want to clone the repository. For example:
-cd /path/to/your/desired/directory
+1. Clone the Repository
+  1. Open Git Bash or Terminal:
+  2. Navigate to Desired Directory:
+  Change directory to where you want to clone the repository. For example:
+  cd /path/to/your/desired/directory
 
-3. Clone the Repository:
-Use git clone followed by the repository URL:
-git clone https://github.com/WasteToTaste-C241-PS144/WasteToTaste.git
-This will create a local copy of the repository in the current directory.
+  3. Clone the Repository:
+  Use git clone followed by the repository URL:
+  git clone https://github.com/WasteToTaste-C241-PS144/WasteToTaste.git
+  This will create a local copy of the repository in the current directory.
 
-##2. Setting Up google-services.json
+2. Setting Up google-services.json
 Replace YOUR_API_KEY in the app/google-services.json file with your actual Firebase API Key.
 
-###3. Build and Run the App
-1. Open Android Studio
-2. Open the Project
-3. Gradle Sync
-Android Studio will automatically start syncing Gradle files and downloading necessary dependencies. Wait for this process to complete.
-4. Build and Run:
-Once Gradle sync is complete and the project is loaded, click on the green play button (Run 'app') in the toolbar. Choose your target device (either a physical device or an Android Virtual Device). Android Studio will build the project and deploy the app to the selected device.
+3. Build and Run the App
+  1. Open Android Studio
+  2. Open the Project
+  3. Gradle Sync
+  Android Studio will automatically start syncing Gradle files and downloading necessary dependencies. Wait for this process to complete.
+  4. Build and Run:
+  Once Gradle sync is complete and the project is loaded, click on the green play button (Run 'app') in the toolbar. Choose your target device (either a physical device or   an Android Virtual Device). Android Studio will build the project and deploy the app to the selected device.
 
 
 # Documentation App
