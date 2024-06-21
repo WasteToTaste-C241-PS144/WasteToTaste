@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "606747077114",
+    "project_id": "wastetotasteproject",
+    "storage_bucket": "wastetotasteproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:606747077114:android:022c9f98651a325b5a5c43",
+        "android_client_info": {
+          "package_name": "com.capstone.wastetotaste"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "YOUR_API_KEY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
