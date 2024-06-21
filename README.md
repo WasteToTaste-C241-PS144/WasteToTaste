@@ -12,7 +12,21 @@ In this repository, there are several learning path activities, each activity ca
 C241-PS144
 
 # About
+As per the Food Waste Index Report 2024 by the United Nations Environment Programme (UNEP), Indonesia ranks the highest in household food waste in Southeast Asia, amounting to 14.73 million tons per year. In response, we have developed an application aimed at reducing household food waste by maximizing the utilization of leftover ingredients. This application targets individuals with excess but still edible food ingredients, who struggle to find suitable recipes for them. Its key feature is a recipe search function tailored to users' available ingredients. 
 
+# Features and Functionalities
+-User authentication
+Sign-up and login using email and password.
+-Ingredients Management
+Allow users to enter and delete ingredients.
+-Recipe Display
+Display a list of recipes that match the entered ingredients. 
+-Recipe Details
+View detailed information for each recipe, including ingredients and instructions.
+-Favorite Recipe
+Allow users to mark recipes as favorites.
+-Search by Recipes Name
+Allow users to search recipes by the name.
 
 # The Team
 
@@ -30,9 +44,9 @@ C241-PS144
 
 |   Learning Paths   |                                Link                                |
 | :----------------: | :----------------------------------------------------------------: |
-| Mobile Development | [Github]()                                                         |
-|  Machine Learning  | [Github]()                                                         |
-|   Cloud Computing  | [Github]()                                                         |
+| Mobile Development | [Github](https://github.com/juliarinaa/WasteToTaste)                                                         |
+|  Machine Learning  | [Github](https://github.com/pijarpahlawan/WasteToTaste)                                                         |
+|   Cloud Computing  | [Github](https://github.com/pijarpahlawan/wtt-api)                                                         |
 
 # Step
 1. 
