@@ -17,14 +17,19 @@ As per the Food Waste Index Report 2024 by the United Nations Environment Progra
 # Features and Functionalities
 -User authentication
 Sign-up and login using email and password.
+
 -Ingredients Management
 Allow users to enter and delete ingredients.
+
 -Recipe Display
 Display a list of recipes that match the entered ingredients. 
+
 -Recipe Details
 View detailed information for each recipe, including ingredients and instructions.
+
 -Favorite Recipe
 Allow users to mark recipes as favorites.
+
 -Search by Recipes Name
 Allow users to search recipes by the name.
 
